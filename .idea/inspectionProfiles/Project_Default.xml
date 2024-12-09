@@ -1,0 +1,8 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="SSBasedInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <replaceConfiguration name="Unnamed inspection" text="" recursive="false" caseInsensitive="false" reformatAccordingToStyle="false" shortenFQN="false" replacement="" />
+    </inspection_tool>
+  </profile>
+</component>
