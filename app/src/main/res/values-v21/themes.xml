@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="colorButton" parent="Widget.AppCompat.Button">
+        <item name="colorControlHighlight">@color/c_rose_madder_100</item>
+        <item name="android:backgroundTint">@color/c_red_devil_100</item>
+        <item name="android:textColor">@color/c_white_100</item>
+    </style>
+</resources>

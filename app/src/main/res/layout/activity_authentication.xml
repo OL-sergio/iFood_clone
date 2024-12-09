@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/c_rose_madder_100"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/d_16sdp"
+    tools:context=".activity.AuthenticationActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/d_200sdp"
+        android:layout_height="@dimen/d_150sdp"
+        android:importantForAccessibility="no"
+        app:srcCompat="@drawable/img_logo"
+        android:layout_marginBottom="@dimen/d_20sdp"/>
+
+
+    <EditText
+        android:id="@+id/editText_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dw_edit_text"
+        android:ems="10"
+        android:hint="@string/name"
+        android:visibility="gone"
+        android:importantForAutofill="no"
+        android:inputType="textAutoComplete"
+        android:padding="16dp"
+        android:layout_marginBottom="@dimen/d_16sdp" />
+
+    <EditText
+        android:id="@+id/editText_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dw_edit_text"
+        android:ems="10"
+        android:hint="@string/email"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        android:padding="16dp"
+        android:layout_marginBottom="@dimen/d_16sdp" />
+
+    <EditText
+        android:id="@+id/editText_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-2dp"
+        android:background="@drawable/dw_edit_text"
+        android:ems="10"
+        android:hint="@string/password"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        android:padding="@dimen/d_16sdp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/d_4sdp"
+        android:layout_marginTop="@dimen/d_10sdp"
+        android:layout_marginBottom="@dimen/d_10sdp">
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="@string/logar"
+            android:textColor="@android:color/white"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_createAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:thumb="@drawable/dw_custom_thumb"
+            app:track="@drawable/dw_custom_track"
+            android:padding="@dimen/d_8sdp"
+            android:layout_marginStart="@dimen/d_16sdp"
+            android:layout_marginEnd="@dimen/d_16sdp"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/criar_uma_conta"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutUser_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/d_4sdp"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/d_10sdp"
+        android:layout_marginBottom="@dimen/d_10sdp">
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="@string/user"
+            android:textColor="@android:color/white"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_accessCompanyType"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:thumb="@drawable/dw_custom_thumb"
+            app:track="@drawable/dw_custom_track"
+            android:padding="@dimen/d_8sdp"
+            android:layout_marginStart="@dimen/d_16sdp"
+            android:layout_marginEnd="@dimen/d_16sdp"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/empresa"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_accessAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/entrar"
+        android:textStyle="bold"
+        android:padding="@dimen/d_16sdp"
+        app:backgroundTint="@null"
+        style="@style/colorButton" />
+
+</LinearLayout>

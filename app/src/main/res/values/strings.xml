@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">iFood</string>
+    <string name="title_activity_authentication">AuthenticationActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="logar">logar</string>
+    <string name="criar_uma_conta">Criar uma conta</string>
+    <string name="entrar">Entrar</string>
+    <string name="registro_de_utlizador_realizado_com_sucesso">Registro de utlizador realizado com sucesso!</string>
+    <string name="preencha_a_senha">Preencha a senha!</string>
+    <string name="preencha_o_e_mail">Preencha o E-mail!</string>
+    <string name="digite_uma_senha_mais_forte">Digite uma senha mais forte!</string>
+    <string name="por_favor_digite_um_e_mail_v_lido">Por favor, digite um e-mail válido</string>
+    <string name="este_conta_j_registada">Este conta já registada!</string>
+    <string name="ao_registar_usu_rio">"ao registar usuário: "</string>
+    <string name="logado_com_sucesso">Logado com sucesso</string>
+    <string name="erro_ao_fazer_login">"Erro ao fazer login : "</string>
+    <string name="user">User</string>
+    <string name="empresa">Empresa</string>
+    <string name="name">Name</string>
+    <string name="preencha_o_nome">Prencher um nome primeiro.</string>
 </resources>

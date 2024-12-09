@@ -1,8 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.google.services)
-
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -29,11 +28,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
         jvmTarget = "11"
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 
@@ -45,10 +47,19 @@ dependencies {
     implementation(libs.material3)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(libs.androidx.annotation)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation(platform(libs.firebase.bom))
     implementation (libs.androidx.material3)
+
+    // Firebase
+    implementation(platform(libs.firebase.bom))
+    implementation (libs.firebase.core)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.database)
+    implementation(libs.firebase.storage)
 
 }
