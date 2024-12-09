@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "736403467303",
+    "firebase_url": "https://ifood-clone-1d261-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "ifood-clone-1d261",
+    "storage_bucket": "ifood-clone-1d261.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736403467303:android:c71fb64fc91a5a40447202",
+        "android_client_info": {
+          "package_name": "udemy.java.desenvolvimento.android.completo.ifood_clone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmJ8J_b8o-Q2GuDJ6W3lcizkkUXbWgMNc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
