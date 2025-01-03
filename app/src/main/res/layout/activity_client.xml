@@ -6,10 +6,10 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.CompanyActivity">
+    tools:context=".activity.ClientActivity">
 
     <include android:id="@+id/toolbar"
-    layout="@layout/toolbar_company" />
+        layout="@layout/toolbar_client"/>
 
     <LinearLayout
         android:orientation="vertical"
@@ -19,8 +19,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Cliente"
             android:gravity="center"
-            android:text="Company" />
+            android:layout_gravity="center"
+            />
 
     </LinearLayout>
 </LinearLayout>

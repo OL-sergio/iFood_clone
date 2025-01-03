@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -39,7 +40,7 @@ public class AuthenticationActivity extends AppCompatActivity {
 
     private Button acessButton;
     private EditText textEmail, textPassword, textName;
-    private SwitchCompat createAccount, accessUserType;
+    private Switch createAccount, accessUserType;
     private LinearLayout linearUserType;
     private FirebaseAuth auth;
 
@@ -80,8 +81,6 @@ public class AuthenticationActivity extends AppCompatActivity {
                 String nameText = textName.getText().toString();
                 String emailText = textEmail.getText().toString();
                 String passwordText = textPassword.getText().toString();
-
-                if ( !nameText.isEmpty() ) {
                     if ( !emailText.isEmpty() ){
                         if ( !passwordText.isEmpty() ){
 
@@ -106,8 +105,8 @@ public class AuthenticationActivity extends AppCompatActivity {
 
                                             String userID = UserFirebase.getUserId();
                                             users.setUserId(userID);
-                                            users.setName(nameText);
                                             users.setEmail(emailText);
+                                            users.setName(nameText);
                                             users.setUserType(userType);
                                             users.saveUser();
 
@@ -148,7 +147,7 @@ public class AuthenticationActivity extends AppCompatActivity {
                                             Toast.makeText(AuthenticationActivity.this,
                                                     getString(R.string.logado_com_sucesso),
                                                     Toast.LENGTH_SHORT).show();
-                                            String userType = task.getResult().getUser().getDisplayName();
+                                            String userType = Objects.requireNonNull(task.getResult().getUser()).getDisplayName();
                                             openMainView(userType);
 
                                         }else {
@@ -170,11 +169,6 @@ public class AuthenticationActivity extends AppCompatActivity {
                                 R.string.preencha_o_e_mail,
                                 Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    Toast.makeText(AuthenticationActivity.this,
-                            R.string.preencha_o_nome,
-                            Toast.LENGTH_SHORT).show();
-                }
 
             }
         });
@@ -189,7 +183,7 @@ public class AuthenticationActivity extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), CompanyActivity.class));
             finish();
         }else {
-            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+            startActivity(new Intent(getApplicationContext(), ClientActivity.class));
             finish();
         }
     }

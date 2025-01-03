@@ -8,6 +8,27 @@ android {
     namespace = "udemy.java.desenvolvimento.android.completo.ifood_clone"
     compileSdk = 34
 
+    lint {
+        // Turns off checks for the issue IDs you specify.
+        disable += "TypographyFractions" + "TypographyQuotes"
+        // Turns on checks for the issue IDs you specify. These checks are in
+        // addition to the default lint checks.
+        enable += "RtlHardcoded" + "RtlCompat" + "RtlEnabled"
+        // To enable checks for only a subset of issue IDs and ignore all others,
+        // list the issue IDs with the 'check' property instead. This property overrides
+        // any issue IDs you enable or disable using the properties above.
+        checkOnly += "NewApi" + "InlinedApi"
+        // If set to true, turns off analysis progress reporting by lint.
+        quiet = true
+        // If set to true (default), stops the build if errors are found.
+        abortOnError = false
+        // If set to true, lint only reports errors.
+        ignoreWarnings = true
+        // If set to true, lint also checks all dependencies as part of its analysis.
+        // Recommended for projects consisting of an app with library dependencies.
+        checkDependencies = true
+    }
+
     defaultConfig {
         applicationId = "udemy.java.desenvolvimento.android.completo.ifood_clone"
         minSdk = 26
@@ -30,9 +51,10 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
     buildFeatures {
         viewBinding = true

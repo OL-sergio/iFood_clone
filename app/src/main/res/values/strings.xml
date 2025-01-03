@@ -11,7 +11,7 @@
     <string name="login_failed">"Login failed"</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="logar">logar</string>
+    <string name="logar">Logar</string>
     <string name="criar_uma_conta">Criar uma conta</string>
     <string name="entrar">Entrar</string>
     <string name="registro_de_utlizador_realizado_com_sucesso">Registro de utlizador realizado com sucesso!</string>
@@ -27,4 +27,5 @@
     <string name="empresa">Empresa</string>
     <string name="name">Name</string>
     <string name="preencha_o_nome">Prencher um nome primeiro.</string>
+    <string name="cardview">CardView</string>
 </resources>

@@ -19,7 +19,6 @@
         app:srcCompat="@drawable/img_logo"
         android:layout_marginBottom="@dimen/d_20sdp"/>
 
-
     <EditText
         android:id="@+id/editText_name"
         android:layout_width="match_parent"
@@ -29,7 +28,7 @@
         android:hint="@string/name"
         android:visibility="gone"
         android:importantForAutofill="no"
-        android:inputType="textAutoComplete"
+        android:inputType="textPersonName"
         android:padding="16dp"
         android:layout_marginBottom="@dimen/d_16sdp" />
 
@@ -40,6 +39,7 @@
         android:background="@drawable/dw_edit_text"
         android:ems="10"
         android:hint="@string/email"
+
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         android:padding="16dp"
@@ -61,10 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="@dimen/d_4sdp"
-        android:layout_marginTop="@dimen/d_10sdp"
-        android:layout_marginBottom="@dimen/d_10sdp">
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="50dp"
@@ -73,16 +70,15 @@
             android:text="@string/logar"
             android:textColor="@android:color/white"/>
 
-        <androidx.appcompat.widget.SwitchCompat
+        <Switch
             android:id="@+id/switch_createAccount"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:thumb="@drawable/dw_custom_thumb"
-            app:track="@drawable/dw_custom_track"
-            android:padding="@dimen/d_8sdp"
+            android:layout_height="@dimen/d_48sdp"
             android:layout_marginStart="@dimen/d_16sdp"
             android:layout_marginEnd="@dimen/d_16sdp"
+            android:gravity="center"
+            android:thumb="@drawable/dw_custom_thumb"
+            android:track="@drawable/dw_custom_track"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         <TextView
@@ -99,28 +95,24 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        android:padding="@dimen/d_4sdp"
-        android:visibility="gone"
-        android:layout_marginTop="@dimen/d_10sdp"
-        android:layout_marginBottom="@dimen/d_10sdp">
+        android:visibility="gone">
 
         <TextView
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:gravity="end"
             android:text="@string/user"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white" />
 
-        <androidx.appcompat.widget.SwitchCompat
+        <Switch
             android:id="@+id/switch_accessCompanyType"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:thumb="@drawable/dw_custom_thumb"
-            app:track="@drawable/dw_custom_track"
-            android:padding="@dimen/d_8sdp"
+            android:layout_height="@dimen/d_48sdp"
             android:layout_marginStart="@dimen/d_16sdp"
             android:layout_marginEnd="@dimen/d_16sdp"
+            android:gravity="center"
+            android:thumb="@drawable/dw_custom_thumb"
+            android:track="@drawable/dw_custom_track"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         <TextView
@@ -128,7 +120,7 @@
             android:layout_height="wrap_content"
             android:gravity="left"
             android:text="@string/empresa"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 

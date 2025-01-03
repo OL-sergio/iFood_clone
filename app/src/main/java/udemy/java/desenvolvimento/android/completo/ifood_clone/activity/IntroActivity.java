@@ -24,7 +24,7 @@ public class IntroActivity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-        //auth = FirebaseConfiguration.getFirebaseAuthentication();
+        auth = FirebaseConfiguration.getFirebaseAuthentication();
         //auth.signOut();
 
         Handler handler = new Handler();

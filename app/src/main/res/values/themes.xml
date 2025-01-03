@@ -6,12 +6,33 @@
         <item name="colorPrimaryVariant">@color/c_red_wine_100</item>
         <item name="colorOnPrimary">@color/c_red_devil_100</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/c_white_100</item>
+        <item name="colorSecondary">@color/c_white_100</item>
+        <item name="colorSecondaryVariant">@color/c_red_devil_100</item>
+        <item name="colorOnSecondary">@color/c_rose_madder_100</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@color/c_red_devil_100</item>
+        <item name="android:windowBackground">@color/c_white_100</item>
         <!-- Customize your theme here. -->
+        <item name="titleTextColor">@color/c_black_100</item>
+
+        <item name="editTextStyle"> @style/textInputLayoutStyle </item>
+        <item name="buttonStyle"> @style/colorButton </item>
+        <item name="toolbarStyle"> @style/toolBarStyle </item>
+
+    </style>
+
+    <!--  https://www.youtube.com/watch?v=K099Vg6_t1o&ab_channel=Stevdza-San
+    NoActionBar -->
+    <style name="Theme.IFood.NoActionBar" >
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="textInputLayoutStyle" parent="Widget.AppCompat.EditText">
+        <item name="errorTextColor">@color/c_orange_100</item>
+        <item name="boxStrokeColor">@color/c_red_wine_100</item>
+        <item name="android:textColorHint">@color/c_black_100</item>
+        <item name="android:textColor">@color/c_black_100</item>
     </style>
 
     <style name="colorButton" parent="Widget.AppCompat.Button">
@@ -20,4 +41,9 @@
         <item name="android:textColor">@color/c_white_100</item>
     </style>
 
+    <style name="toolBarStyle" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:background">@color/c_white_100</item>
+        <item name="android:fitsSystemWindows">false</item>
+        <item name="android:textColor">@color/c_black_100</item>
+    </style>
 </resources>
