@@ -3,14 +3,19 @@
     <dimen name="d_4sdp">4dp</dimen>
     <dimen name="d_8sdp">8dp</dimen>
     <dimen name="d_10sdp">10dp</dimen>
+    <dimen name="d_12sdp">12dp</dimen>
+    <dimen name="d_14sdp">14dp</dimen>
     <dimen name="d_16sdp">16dp</dimen>
     <dimen name="d_20sdp">20dp</dimen>
     <dimen name="d_24sdp">24dp</dimen>
     <dimen name="d_32sdp">32dp</dimen>
     <dimen name="d_48sdp">48dp</dimen>
+    <dimen name="d_60sdp">60dp</dimen>
 
     <dimen name="d_150sdp">150dp</dimen>
     <dimen name="d_200sdp">200dp</dimen>
     <dimen name="d_300sdp">300dp</dimen>
+    <dimen name="d_400sdp">400dp</dimen>
+    <dimen name="d_320dp">320dp</dimen>
 
 </resources>

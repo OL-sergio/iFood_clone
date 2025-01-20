@@ -12,22 +12,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IFood"
         tools:targetApi="31">
+
+        <activity
+            android:name=".activity.SettingUserActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.ClientActivity"
+            android:theme="@style/Theme.IFood.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.ClientActivity" />
+        </activity>
+        <activity
+            android:name=".activity.NewItemCompanyActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.CompanyActivity"
+            android:theme="@style/Theme.IFood.NoActionBar" />
+        <activity
+            android:name=".activity.SettingCompanyActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.CompanyActivity"
+            android:theme="@style/Theme.IFood.NoActionBar" />
         <activity
             android:name=".activity.CompanyActivity"
             android:exported="false"
-            android:theme="@style/Theme.IFood.NoActionBar"
-
-            />
+            android:theme="@style/Theme.IFood.NoActionBar" />
         <activity
             android:name=".activity.ClientActivity"
             android:exported="false"
-            android:theme="@style/Theme.IFood.NoActionBar"
-            />
-
+            android:theme="@style/Theme.IFood.NoActionBar" />
         <activity
             android:name=".activity.AuthenticationActivity"
             android:exported="false" />
-
         <activity
             android:name=".activity.IntroActivity"
             android:exported="true">
@@ -38,4 +53,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

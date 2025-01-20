@@ -1,5 +1,6 @@
 package udemy.java.desenvolvimento.android.completo.ifood_clone.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,11 +16,14 @@ import androidx.appcompat.widget.Toolbar;
 
 import udemy.java.desenvolvimento.android.completo.ifood_clone.R;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.ActivityClientBinding;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.UserFirebase;
 
 
 public class ClientActivity extends AppCompatActivity {
 
     private ActivityClientBinding binding;
+
+    private UserFirebase userFirebase;
 
     private  SearchView searchView;
     private boolean isSearchViewExpanded = false;
@@ -31,13 +35,10 @@ public class ClientActivity extends AppCompatActivity {
         binding = ActivityClientBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        setupToolbar();
 
-        Toolbar toolbar = binding.toolbar.toolbarClient;
-        toolbar.setTitle("Ifood - Client");
-        toolbar.setPadding(androidx.appcompat.R.styleable.Toolbar_titleMarginStart, 0, 0, 0);
-        setSupportActionBar(toolbar);
+        components();
 
-        searchView = binding.toolbar.searchView;// Collapse the search view
         animateSearchViewExpand(isSearchViewExpanded);
 
         // Set up the search view listener
@@ -107,18 +108,18 @@ public class ClientActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu_client, menu);
 
         MenuItem menuItem = menu.findItem(R.id.menuSearch);
-        MenuItem settingsItem = menu.findItem(R.id.menuSettings);
+        MenuItem settingsItem = menu.findItem(R.id.menuSettingsUser);
         MenuItem logoutItem = menu.findItem(R.id.menuLogout);
 
         if (isSearchViewExpanded == true) {
-
+            searchView.setVisibility(View.VISIBLE);
             menuItem.setIcon(R.drawable.ic_close_24);
             settingsItem.setVisible(false);
             logoutItem.setVisible(false);
 
 
         } else if (isSearchViewExpanded == false) {
-
+            searchView.setVisibility(View.GONE);
             menuItem.setIcon(R.drawable.ic_search_24);
 
         }
@@ -131,34 +132,63 @@ public class ClientActivity extends AppCompatActivity {
 
         int id = item.getItemId();
         if (id == R.id.menuSearch) {
-
-            if (isSearchViewExpanded) {
-                animateSearchView(false);
-                isSearchViewExpanded = false;
-                animateSearchViewExpand(isSearchViewExpanded);
-                invalidateOptionsMenu();
-
-            }else if (!isSearchViewExpanded) {
-                animateSearchView(true);
-                isSearchViewExpanded = true;
-                animateSearchViewExpand(isSearchViewExpanded);
-                invalidateOptionsMenu();
-
-            }
+            startSearchView();
             return true;
 
         }
 
-        if (id == R.id.menuSettings) {
-
+        if (id == R.id.menuSettingsUser) {
+            settingUser();
             return true;
         }
 
         if (id == R.id.menuLogout) {
-
+            logoutUser();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void startSearchView() {
+
+        if (isSearchViewExpanded) {
+            animateSearchView(false);
+            isSearchViewExpanded = false;
+            animateSearchViewExpand(isSearchViewExpanded);
+            invalidateOptionsMenu();
+
+        } else if (!isSearchViewExpanded) {
+            animateSearchView(true);
+            isSearchViewExpanded = true;
+            animateSearchViewExpand(isSearchViewExpanded);
+            invalidateOptionsMenu();
+
+        }
+    }
+
+    private void settingUser() {
+        startActivity(new Intent(this, SettingUserActivity.class));
+    }
+
+    private void logoutUser() {
+
+        userFirebase.logoutUser();
+        startActivity(new Intent(this, AuthenticationActivity.class));
+        finish();
+
+    }
+
+    private void  setupToolbar(){
+        Toolbar toolbar = binding.toolbar.toolbarClient;
+        toolbar.setTitle("Ifood - Client");
+        setSupportActionBar(toolbar);
+    }
+
+    private void components() {
+
+        userFirebase = new UserFirebase();
+        searchView = binding.toolbar.searchView;// Collapse the search view
+
     }
 }

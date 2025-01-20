@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarCompany"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize">
+            android:layout_height="@dimen/d_60sdp">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbarCompany"
@@ -19,15 +18,6 @@
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 style="@style/toolBarStyle"
                 android:fitsSystemWindows="true" />
-
-            <SearchView
-                android:id="@+id/searchView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:iconifiedByDefault="true"
-                android:queryHint="Search here..."
-                android:visibility="gone"
-                />
 
         </com.google.android.material.appbar.AppBarLayout>
 </LinearLayout>

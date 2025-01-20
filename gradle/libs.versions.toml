@@ -18,6 +18,10 @@ material3 = "1.0.0"
 annotation = "1.9.1"
 lifecycleLivedataKtx = "2.6.1"
 lifecycleViewmodelKtx = "2.6.1"
+circleimageview = "3.1.0"
+maskara = "1.0.0"
+currencyEditText = "2.0.2"
+picasso = "2.8"
 
 [libraries]
 androidx-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
@@ -38,6 +42,12 @@ constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayo
 androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
 androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+de-hdodenhof-circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circleimageview" }
+com-github-santalu = { module = "com.github.santalu:maskara", version.ref = "maskara" }
+currency-blackcat27-edittext = { module = "com.github.BlacKCaT27:CurrencyEditText", version.ref = "currencyEditText" }
+squareup-picasso = { module ="com.squareup.picasso:picasso", version.ref = "picasso" }
+
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

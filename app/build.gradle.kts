@@ -84,4 +84,16 @@ dependencies {
     implementation(libs.firebase.database)
     implementation(libs.firebase.storage)
 
+    implementation(libs.de.hdodenhof.circleimageview)
+
+    //https://github.com/santalu/maskara
+    implementation(libs.com.github.santalu)
+    //implementation ("com.github.santalu:maskara:1.0.0")
+    //https://github.com/BlacKCaT27/CurrencyEditText
+    implementation(libs.currency.blackcat27.edittext)
+    //https://github.com/square/picasso
+    implementation(libs.squareup.picasso)
+
+
+
 }

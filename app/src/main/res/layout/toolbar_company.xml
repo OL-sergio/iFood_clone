@@ -1,29 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarCompany"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="@dimen/d_60sdp"
         android:minHeight="?attr/actionBarSize">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbarCompany"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true">
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/d_4sdp"
+            app:popupTheme="@style/toolBarStyle"/>
 
-            <SearchView
-                android:id="@+id/searchView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:iconifiedByDefault="true"
-                android:queryHint="Search here..."
-                android:visibility="gone" />
-        </com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>
 </LinearLayout>

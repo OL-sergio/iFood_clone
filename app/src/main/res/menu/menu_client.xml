@@ -10,7 +10,7 @@
             />
 
         <item
-            android:id="@+id/menuSettings"
+            android:id="@+id/menuSettingsUser"
             android:title="Configurações"
             app:showAsAction="never"
             />

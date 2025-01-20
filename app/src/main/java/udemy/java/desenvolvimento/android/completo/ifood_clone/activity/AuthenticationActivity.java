@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SwitchCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -39,26 +38,28 @@ public class AuthenticationActivity extends AppCompatActivity {
     private ActivityAuthenticationBinding binding;
 
     private Button acessButton;
-    private EditText textEmail, textPassword, textName;
-    private Switch createAccount, accessUserType;
+    private EditText textEmail;
+    private EditText textPassword;
+    private EditText textName;
+    private Switch createAccount;
+    private Switch accessUserType;
     private LinearLayout linearUserType;
     private FirebaseAuth auth;
 
 
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = ActivityAuthenticationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        Objects.requireNonNull(getSupportActionBar()).hide();
         components();
 
         auth = FirebaseConfiguration.getFirebaseAuthentication();
 
-        verificationUserLogged();
+        userLoggedVerification();
 
         createAccount.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -73,6 +74,14 @@ public class AuthenticationActivity extends AppCompatActivity {
             }
         });
 
+       authenticationUser();
+
+    }
+
+    /**
+     *  Method responsible for authenticating the user
+     */
+    private void authenticationUser() {
 
         acessButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,97 +90,99 @@ public class AuthenticationActivity extends AppCompatActivity {
                 String nameText = textName.getText().toString();
                 String emailText = textEmail.getText().toString();
                 String passwordText = textPassword.getText().toString();
-                    if ( !emailText.isEmpty() ){
-                        if ( !passwordText.isEmpty() ){
+                if ( !emailText.isEmpty() ){
+                    if ( !passwordText.isEmpty() ){
 
-                            //Verifica o  estado do switch
-                            if( createAccount.isChecked() ){//Register
+                        //Verifica o estado do switch
+                        if( createAccount.isChecked() ){//Register
 
-                                auth.createUserWithEmailAndPassword(
-                                        emailText, passwordText
-                                ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                            auth.createUserWithEmailAndPassword(
+                                    emailText, passwordText
+                            ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
 
-                                        if (task.isSuccessful()){
+                                    if (task.isSuccessful()){
+                                        createUserDataFirebase(nameText , emailText);
 
-                                            Toast.makeText(AuthenticationActivity.this, R.string.registro_de_utlizador_realizado_com_sucesso,
-                                                    Toast.LENGTH_SHORT).show();
-
-                                            User users = new User();
-                                            String userType = getUserType();
-                                            UserFirebase.updateUserType( userType );
-                                            openMainView(userType);
-
-                                            String userID = UserFirebase.getUserId();
-                                            users.setUserId(userID);
-                                            users.setEmail(emailText);
-                                            users.setName(nameText);
-                                            users.setUserType(userType);
-                                            users.saveUser();
-
-                                        }else {
-
-                                            String exceptionError = "";
-
-                                            try{
-                                                throw Objects.requireNonNull(task.getException());
-                                            }catch (FirebaseAuthWeakPasswordException e){
-                                                exceptionError = getString(R.string.digite_uma_senha_mais_forte);
-                                            }catch (FirebaseAuthInvalidCredentialsException e){
-                                                exceptionError = getString(R.string.por_favor_digite_um_e_mail_v_lido);
-                                            }catch (FirebaseAuthUserCollisionException e){
-                                                exceptionError = getString(R.string.este_conta_j_registada);
-                                            } catch (Exception e) {
-                                                exceptionError = getString(R.string.ao_registar_usu_rio)  + e.getMessage();
-                                                e.printStackTrace();
-                                            }
-
-                                            Toast.makeText(AuthenticationActivity.this,
-                                                    "Erro: " + exceptionError ,
-                                                    Toast.LENGTH_SHORT).show();
-
-                                        }
+                                    }else {
+                                        verificationInputType(task);
                                     }
-                                });
+                                }
+                            });
 
-                            }else {//Login
+                        }else {//Login
 
-                                auth.signInWithEmailAndPassword(
-                                        emailText,  passwordText
-                                ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<AuthResult> task) {
-                                        if (task.isSuccessful()){
+                            auth.signInWithEmailAndPassword(
+                                    emailText,  passwordText
+                            ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()){
 
-                                            Toast.makeText(AuthenticationActivity.this,
-                                                    getString(R.string.logado_com_sucesso),
-                                                    Toast.LENGTH_SHORT).show();
-                                            String userType = Objects.requireNonNull(task.getResult().getUser()).getDisplayName();
+                                        toastMessage( getString(R.string.logado_com_sucesso) );
+
+                                        String userType = Objects.requireNonNull(task.getResult().getUser()).getDisplayName();
+                                        if (userType != null) {
                                             openMainView(userType);
-
-                                        }else {
-                                            Toast.makeText(AuthenticationActivity.this,
-                                                    getString(R.string.erro_ao_fazer_login) + task.getException() ,
-                                                    Toast.LENGTH_SHORT).show();
                                         }
-                                    }
-                                });
-                            }
 
-                        }else {
-                            Toast.makeText(AuthenticationActivity.this,
-                                    R.string.preencha_a_senha,
-                                    Toast.LENGTH_SHORT).show();
+                                    }else {
+
+                                        toastMessage( getString(R.string.erro_ao_fazer_login) );
+
+                                    }
+                                }
+                            });
                         }
-                    }else {
-                        Toast.makeText(AuthenticationActivity.this,
-                                R.string.preencha_o_e_mail,
-                                Toast.LENGTH_SHORT).show();
-                    }
 
+                    }else {
+                        toastMessage(String.valueOf(R.string.preencha_a_senha));
+                    }
+                }else {
+
+                    toastMessage(String.valueOf( R.string.preencha_o_e_mail));
+                }
             }
         });
+    }
+
+    private void createUserDataFirebase(String nameText, String emailText) {
+
+        toastMessage(String.valueOf(  R.string.registro_de_utlizador_realizado_com_sucesso));
+
+        User users = new User();
+        String userType = getUserType();
+        UserFirebase.updateUserType( userType );
+        openMainView(userType);
+
+        String userID = UserFirebase.getUserId();
+        users.setUserId(userID);
+        users.setEmail(emailText);
+        users.setName(nameText);
+        users.setUserType(userType);
+        users.saveUser();
+    }
+
+    private void verificationInputType(Task<AuthResult> task) {
+
+        String exceptionError = "";
+
+        try{
+            throw Objects.requireNonNull(task.getException());
+        }catch (FirebaseAuthWeakPasswordException e){
+            exceptionError = getString(R.string.digite_uma_senha_mais_forte);
+        }catch (FirebaseAuthInvalidCredentialsException e){
+            exceptionError = getString(R.string.por_favor_digite_um_e_mail_v_lido);
+        }catch (FirebaseAuthUserCollisionException e){
+            exceptionError = getString(R.string.este_conta_j_registada);
+        } catch (Exception e) {
+            exceptionError = getString(R.string.ao_registar_usu_rio)  + e.getMessage();
+            e.printStackTrace();
+        }
+
+        toastMessage(  "Erro: " + exceptionError );
+
     }
 
     private String getUserType() {
@@ -188,7 +199,7 @@ public class AuthenticationActivity extends AppCompatActivity {
         }
     }
 
-    private void verificationUserLogged() {
+    private void userLoggedVerification() {
 
         FirebaseUser userLogged = auth.getCurrentUser();
         if (userLogged != null) {
@@ -213,5 +224,9 @@ public class AuthenticationActivity extends AppCompatActivity {
             accessUserType = binding.switchAccessCompanyType;
             linearUserType = binding.linearLayoutUserType;
 
+    }
+
+    private void toastMessage(String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

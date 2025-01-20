@@ -8,31 +8,19 @@
     android:fitsSystemWindows="true">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarClient"
+        android:id="@+id/appBarBasic"
         android:layout_width="match_parent"
         android:layout_height="@dimen/d_60sdp"
+        android:layout_weight="1"
         android:minHeight="?attr/actionBarSize">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarClient"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/d_8sdp"
-            android:paddingEnd="@dimen/d_8sdp"
             android:elevation="@dimen/d_4sdp"
-            app:popupTheme="@style/toolBarStyle">
+            android:minHeight="?attr/actionBarSize"
+            app:popupTheme="@style/toolBarStyle"/>
 
-        <SearchView
-            android:id="@+id/searchView"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/d_60sdp"
-            android:iconifiedByDefault="false"
-            android:queryHint="Procurar aqui..."
-            android:searchIcon="@drawable/ic_search_24"
-            android:closeIcon="@drawable/ic_delete_24"
-
-            />
-
-        </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 </LinearLayout>
