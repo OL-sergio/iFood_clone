@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config>
+        <device id="_device_class_phone" />
+        <device id="_device_class_desktop" />
+        <device id="_device_class_tablet" />
+        <device id="_device_class_foldable" />
+        <device id="automotive_ultrawide" />
+        <device id="tv_4k" />
+        <device id="tv_720p" />
+        <device id="wearos_square" />
+        <target>android-34</target>
+      </config>
+    </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout-land/toolbar_company.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_authentication.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_client.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_company.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_intro.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_new_item_company.xml">
+        <config>
+          <theme>@style/Theme.IFood.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_setting_company.xml">
+        <config>
+          <theme>@style/Theme.IFood.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_setting_user.xml">
+        <config>
+          <theme>@style/Theme.IFood.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar_client.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar_company.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar_title.xml">
+        <config>
+          <state>landscape</state>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/menu/menu_client.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/menu/menu_company.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
+    </layouts>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dcc5f4d8-27f6-4e8c-b6db-f002212e80c1" name="Changes" comment="Work Done:&#10;- adding the companies node to realtime database and retrieving the created data.&#10;&#10;- adding components to project recyclerView, CurrencyEditText, CircleImageView, Picasso, MaskEditText.&#10;&#10;- adding the model Company.&#10;&#10;- adding activities and creating the xml view of components.&#10;&#10;- making some design layout updates. &#10;&#10;Notes:&#10;&#10;* Add items:&#10;- build.gradle.kts&#10;- activity_authentication.xml&#10;- activity_company.xml&#10;- AndroidManifest.xml&#10;- AuthenticationActivity.java&#10;- ClientActivity.java&#10;- colors.xml&#10;- CompanyActivity.java&#10;- ClientActivity.java&#10;- Constants.java&#10;- dimens.xml&#10;- IntroActivity.java&#10;- menu_client.xml&#10;- menu_company.xml&#10;- themes.xml&#10;- toolbar_client.xml&#10;- toolbar_company.xml&#10;- toolbar_title.xml&#10;- UserFirebase.java&#10;&#10;* Updated items:&#10;- activity_setting_company.xml&#10;- activity_setting_user.xml&#10;- AnimationsSearch.java&#10;- Company.java&#10;- ic_add_a_photo_84.xml&#10;- ic_arrow_back_24.xml&#10;- ic_broken_image_24.xml&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- toolbar_title.xml&#10;&#10;* Removed:&#10;- ...">
+      <change afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+    </list>
+    <list id="89cd0fa4-001d-44af-a278-28290339da9b" name="code" comment="code" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" show_ignored="true">
+    <option name="groupingKeys">
+      <option value="module" />
+    </option>
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\sergi\.android\avd\Pixel_9_Pro_XL_API_29.avd)]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="iFood" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="valueResourceFile" />
+        <option value="resourceFile" />
+        <option value="layoutResourceFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="master" />
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
+    <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {}
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:/OL-sergio/iFood_clone.git&quot;,
+    &quot;accountId&quot;: &quot;c33a74e9-35eb-49fd-a3b1-04e9824a0f78&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_intro.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/gradle/libs.versions.toml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="KotlinScriptingSettings" supportWarning="false" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2pzH26T41IEotGhHrpxCOHOIzQG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Android App.app.executor&quot;: &quot;Run&quot;,
+    &quot;DEBUGGABLE_DEVICE&quot;: &quot;Medium_Phone_API_35 [emulator-5554]&quot;,
+    &quot;DEBUGGABLE_PROCESS&quot;: &quot;udemy.java.desenvolvimento.android.completo.ifood_clone&quot;,
+    &quot;DEBUGGER_ID&quot;: &quot;Auto&quot;,
+    &quot;Gradle.iFood [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.iFood [signingReport].executor&quot;: &quot;Run&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Android Gradle Upgrade Notification&quot;: &quot;Android Gradle Upgrade Notification&quot;,
+    &quot;Notification.DoNotAsk-Android Gradle Upgrade Notification&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SHOW_ALL_PROCESSES&quot;: &quot;false&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sergi/AndroidStudioProjects/iFood&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;recommended.upgrade.last.time.stamp&quot;: &quot;1734105691292&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;,
+    &quot;zielu.gittoolbox.prj.config.selected.tab.id&quot;: &quot;zielu.gittoolbox.config.prj.diagnostic&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone.helper" />
+      <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone.utilities" />
+    </key>
+    <key name="android.template.-2026831804">
+      <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone.activity" />
+      <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone" />
+      <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone.ui" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sergi\AndroidStudioProjects\iFood\app\src\main\res\layout" />
+      <recent name="C:\Users\sergi\AndroidStudioProjects\iFood\app\src\main\res\drawable" />
+      <recent name="C:\Users\sergi\AndroidStudioProjects\iFood\app" />
+      <recent name="C:\Users\sergi\AndroidStudioProjects\iFood\app\src" />
+    </key>
+    <key name="android.template.-232669351">
+      <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone.activity" />
+    </key>
+    <key name="android.template.-838182888">
+      <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone.activity" />
+    </key>
+    <key name="android.template.2141026674">
+      <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone.activity" />
+    </key>
+    <key name="android.template.613679151">
+      <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone.activity" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Android App.app">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="iFood.app" />
+      <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="ALLOW_ASSUME_VERIFIED" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="iFood [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="iFood [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="signingReport" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.iFood [signingReport]" />
+        <item itemvalue="Gradle.iFood [build]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\sergi\AppData\Roaming\Subversion</configuration>
+    <option name="sshPrivateKeyPath" value="C:\Users\sergi\.ssh\known_hosts" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dcc5f4d8-27f6-4e8c-b6db-f002212e80c1" name="Changes" comment="" />
+      <changelist id="89cd0fa4-001d-44af-a278-28290339da9b" name="code" comment="" />
+      <created>1733761774727</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1733761774727</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Work Done:&#10;- Configuration and adding the project to the firebase database. &#10;&#10;- adding the Splash Activity component.&#10;&#10;- adding the necessary libraries to use the Firebase data base. &#10;&#10;Notes:&#10;- ...&#10;&#10;* Add items:&#10;- activity_splash.xml&#10;- SplashActivity.java&#10;- google-services.json&#10;&#10;&#10;&#10;* Updated items:&#10;- AndroidManifest.xml&#10;- build.gradle.kts&#10;- libs.versions.toml&#10;&#10;* Removed:&#10;- ...">
+      <option name="closed" value="true" />
+      <created>1733765218257</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1733765218257</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Work Done:&#10;&#10;- adding the logging layout components.&#10;&#10;- updating the handler.   &#10;&#10;- adding thumb and track to the color change of the  Switch.&#10;&#10;Notes:&#10;- ...&#10;&#10;* Add items:&#10;- AuthenticationActivity.java&#10;- activity_authentication.xml&#10;- dimens.xml&#10;- img_logo.jpg&#10;- img_perfil.png&#10;- dw_edit_text&#10;&#10;* Updated items:&#10;- activity_splash.xml&#10;- SplashActivity.java&#10;- strings.xml&#10;&#10;* Removed:&#10;- ...">
+      <option name="closed" value="true" />
+      <created>1733943463010</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733943463010</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Work Done:&#10;&#10;- updating the user model to save the name, email, and user type in the real-time database.&#10;&#10;- adding visibility to Liner layout, Switch Compat and EditText.&#10;&#10;- adding the activity path, the application is redirected to the intended activity when the user type is selected. &#10;&#10;Notes:&#10;- ...&#10;&#10;* Add items:&#10;- CompanyActivity.java&#10;- activity_home.xml&#10;- Constants.java&#10;- FirebaseConfiguration.java&#10;- HomeActivity.java&#10;- UserFirebase.java&#10;&#10;* Updated items:&#10;- activity_authentication.xml&#10;- activity_intro.xml&#10;- IntroActivity.java&#10;- UserFirebase.java&#10;&#10;* Removed:&#10;- ...">
+      <option name="closed" value="true" />
+      <created>1734625442396</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1734625442396</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Work Done:&#10;&#10;- updating the user model to save the name, email, and user type in the real-time database.&#10;&#10;- adding visibility to Liner layout, Switch Compat and EditText.&#10;&#10;- adding the activity path, the application is redirected to the intended activity when the user type is selected. &#10;&#10;Notes:&#10;- ...&#10;&#10;* Add items:&#10;- CompanyActivity.java&#10;- activity_home.xml&#10;- Constants.java&#10;- FirebaseConfiguration.java&#10;- HomeActivity.java&#10;- UserFirebase.java&#10;&#10;* Updated items:&#10;- activity_authentication.xml&#10;- activity_intro.xml&#10;- IntroActivity.java&#10;- UserFirebase.java&#10;&#10;* Removed:&#10;- ...">
+      <option name="closed" value="true" />
+      <created>1734631775982</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1734631775983</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Work Done:&#10;- adding search view with expanded view on click icon search her changes icon type and SearchView on toolbarClient.   &#10;&#10;- adding the toolbar to client and company layouts.&#10;&#10;- adding the necessary drawable icons to the project. &#10;&#10;- setting the items menu for visibility when selecting the search view.  &#10;&#10;- adding the lint error verification. &#10;&#10;Notes:&#10;- https://www.materialpalette.com/&#10;&#10;* Add items:&#10;- build.gradle.kts&#10;- activity_authentication.xml&#10;- activity_company.xml&#10;- AuthenticationActivity.java&#10;- ClientActivity.java&#10;- colors.xml&#10;- CompanyActivity.java&#10;- IntroActivity.java&#10;- strings.xml&#10;- themes.xml&#10;&#10;* Updated items:&#10;- activity_client.xml&#10;- ic_add_circle_24.xml&#10;- ic_cancel_24.xml&#10;- ic_delete_24.xml&#10;- ic_search_24.xml&#10;- menu_client.xml&#10;- menu_company.xml&#10;- toolbar_client.xml&#10;- toolbar_company.xml&#10;&#10;* Removed:&#10;- ...">
+      <option name="closed" value="true" />
+      <created>1735922853850</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1735922853850</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Work Done:&#10;- adding the companies node to realtime database and retrieving the created data.&#10;&#10;- adding components to project recyclerView, CurrencyEditText, CircleImageView, Picasso, MaskEditText.&#10;&#10;- adding the model Company.&#10;&#10;- adding activities and creating the xml view of components.&#10;&#10;- making some design layout updates. &#10;&#10;Notes:&#10;&#10;* Add items:&#10;- build.gradle.kts&#10;- activity_authentication.xml&#10;- activity_company.xml&#10;- AndroidManifest.xml&#10;- AuthenticationActivity.java&#10;- ClientActivity.java&#10;- colors.xml&#10;- CompanyActivity.java&#10;- ClientActivity.java&#10;- Constants.java&#10;- dimens.xml&#10;- IntroActivity.java&#10;- menu_client.xml&#10;- menu_company.xml&#10;- themes.xml&#10;- toolbar_client.xml&#10;- toolbar_company.xml&#10;- toolbar_title.xml&#10;- UserFirebase.java&#10;&#10;* Updated items:&#10;- activity_setting_company.xml&#10;- activity_setting_user.xml&#10;- AnimationsSearch.java&#10;- Company.java&#10;- ic_add_a_photo_84.xml&#10;- ic_arrow_back_24.xml&#10;- ic_broken_image_24.xml&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- toolbar_title.xml&#10;&#10;* Removed:&#10;- ...">
+      <option name="closed" value="true" />
+      <created>1737396049300</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1737396049300</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="*" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Work Done:&#10;- Configuration and adding the project to the firebase database. &#10;&#10;- adding the Splash Activity component.&#10;&#10;- adding the necessary libraries to use the Firebase data base. &#10;&#10;Notes:&#10;- ...&#10;&#10;* Add items:&#10;- activity_splash.xml&#10;- SplashActivity.java&#10;- google-services.json&#10;&#10;&#10;&#10;* Updated items:&#10;- AndroidManifest.xml&#10;- build.gradle.kts&#10;- libs.versions.toml&#10;&#10;* Removed:&#10;- ..." />
+    <MESSAGE value="code" />
+    <MESSAGE value="Work Done:&#10;- Configuration and adding the project to the firebase database. &#10;&#10;- adding the Splash Activity component.&#10;&#10;- adding the necessary libraries to use the Firebase data base. &#10;&#10;Notes:&#10;- ...&#10;&#10;* Add items:&#10;- AuthenticationActivity.java&#10;- activity_authentication.xml&#10;- &#10;&#10;&#10;&#10;* Updated items:&#10;- AndroidManifest.xml&#10;- build.gradle.kts&#10;- libs.versions.toml&#10;&#10;* Removed:&#10;- ..." />
+    <MESSAGE value="Work Done:&#10;- Configuration and adding the project to the firebase database. &#10;&#10;- adding the Splash Activity component.&#10;&#10;- adding the necessary libraries to use the Firebase data base. &#10;&#10;Notes:&#10;- ...&#10;&#10;* Add items:&#10;- AuthenticationActivity.java&#10;- activity_authentication.xml&#10;- dimens.xml&#10;- img_logo.jpg&#10;- img_perfil.png&#10;- dw_edit_text&#10;&#10;* Updated items:&#10;- activity_splash.xml&#10;- SplashActivity.java&#10;- strings.xml&#10;&#10;* Removed:&#10;- ..." />
+    <MESSAGE value="Work Done:&#10;&#10;- adding the logging layout components.&#10;&#10;- updating the handler.   &#10;&#10;- adding thumb and track to the color change of the  Switch.&#10;&#10;Notes:&#10;- ...&#10;&#10;* Add items:&#10;- AuthenticationActivity.java&#10;- activity_authentication.xml&#10;- dimens.xml&#10;- img_logo.jpg&#10;- img_perfil.png&#10;- dw_edit_text&#10;&#10;* Updated items:&#10;- activity_splash.xml&#10;- SplashActivity.java&#10;- strings.xml&#10;&#10;* Removed:&#10;- ..." />
+    <MESSAGE value="Work Done:&#10;&#10;- adding FirebaseConfiguration methods to retrieve the instance of the database, the storage and the user UID.&#10;&#10;- adding the logging and registering user data that saves user email and password on Firebase.&#10;&#10;- verifying the user logged in to the application redirected to intent activity.&#10;&#10;Notes:&#10;- ...&#10;&#10;* Add items:&#10;- activity_home.xml&#10;- AuthenticationActivity.java&#10;- build.gradle.kts&#10;- IntroActivity.java&#10;- libs.versions.toml&#10;- strings.xml&#10;&#10;* Updated items:&#10;- FirebaseConfiguration.java&#10;- HomeActivity.java&#10;- activity_home.xml&#10;&#10;* Removed:&#10;- ..." />
+    <MESSAGE value="Work Done:&#10;&#10;- updating the user model to save the name, email, and user type in the real-time database.&#10;&#10;- adding visibility to Liner layout, Switch Compat and EditText.&#10;&#10;- adding the activity path, the application is redirected to the intended activity when the user type is selected. &#10;&#10;Notes:&#10;- ...&#10;&#10;* Add items:&#10;- CompanyActivity.java&#10;- activity_home.xml&#10;- Constants.java&#10;- FirebaseConfiguration.java&#10;- HomeActivity.java&#10;- UserFirebase.java&#10;&#10;* Updated items:&#10;- activity_authentication.xml&#10;- activity_intro.xml&#10;- IntroActivity.java&#10;- UserFirebase.java&#10;&#10;* Removed:&#10;- ..." />
+    <MESSAGE value="Work Done:&#10;- adding search view with expanded view on click icon search her changes icon type and SearchView on toolbarClient.   &#10;&#10;- adding the toolbar to client and company layouts.&#10;&#10;- adding the necessary drawable icons to the project. &#10;&#10;- setting the items menu for visibility when selecting the search view.  &#10;&#10;- adding the lint error verification. &#10;&#10;Notes:&#10;- https://www.materialpalette.com/&#10;&#10;* Add items:&#10;- build.gradle.kts&#10;- activity_authentication.xml&#10;- activity_company.xml&#10;- AuthenticationActivity.java&#10;- ClientActivity.java&#10;- colors.xml&#10;- CompanyActivity.java&#10;- IntroActivity.java&#10;- strings.xml&#10;- themes.xml&#10;&#10;* Updated items:&#10;- activity_client.xml&#10;- ic_add_circle_24.xml&#10;- ic_cancel_24.xml&#10;- ic_delete_24.xml&#10;- ic_search_24.xml&#10;- menu_client.xml&#10;- menu_company.xml&#10;- toolbar_client.xml&#10;- toolbar_company.xml&#10;&#10;* Removed:&#10;- ..." />
+    <MESSAGE value="Work Done:&#10;- adding the companies node to realtime database and retrieving the created data.&#10;&#10;- adding components to project recyclerView, CurrencyEditText, CircleImageView, Picasso, MaskEditText.&#10;&#10;- adding the model Company.&#10;&#10;- adding activities and creating the xml view of components.&#10;&#10;- making some design layout updates. &#10;&#10;Notes:&#10;&#10;* Add items:&#10;- build.gradle.kts&#10;- activity_authentication.xml&#10;- activity_company.xml&#10;- AndroidManifest.xml&#10;- AuthenticationActivity.java&#10;- ClientActivity.java&#10;- colors.xml&#10;- CompanyActivity.java&#10;- ClientActivity.java&#10;- Constants.java&#10;- dimens.xml&#10;- IntroActivity.java&#10;- menu_client.xml&#10;- menu_company.xml&#10;- themes.xml&#10;- toolbar_client.xml&#10;- toolbar_company.xml&#10;- toolbar_title.xml&#10;- UserFirebase.java&#10;&#10;* Updated items:&#10;- activity_setting_company.xml&#10;- activity_setting_user.xml&#10;- AnimationsSearch.java&#10;- Company.java&#10;- ic_add_a_photo_84.xml&#10;- ic_arrow_back_24.xml&#10;- ic_broken_image_24.xml&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- toolbar_title.xml&#10;&#10;* Removed:&#10;- ..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Work Done:&#10;- adding the companies node to realtime database and retrieving the created data.&#10;&#10;- adding components to project recyclerView, CurrencyEditText, CircleImageView, Picasso, MaskEditText.&#10;&#10;- adding the model Company.&#10;&#10;- adding activities and creating the xml view of components.&#10;&#10;- making some design layout updates. &#10;&#10;Notes:&#10;&#10;* Add items:&#10;- build.gradle.kts&#10;- activity_authentication.xml&#10;- activity_company.xml&#10;- AndroidManifest.xml&#10;- AuthenticationActivity.java&#10;- ClientActivity.java&#10;- colors.xml&#10;- CompanyActivity.java&#10;- ClientActivity.java&#10;- Constants.java&#10;- dimens.xml&#10;- IntroActivity.java&#10;- menu_client.xml&#10;- menu_company.xml&#10;- themes.xml&#10;- toolbar_client.xml&#10;- toolbar_company.xml&#10;- toolbar_title.xml&#10;- UserFirebase.java&#10;&#10;* Updated items:&#10;- activity_setting_company.xml&#10;- activity_setting_user.xml&#10;- AnimationsSearch.java&#10;- Company.java&#10;- ic_add_a_photo_84.xml&#10;- ic_arrow_back_24.xml&#10;- ic_broken_image_24.xml&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- toolbar_title.xml&#10;&#10;* Removed:&#10;- ..." />
+  </component>
+  <component name="play_dynamic_filters_status">
+    <option name="appIdToCheckInfo">
+      <map>
+        <entry key="udemy.java.desenvolvimento.android.completo.ifood_clone">
+          <value>
+            <CheckInfo lastCheckTimestamp="1737390598114" />
+          </value>
+        </entry>
+        <entry key="udemy.java.desenvolvimento.android.completo.ifood_clone.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1737390598117" />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
