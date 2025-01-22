@@ -21,12 +21,16 @@ import androidx.core.content.ContextCompat;
 
 
 import com.blackcat.currencyedittext.CurrencyEditText;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -34,6 +38,8 @@ import com.santalu.maskara.widget.MaskEditText;
 import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
@@ -55,6 +61,7 @@ public class SettingCompanyActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private String idUserLogged;
     private Uri selectedImageUrl;
+    private StorageReference imageCompanyRef;
 
     private CircleImageView imgLogo;
     private EditText edtName;
@@ -79,48 +86,47 @@ public class SettingCompanyActivity extends AppCompatActivity {
 
         btnSave.setOnClickListener(this::validateCompanyData);
 
+        saveAndRetrieveCompanyData();
 
-        retrieveCompanyData();
-
+        imageCompanyRef = storageReference.getReference()
+                .child(Constants.IMAGES)
+                .child(Constants.COMPANY)
+                .child(idUserLogged + Constants.JPG);
 
         imagePickerLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
-                    if(result.getResultCode() == RESULT_OK) {
+                    if (result.getResultCode() == RESULT_OK) {
                         Intent data = result.getData();
                         if (data != null) {
-                            selectedImageUrl  = data.getData();
+                            selectedImageUrl = data.getData();// Get the URI of the selected image
                             imgLogo.setImageURI(selectedImageUrl);
 
                             try {
-
                                 Bitmap bitmap = getBitmapFromUri(selectedImageUrl);
-                                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                                    bitmap.compress(Bitmap.CompressFormat.JPEG, 25, byteArrayOutputStream);
-                                    byte[] imageInByte = byteArrayOutputStream.toByteArray();
-
-                               final StorageReference imageCompanyRef = storageReference.getReference()
-                                        .child("images")
-                                        .child("company")
-                                        .child(idUserLogged + ".jpeg");
+                                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                                bitmap.compress(Bitmap.CompressFormat.JPEG, 25, byteArrayOutputStream);
+                                byte[] imageInByte = byteArrayOutputStream.toByteArray();
 
                                 UploadTask uploadTask = imageCompanyRef.putBytes(imageInByte);
-                                uploadTask.addOnFailureListener(
-                                            e -> snackBarMessage("Error uploading image")
-                                        ).addOnSuccessListener(
-                                                taskSnapshot -> imageCompanyRef.getDownloadUrl().addOnCompleteListener(task -> {
-                                            if (task.isSuccessful()) {
-                                                Uri downloadUri = task.getResult();
-                                                snackBarMessage("Image uploaded successfully");
-                                            }else {
-                                                snackBarMessage("Error getting download URL");
-                                            }
-                                        }));
+                                uploadTask.addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        snackBarMessage("Error uploading image");
+                                    }
+                                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                    @Override
+                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                                        snackBarMessage("Image uploaded successfully");
+                                    }
+                                });
+
+
                             } catch (Exception e) {
                                 e.printStackTrace();
                                 snackBarMessage("Error processing image");
                             }
-
                         }
                     }
                 });
@@ -128,7 +134,35 @@ public class SettingCompanyActivity extends AppCompatActivity {
         imgLogo.setOnClickListener(v -> pickImage());
     }
 
-    private void retrieveCompanyData() {
+    private void loadImageFromFirebase( ) {
+       /* imageCompanyRef.getDownloadUrl().addOnSuccessListener(uri -> {
+            Picasso.get()
+                    .load(uri)
+                    .error(R.drawable.ic_broken_image_24)
+                    .into(imgLogo); // Load the image into ImageView
+        }).addOnFailureListener(e -> {
+            Log.e("LoadError", "Error loading image: " + e.getMessage());
+            snackBarMessage("Error loading image");
+        });*/
+
+        final long ONE_MEGABYTE = 1024 * 1024;
+        imageCompanyRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                // Data for "images/island.jpg" is returns, use this as needed
+                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                imgLogo.setImageBitmap(bitmap);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle any errors
+            }
+        });
+
+    }
+
+    private void saveAndRetrieveCompanyData() {
 
         DatabaseReference companyRef = databaseReference
                 .child( Constants.COMPANY )
@@ -144,24 +178,16 @@ public class SettingCompanyActivity extends AppCompatActivity {
                     edtName.setText(company.getName());
                     edtCategory.setText(company.getCategory());
                     edtTimeEstimate.setText(company.getTimeEstimate());
-                    edtTotalPrice.setText( company.getTotalPrice().toString() );
-                    selectedImageUrl = Uri.parse(company.getImageUrl());
-                    if ( selectedImageUrl != null ){
-                        Picasso.get()
-                                .load(selectedImageUrl)
-                                .placeholder(R.drawable.img_perfil)
-                                .error(R.drawable.ic_broken_image_24)
-                                .into(imgLogo);
-                    }
+                    edtTotalPrice.setText( company.getTotalPrice() );
+                    loadImageFromFirebase();
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+               toastMessage("Error retrieving company data");
             }
         });
-
     }
 
     private void pickImage() {
@@ -183,18 +209,19 @@ public class SettingCompanyActivity extends AppCompatActivity {
         String category = edtCategory.getText().toString();
         String timeEstimate = edtTimeEstimate.getText().toString();
         String totalPrice = edtTotalPrice.getText().toString();
+
         if ( !name.isEmpty() ){
             if ( !category.isEmpty() ){
                 if ( !timeEstimate.isEmpty() ){
                     if ( !totalPrice.isEmpty() ){
-                        //Save com pany data
+                        //Save com company data
                         Company company = new Company();
                         company.setIdCompany(idUserLogged);
                         company.setName(name);
                         company.setCategory(category);
                         company.setTimeEstimate(timeEstimate);
                         company.setTotalPrice(totalPrice);
-                        company.setImageUrl(selectedImageUrl.toString());
+                        company.setImageUrlCompany(String.valueOf(selectedImageUrl));
                         company.saveCompanyData();
                         finish();
 
@@ -237,7 +264,7 @@ public class SettingCompanyActivity extends AppCompatActivity {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
     private void snackBarMessage(String message){
-        Snackbar snackbar = Snackbar.make(findViewById(R.id.main), message, Snackbar.LENGTH_LONG);
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.main), message, BaseTransientBottomBar.LENGTH_LONG);
         snackbar.getView().setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.c_red_devil_100))); //Change to your desired color
         snackbar.show();
 

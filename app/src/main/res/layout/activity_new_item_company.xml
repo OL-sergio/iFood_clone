@@ -11,5 +11,78 @@
     <include android:id="@+id/toolbar"
         layout="@layout/toolbar_title" />
 
+    <LinearLayout
+        android:layout_width="@dimen/d_400sdp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="@dimen/d_16sdp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/d_60sdp"
+        android:layout_marginBottom="@dimen/d_60sdp"
+        android:orientation="vertical">
 
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView_newItem_company"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d_200sdp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/d_8sdp"
+            android:src="@drawable/ic_add_a_photo_84"
+            app:civ_border_overlay="false" />
+
+        <EditText
+            android:id="@+id/editText_companyNewItem_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d_60sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/d_4sdp"
+            android:layout_marginEnd="@dimen/d_4sdp"
+            android:layout_marginBottom="@dimen/d_4sdp"
+            android:hint="@string/nome_da_item"
+            android:inputType="textPersonName"
+            style="@style/CustomEditText"
+            />
+
+        <EditText
+            android:id="@+id/editText_companyNewItem_type"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d_60sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/d_4sdp"
+            android:layout_marginEnd="@dimen/d_4sdp"
+            android:layout_marginBottom="@dimen/d_4sdp"
+            android:hint="@string/tipo_de_produto"
+            android:inputType="textPersonName"
+            style="@style/CustomEditText"
+            />
+
+        <com.blackcat.currencyedittext.CurrencyEditText
+            android:id="@+id/editText_companyNewItem_price"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d_60sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/d_4sdp"
+            android:layout_marginEnd="@dimen/d_4sdp"
+            android:layout_marginBottom="@dimen/d_4sdp"
+            android:inputType="numberDecimal"
+            android:hint="@string/pre_o"
+            app:decimal_digits="2"
+            app:allow_negative_values="false"
+            style="@style/CustomEditText" />
+
+        <Button
+            android:id="@+id/button_saveCompany"
+            android:layout_width="@dimen/d_320dp"
+            android:layout_height="@dimen/d_60sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/d_4sdp"
+            android:layout_marginEnd="@dimen/d_4sdp"
+            android:layout_marginBottom="@dimen/d_4sdp"
+            android:text="Save"
+            app:backgroundTint="@null"
+            style="@style/colorButton" />
+
+    </LinearLayout>
 </LinearLayout>

@@ -9,7 +9,8 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.FirebaseCo
 public class Company {
 
     private String idCompany;
-    private String imageUrl;
+
+    private String imageUrlCompany;
     private String name;
     private String category;
     private String timeEstimate;
@@ -32,13 +33,17 @@ public class Company {
         this.idCompany = idCompany;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImageUrlCompany() {
+        return imageUrlCompany;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void
+
+
+    setImageUrlCompany(String imageUrlCompany) {
+        this.imageUrlCompany = imageUrlCompany;
     }
+
 
     public String getName() {
         return name;

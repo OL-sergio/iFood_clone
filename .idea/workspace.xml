@@ -81,16 +81,28 @@
           <theme>@style/Theme.IFood</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/xml/network_security_configuration.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcc5f4d8-27f6-4e8c-b6db-f002212e80c1" name="Changes" comment="Work Done:&#10;- adding the companies node to realtime database and retrieving the created data.&#10;&#10;- adding components to project recyclerView, CurrencyEditText, CircleImageView, Picasso, MaskEditText.&#10;&#10;- adding the model Company.&#10;&#10;- adding activities and creating the xml view of components.&#10;&#10;- making some design layout updates. &#10;&#10;Notes:&#10;&#10;* Add items:&#10;- build.gradle.kts&#10;- activity_authentication.xml&#10;- activity_company.xml&#10;- AndroidManifest.xml&#10;- AuthenticationActivity.java&#10;- ClientActivity.java&#10;- colors.xml&#10;- CompanyActivity.java&#10;- ClientActivity.java&#10;- Constants.java&#10;- dimens.xml&#10;- IntroActivity.java&#10;- menu_client.xml&#10;- menu_company.xml&#10;- themes.xml&#10;- toolbar_client.xml&#10;- toolbar_company.xml&#10;- toolbar_title.xml&#10;- UserFirebase.java&#10;&#10;* Updated items:&#10;- activity_setting_company.xml&#10;- activity_setting_user.xml&#10;- AnimationsSearch.java&#10;- Company.java&#10;- ic_add_a_photo_84.xml&#10;- ic_arrow_back_24.xml&#10;- ic_broken_image_24.xml&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- toolbar_title.xml&#10;&#10;* Removed:&#10;- ...">
-      <change afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+    <list default="true" id="dcc5f4d8-27f6-4e8c-b6db-f002212e80c1" name="Changes" comment="Work Done:&#10;- adding some necessary files to the project.&#10;&#10;Notes:&#10;&#10;* Add items:&#10;- assetWizardSettings.xml&#10;- local.properties&#10;- workspace.xml&#10;&#10;&#10;* Updated items:&#10;- ...&#10;&#10;* Removed:&#10;- ...">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Products.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/NewItemCompanyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/NewItemCompanyActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingCompanyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingCompanyActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/helper/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/helper/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_item_company.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_item_company.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <list id="89cd0fa4-001d-44af-a278-28290339da9b" name="code" comment="code" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +118,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\sergi\.android\avd\Pixel_9_Pro_XL_API_29.avd)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\sergi\.android\avd\Pixel_8_API_29.avd)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -136,8 +148,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="valueResourceFile" />
-        <option value="resourceFile" />
         <option value="layoutResourceFile" />
+        <option value="resourceFile" />
         <option value="Class" />
       </list>
     </option>
@@ -215,7 +227,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;recommended.upgrade.last.time.stamp&quot;: &quot;1734105691292&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;zielu.gittoolbox.prj.config.selected.tab.id&quot;: &quot;zielu.gittoolbox.config.prj.diagnostic&quot;
   }
 }</component>
@@ -364,6 +376,11 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Android App.app" />
+      <item itemvalue="Gradle.iFood [build]" />
+      <item itemvalue="Gradle.iFood [signingReport]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.iFood [signingReport]" />
@@ -433,7 +450,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737396049300</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Work Done:&#10;- adding some necessary files to the project.&#10;&#10;Notes:&#10;&#10;* Add items:&#10;- assetWizardSettings.xml&#10;- local.properties&#10;- workspace.xml&#10;&#10;&#10;* Updated items:&#10;- ...&#10;&#10;* Removed:&#10;- ...">
+      <option name="closed" value="true" />
+      <created>1737396238290</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1737396238290</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -502,19 +527,20 @@
     <MESSAGE value="Work Done:&#10;&#10;- updating the user model to save the name, email, and user type in the real-time database.&#10;&#10;- adding visibility to Liner layout, Switch Compat and EditText.&#10;&#10;- adding the activity path, the application is redirected to the intended activity when the user type is selected. &#10;&#10;Notes:&#10;- ...&#10;&#10;* Add items:&#10;- CompanyActivity.java&#10;- activity_home.xml&#10;- Constants.java&#10;- FirebaseConfiguration.java&#10;- HomeActivity.java&#10;- UserFirebase.java&#10;&#10;* Updated items:&#10;- activity_authentication.xml&#10;- activity_intro.xml&#10;- IntroActivity.java&#10;- UserFirebase.java&#10;&#10;* Removed:&#10;- ..." />
     <MESSAGE value="Work Done:&#10;- adding search view with expanded view on click icon search her changes icon type and SearchView on toolbarClient.   &#10;&#10;- adding the toolbar to client and company layouts.&#10;&#10;- adding the necessary drawable icons to the project. &#10;&#10;- setting the items menu for visibility when selecting the search view.  &#10;&#10;- adding the lint error verification. &#10;&#10;Notes:&#10;- https://www.materialpalette.com/&#10;&#10;* Add items:&#10;- build.gradle.kts&#10;- activity_authentication.xml&#10;- activity_company.xml&#10;- AuthenticationActivity.java&#10;- ClientActivity.java&#10;- colors.xml&#10;- CompanyActivity.java&#10;- IntroActivity.java&#10;- strings.xml&#10;- themes.xml&#10;&#10;* Updated items:&#10;- activity_client.xml&#10;- ic_add_circle_24.xml&#10;- ic_cancel_24.xml&#10;- ic_delete_24.xml&#10;- ic_search_24.xml&#10;- menu_client.xml&#10;- menu_company.xml&#10;- toolbar_client.xml&#10;- toolbar_company.xml&#10;&#10;* Removed:&#10;- ..." />
     <MESSAGE value="Work Done:&#10;- adding the companies node to realtime database and retrieving the created data.&#10;&#10;- adding components to project recyclerView, CurrencyEditText, CircleImageView, Picasso, MaskEditText.&#10;&#10;- adding the model Company.&#10;&#10;- adding activities and creating the xml view of components.&#10;&#10;- making some design layout updates. &#10;&#10;Notes:&#10;&#10;* Add items:&#10;- build.gradle.kts&#10;- activity_authentication.xml&#10;- activity_company.xml&#10;- AndroidManifest.xml&#10;- AuthenticationActivity.java&#10;- ClientActivity.java&#10;- colors.xml&#10;- CompanyActivity.java&#10;- ClientActivity.java&#10;- Constants.java&#10;- dimens.xml&#10;- IntroActivity.java&#10;- menu_client.xml&#10;- menu_company.xml&#10;- themes.xml&#10;- toolbar_client.xml&#10;- toolbar_company.xml&#10;- toolbar_title.xml&#10;- UserFirebase.java&#10;&#10;* Updated items:&#10;- activity_setting_company.xml&#10;- activity_setting_user.xml&#10;- AnimationsSearch.java&#10;- Company.java&#10;- ic_add_a_photo_84.xml&#10;- ic_arrow_back_24.xml&#10;- ic_broken_image_24.xml&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- toolbar_title.xml&#10;&#10;* Removed:&#10;- ..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Work Done:&#10;- adding the companies node to realtime database and retrieving the created data.&#10;&#10;- adding components to project recyclerView, CurrencyEditText, CircleImageView, Picasso, MaskEditText.&#10;&#10;- adding the model Company.&#10;&#10;- adding activities and creating the xml view of components.&#10;&#10;- making some design layout updates. &#10;&#10;Notes:&#10;&#10;* Add items:&#10;- build.gradle.kts&#10;- activity_authentication.xml&#10;- activity_company.xml&#10;- AndroidManifest.xml&#10;- AuthenticationActivity.java&#10;- ClientActivity.java&#10;- colors.xml&#10;- CompanyActivity.java&#10;- ClientActivity.java&#10;- Constants.java&#10;- dimens.xml&#10;- IntroActivity.java&#10;- menu_client.xml&#10;- menu_company.xml&#10;- themes.xml&#10;- toolbar_client.xml&#10;- toolbar_company.xml&#10;- toolbar_title.xml&#10;- UserFirebase.java&#10;&#10;* Updated items:&#10;- activity_setting_company.xml&#10;- activity_setting_user.xml&#10;- AnimationsSearch.java&#10;- Company.java&#10;- ic_add_a_photo_84.xml&#10;- ic_arrow_back_24.xml&#10;- ic_broken_image_24.xml&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- toolbar_title.xml&#10;&#10;* Removed:&#10;- ..." />
+    <MESSAGE value="Work Done:&#10;- adding some necessary files to the project.&#10;&#10;Notes:&#10;&#10;* Add items:&#10;- assetWizardSettings.xml&#10;- local.properties&#10;- workspace.xml&#10;&#10;&#10;* Updated items:&#10;- ...&#10;&#10;* Removed:&#10;- ..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Work Done:&#10;- adding some necessary files to the project.&#10;&#10;Notes:&#10;&#10;* Add items:&#10;- assetWizardSettings.xml&#10;- local.properties&#10;- workspace.xml&#10;&#10;&#10;* Updated items:&#10;- ...&#10;&#10;* Removed:&#10;- ..." />
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
       <map>
         <entry key="udemy.java.desenvolvimento.android.completo.ifood_clone">
           <value>
-            <CheckInfo lastCheckTimestamp="1737390598114" />
+            <CheckInfo lastCheckTimestamp="1737566586643" />
           </value>
         </entry>
         <entry key="udemy.java.desenvolvimento.android.completo.ifood_clone.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1737390598117" />
+            <CheckInfo lastCheckTimestamp="1737566586645" />
           </value>
         </entry>
       </map>
