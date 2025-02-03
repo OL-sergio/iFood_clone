@@ -98,18 +98,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dcc5f4d8-27f6-4e8c-b6db-f002212e80c1" name="Changes" comment="Work Done:&#10;- Adding necessary components to create the NewItemCompanyActivity.  &#10;- Adding permission to use the internet.&#10;- Adding the model to save the data products on the database.&#10;- Saving the product data in the Firebase real-time database.&#10;  &#10;&#10;Notes:&#10;&#10;* Add items:&#10;- Products.java&#10;&#10;* Updated items:&#10;- activity_new_item_company.xml&#10;- AndroidManifest.xml&#10;- Company.java&#10;- Constants.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- strings.xml&#10;&#10;* Removed:&#10;- ...">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterProducts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/listener/RecyclerItemClickListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/divisor.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_products.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/google-services.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/CompanyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/CompanyActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/NewItemCompanyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/NewItemCompanyActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingCompanyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingCompanyActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/helper/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/helper/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Products.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
     </list>
     <list id="89cd0fa4-001d-44af-a278-28290339da9b" name="code" comment="code" />
     <option name="SHOW_DIALOG" value="false" />
@@ -555,7 +544,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737568985536</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Work Done:&#10;- Adding necessary components to create the NewItemCompanyActivity.  &#10;- Adding permission to use the internet.&#10;- Adding the model to save the data products on the database.&#10;- Saving the product data in the Firebase real-time database.&#10;  &#10;&#10;Notes:&#10;&#10;* Add items:&#10;- Products.java&#10;&#10;* Updated items:&#10;- activity_new_item_company.xml&#10;- AndroidManifest.xml&#10;- Company.java&#10;- Constants.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- strings.xml&#10;&#10;* Removed:&#10;- ...">
+      <option name="closed" value="true" />
+      <created>1738608521631</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1738608521631</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -589,7 +586,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
