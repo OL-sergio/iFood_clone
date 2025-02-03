@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,23 +21,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.blackcat.currencyedittext.CurrencyEditText;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.santalu.maskara.widget.MaskEditText;
-import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.R;
@@ -45,7 +44,6 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.Activ
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.FirebaseConfiguration;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.UserFirebase;
-import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Company;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Products;
 
 public class NewItemCompanyActivity extends AppCompatActivity {
@@ -53,9 +51,9 @@ public class NewItemCompanyActivity extends AppCompatActivity {
     private ActivityNewItemCompanyBinding binding;
 
     private ActivityResultLauncher<Intent> imagePickerLauncher;
-    private FirebaseStorage storageReference;
-    private DatabaseReference databaseReference;
-    private StorageReference imageCompanyRef;
+    private FirebaseStorage firebaseStorage;
+
+    private StorageReference storageReference;
     private String idUserLogged;
     private Uri selectedImageUrl;
 
@@ -75,52 +73,21 @@ public class NewItemCompanyActivity extends AppCompatActivity {
         setupToolbar();
         components();
 
-        storageReference = FirebaseConfiguration.getFirebaseStorage().getStorage();
+        firebaseStorage = FirebaseConfiguration.getFirebaseStorage().getStorage();
+        storageReference = FirebaseConfiguration.getFirebaseStorage();
         idUserLogged = UserFirebase.getUserId();
-        databaseReference = FirebaseConfiguration.getFirebaseDatabase();
+
 
         btnSave.setOnClickListener(this::validateCompanyData);
 
-        imageCompanyRef = storageReference.getReference()
-                .child(Constants.IMAGES)
-                .child(Constants.PRODUCTS)
-                .child(idUserLogged + Constants.JPG);
 
         imagePickerLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
                     if(result.getResultCode() == RESULT_OK) {
-                        Intent data = result.getData();
-                        if (data != null) {
-                            selectedImageUrl  = data.getData();
-                            imgLogo.setImageURI(selectedImageUrl);
-
-                            try {
-                                Bitmap bitmap = getBitmapFromUri(selectedImageUrl);
-                                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                                bitmap.compress(Bitmap.CompressFormat.JPEG, 25, byteArrayOutputStream);
-                                byte[] imageInByte = byteArrayOutputStream.toByteArray();
-
-                                UploadTask uploadTask = imageCompanyRef.putBytes(imageInByte);
-                                uploadTask.addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        snackBarMessage("Error uploading image");
-                                    }
-                                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                    @Override
-                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-                                        snackBarMessage("");
-                                    }
-                                });
-
-
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                                snackBarMessage("Erro ao carregar imagem!");
-                            }
-
+                        if (result.getData() != null) {
+                                selectedImageUrl  = result.getData().getData();
+                                imgLogo.setImageURI(selectedImageUrl);
                         }
                     }
                 });
@@ -147,21 +114,12 @@ public class NewItemCompanyActivity extends AppCompatActivity {
         String name = edtName.getText().toString();
         String category = edtCategory.getText().toString();
         String totalPrice = edtTotalPrice.getText().toString();
+
         if ( !name.isEmpty() ){
             if ( !category.isEmpty() ){
-
                     if ( !totalPrice.isEmpty() ){
-                        //Save com pany data
-                        Products products = new Products();
-                        products.setIdProduct(idUserLogged);
-                        products.setProductName(name);
-                        products.setProductCategory(category);
-                        products.setProductPrice(totalPrice);
-                        products.setImageUrlProduct(selectedImageUrl.toString());
-                        products.saveProductData();
-                        finish();
 
-                        toastMessage("Produto criado com sucesso!");
+                        uploadImage(name, category, totalPrice);
 
                     }else {
                         toastMessage("Intreduza o preço total.");
@@ -172,6 +130,71 @@ public class NewItemCompanyActivity extends AppCompatActivity {
         }else {
             toastMessage("Intreduza o nome do produto.");
         }
+    }
+    private void uploadImage( String name, String category, String totalPrice) {
+
+        if (selectedImageUrl == null) {
+            snackBarMessage("Selecione uma imagem para o produto");
+            return;
+        }
+
+        Products products = new Products();
+
+        StorageReference databaseReference = firebaseStorage.getReference()
+                .child(Constants.IMAGES)
+                .child(Constants.PRODUCTS)
+                .child( products.getIdProduct() + Constants.JPG);
+
+        imgLogo.setDrawingCacheEnabled(true);
+        imgLogo.buildDrawingCache();
+        Bitmap bitmap = ((BitmapDrawable) imgLogo.getDrawable()).getBitmap();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 25, baos);
+        byte[] data = baos.toByteArray();
+
+        UploadTask uploadTask = databaseReference.putBytes(data);
+        Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+            @Override
+            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                if (!task.isSuccessful()) {
+                    throw Objects.requireNonNull(task.getException());
+                }
+                // Continue with the task to get the download URL
+                return databaseReference.getDownloadUrl();
+            }
+        });
+        urlTask.addOnCompleteListener(new OnCompleteListener<Uri>() {
+            @Override
+            public void onComplete(@NonNull Task<Uri> task) {
+                if (task.isSuccessful()) {
+                    Uri downloadUri = task.getResult();
+                    saveProductData(downloadUri, name, category, totalPrice);
+                } else {
+                    // Handle failures
+                    // ...
+                    snackBarMessage("Erro ao fazer upload da imagem");
+                }
+            }
+        });
+    }
+
+
+
+    private void saveProductData( Uri image, String name, String category, String totalPrice) {
+        Products products = new Products();
+        products.setIdUser(idUserLogged);
+        products.setProductName(name);
+        products.setProductCategory(category);
+
+        String priceWithoutSymbol = totalPrice
+                .replace("€", "")
+                .trim();
+
+        products.setProductPrice(priceWithoutSymbol);
+        products.setImageUrlProduct(image.toString());
+        products.saveProductData();
+        finish();
+
     }
 
     private void setupToolbar() {

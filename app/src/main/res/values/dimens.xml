@@ -11,6 +11,7 @@
     <dimen name="d_32sdp">32dp</dimen>
     <dimen name="d_48sdp">48dp</dimen>
     <dimen name="d_60sdp">60dp</dimen>
+    <dimen name="d_90sdp">90dp</dimen>
 
     <dimen name="d_150sdp">150dp</dimen>
     <dimen name="d_200sdp">200dp</dimen>

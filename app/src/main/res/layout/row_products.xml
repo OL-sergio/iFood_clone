@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/d_16sdp">
+
+            <ImageView
+                android:id="@+id/imageViewProduct"
+                android:layout_width="@dimen/d_90sdp"
+                android:layout_height="@dimen/d_90sdp"
+                android:layout_weight="@integer/material_motion_duration_long_1"
+                android:padding="@dimen/d_8sdp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textNameProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/d_8sdp"
+                android:layout_marginBottom="8dp"
+                android:text="Sushi de salmão"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textDescriptionProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Salmão com nosso delicioso arroz temperado"
+                android:textSize="14sp" />
+
+            <com.blackcat.currencyedittext.CurrencyEditText
+                android:id="@+id/textPriceProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_green_light"
+                android:textSize="18sp"
+                android:background="@color/c_white_100"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/divisor" />
+
+</LinearLayout>

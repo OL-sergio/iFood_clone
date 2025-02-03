@@ -57,11 +57,11 @@ public class SettingCompanyActivity extends AppCompatActivity {
     private ActivitySettingCompanyBinding binding;
 
     private ActivityResultLauncher<Intent> imagePickerLauncher;
-    private FirebaseStorage storageReference;
+    private FirebaseStorage firebaseStorage;
     private DatabaseReference databaseReference;
     private String idUserLogged;
     private Uri selectedImageUrl;
-    private StorageReference imageCompanyRef;
+    private StorageReference storageReference;
 
     private CircleImageView imgLogo;
     private EditText edtName;
@@ -80,15 +80,15 @@ public class SettingCompanyActivity extends AppCompatActivity {
         setupToolbar();
         components();
 
-        storageReference = FirebaseConfiguration.getFirebaseStorage().getStorage();
-        idUserLogged = UserFirebase.getUserId();
+        firebaseStorage = FirebaseConfiguration.getFirebaseStorage().getStorage();
         databaseReference = FirebaseConfiguration.getFirebaseDatabase();
+        idUserLogged = UserFirebase.getUserId();
 
         btnSave.setOnClickListener(this::validateCompanyData);
 
         saveAndRetrieveCompanyData();
 
-        imageCompanyRef = storageReference.getReference()
+        storageReference = firebaseStorage.getReference()
                 .child(Constants.IMAGES)
                 .child(Constants.COMPANY)
                 .child(idUserLogged + Constants.JPG);
@@ -108,7 +108,7 @@ public class SettingCompanyActivity extends AppCompatActivity {
                                 bitmap.compress(Bitmap.CompressFormat.JPEG, 25, byteArrayOutputStream);
                                 byte[] imageInByte = byteArrayOutputStream.toByteArray();
 
-                                UploadTask uploadTask = imageCompanyRef.putBytes(imageInByte);
+                                UploadTask uploadTask = storageReference.putBytes(imageInByte);
                                 uploadTask.addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
@@ -117,7 +117,6 @@ public class SettingCompanyActivity extends AppCompatActivity {
                                 }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                     @Override
                                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
                                         snackBarMessage("Image uploaded successfully");
                                     }
                                 });
@@ -146,7 +145,7 @@ public class SettingCompanyActivity extends AppCompatActivity {
         });*/
 
         final long ONE_MEGABYTE = 1024 * 1024;
-        imageCompanyRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+        storageReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override
             public void onSuccess(byte[] bytes) {
                 // Data for "images/island.jpg" is returns, use this as needed
@@ -202,6 +201,8 @@ public class SettingCompanyActivity extends AppCompatActivity {
         InputStream inputStream = contentResolver.openInputStream(selectedImageUri);
         return BitmapFactory.decodeStream(inputStream);
     }
+
+
 
     private void validateCompanyData (View view ){
 
@@ -269,4 +270,43 @@ public class SettingCompanyActivity extends AppCompatActivity {
         snackbar.show();
 
     }
+
+    /***
+     *
+     * ///model
+     public Bitmap getProductBitmap() {
+     return productBitmap;
+     }
+
+     public void setProductBitmap(Bitmap productBitmap) {
+     this.productBitmap = productBitmap;
+     }
+     * ///Adapter
+     * // Assuming you have a Bitmap in your Products class
+     *     Bitmap productBitmap = product.getProductBitmap(); // Add this method in your Products class
+     *     if (productBitmap != null) {
+     *         holder.image.setImageBitmap(productBitmap);
+     *     } else {
+     *         String imageUrl = product.getImageUrlProduct();
+     *         Picasso.get()
+     *                 .load(imageUrl)
+     *                 .placeholder(R.drawable.ic_add_a_photo_84)
+     *                 .error(R.drawable.ic_broken_image_24)
+     *                 .fit()
+     *                 .into(holder.image);
+     *     }
+     *
+     * ///Activity
+     * private void loadBitmapFromUri(Uri selectedImageUri, Products product) {
+     *     try {
+     *         Bitmap bitmap = getBitmapFromUri(selectedImageUri);
+     *         product.setProductBitmap(bitmap); // Set the Bitmap to the product
+     *     } catch (IOException e) {
+     *         e.printStackTrace();
+     *         // Handle the error
+     *     }
+     * }
+     *
+     *
+     */
 }
