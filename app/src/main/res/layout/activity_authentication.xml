@@ -23,9 +23,10 @@
         android:id="@+id/editText_name"
         android:layout_width="@dimen/d_400sdp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/d_12sdp"
         android:ems="10"
         android:hint="@string/name"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:padding="16dp"
@@ -34,21 +35,23 @@
 
     <EditText
         android:id="@+id/editText_email"
+        style="@style/CustomEditText"
         android:layout_width="@dimen/d_400sdp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/d_20sdp"
+        android:layout_marginStart="@dimen/d_12sdp"
         android:ems="10"
         android:hint="@string/email"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
-        android:padding="16dp"
-        android:layout_marginBottom="@dimen/d_16sdp"
-        style="@style/CustomEditText" />
+        android:padding="16dp" />
 
     <EditText
         android:id="@+id/editText_password"
         android:layout_width="@dimen/d_400sdp"
         android:layout_height="wrap_content"
         android:layout_marginTop="-2dp"
+        android:layout_marginStart="@dimen/d_12sdp"
         android:ems="10"
         android:hint="@string/password"
         android:importantForAutofill="no"
@@ -76,7 +79,7 @@
             android:layout_marginStart="@dimen/d_16sdp"
             android:layout_marginEnd="@dimen/d_16sdp"
             android:gravity="center"
-            android:minWidth="48dp"
+            android:minWidth="@dimen/d_60sdp"
             android:thumb="@drawable/dw_custom_thumb"
             android:track="@drawable/dw_custom_track"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -111,8 +114,8 @@
             android:layout_height="@dimen/d_48sdp"
             android:layout_marginStart="@dimen/d_16sdp"
             android:layout_marginEnd="@dimen/d_16sdp"
-            android:gravity="center"
-            android:minWidth="48dp"
+            android:layout_gravity="center"
+            android:minWidth="@dimen/d_60sdp"
             android:thumb="@drawable/dw_custom_thumb"
             android:track="@drawable/dw_custom_track"
             tools:ignore="UseSwitchCompatOrMaterialXml" />

@@ -2,28 +2,56 @@ package udemy.java.desenvolvimento.android.completo.ifood_clone.model;
 
 import static udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants.COMPANY;
 
+import android.util.Log;
+
 import com.google.firebase.database.DatabaseReference;
 
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+
+import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.FirebaseConfiguration;
 
-public class Company {
+public class Companies implements Serializable {
 
     private String idCompany;
-
-    private String imageUrlCompany;
+    private String companyImageUrl;
     private String name;
+    private String filterName;
     private String category;
     private String timeEstimate;
     private String  totalPrice;
 
-    public Company() {}
+    public Companies() {}
 
     public void saveCompanyData(){
         DatabaseReference firebaseDatabase = FirebaseConfiguration.getFirebaseDatabase();
         DatabaseReference companyRef = firebaseDatabase.child(COMPANY)
-                .child(idCompany);
+                .child(getIdCompany());
         companyRef.setValue(this);
     }
+    public void updateUser(){
+
+        DatabaseReference firebaseReference = FirebaseConfiguration.getFirebaseDatabase();
+       /* DatabaseReference usersReference = firebaseReference
+                .child("users")
+                .child(getUID());*/
+
+
+        Map<String, Object> updateUsersChild = new HashMap<>();
+        updateUsersChild.put("/" + Constants.USERS + "/" + getIdCompany() + "/name", getName() );
+        firebaseReference.updateChildren( updateUsersChild ).addOnCompleteListener(task -> {
+            if (task.isSuccessful()){
+                Log.d("INFO", "User data updated successfully");
+            }else {
+                Log.d("INFO", "Error updating user data");
+            }
+        });
+
+
+    }
+
 
     public String getIdCompany() {
         return idCompany;
@@ -33,24 +61,28 @@ public class Company {
         this.idCompany = idCompany;
     }
 
-    public String getImageUrlCompany() {
-        return imageUrlCompany;
+    public String getCompanyImageUrl() {
+        return companyImageUrl;
     }
 
-    public void
-
-
-    setImageUrlCompany(String imageUrlCompany) {
-        this.imageUrlCompany = imageUrlCompany;
+    public void setCompanyImageUrl(String companyImageUrl) {
+        this.companyImageUrl = companyImageUrl;
     }
 
 
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getFilterName() {
+        return filterName;
+    }
+
+    public void setFilterName(String filterName) {
+        this.filterName = filterName.toLowerCase();
     }
 
     public String getCategory() {

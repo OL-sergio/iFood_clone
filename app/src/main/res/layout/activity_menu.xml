@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.MenuActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/d_16sdp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageView_companyMenu"
+                android:layout_width="@dimen/d_90sdp"
+                android:layout_height="@dimen/d_90sdp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/img_profile"
+                android:layout_marginStart="@dimen/d_8sdp"
+                android:layout_marginEnd="@dimen/d_8sdp"
+                android:layout_marginTop="@dimen/d_8sdp"
+                android:layout_marginBottom="@dimen/d_8sdp" />
+
+            <TextView
+                android:id="@+id/textView_companiesNameMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="left"
+                android:layout_gravity="center_vertical"
+                android:text="Nome da empresa"
+                android:textColor="@color/c_black_100"
+                android:textSize="@dimen/d_20sdp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+
+        <include layout="@layout/divisor_menu"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_companyMenu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/d_16sdp" />
+
+    </LinearLayout>
+</LinearLayout>

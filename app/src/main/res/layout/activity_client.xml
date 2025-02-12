@@ -14,15 +14,13 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="@dimen/d_8sdp">
 
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_companies"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cliente"
-            android:gravity="center"
-            android:layout_gravity="center"
-            />
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 </LinearLayout>

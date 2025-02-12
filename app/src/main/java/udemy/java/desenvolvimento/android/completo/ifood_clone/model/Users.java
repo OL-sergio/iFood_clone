@@ -9,7 +9,7 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.FirebaseCo
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository
  */
-public class User {
+public class Users {
 
     private String userId;
     private String name;
@@ -18,9 +18,8 @@ public class User {
     private String password;
 
 
-    public User() {
+    public Users() {
     }
-
     public void saveUser(){
         DatabaseReference databaseReference = FirebaseConfiguration.getFirebaseDatabase();
         DatabaseReference users = databaseReference
@@ -28,6 +27,8 @@ public class User {
                 .child( getUserId() );
         users.setValue(this);
     }
+
+
 
     public String getUserId() {
         return userId;

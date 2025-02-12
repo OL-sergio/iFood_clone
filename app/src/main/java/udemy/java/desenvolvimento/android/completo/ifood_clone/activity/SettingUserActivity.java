@@ -1,6 +1,9 @@
 package udemy.java.desenvolvimento.android.completo.ifood_clone.activity;
 
+import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -8,6 +11,7 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.snackbar.Snackbar;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.R;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.ActivitySettingUserBinding;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SysTemUi;
 
 public class SettingUserActivity extends AppCompatActivity {
 
@@ -20,8 +24,10 @@ public class SettingUserActivity extends AppCompatActivity {
         binding = ActivitySettingUserBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setupToolbar();
+        SysTemUi sysTemUi = new SysTemUi(this);
+        sysTemUi.hideSystemUIHideNavigation();
 
+        setupToolbar();
         components();
 
     }

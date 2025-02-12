@@ -30,7 +30,8 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.Activ
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.FirebaseConfiguration;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.UserFirebase;
-import udemy.java.desenvolvimento.android.completo.ifood_clone.model.User;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Users;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SysTemUi;
 
 
 public class AuthenticationActivity extends AppCompatActivity {
@@ -48,12 +49,16 @@ public class AuthenticationActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = ActivityAuthenticationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        SysTemUi sysTemUi = new SysTemUi(this);
+        sysTemUi.hideSystemUIHideNavigation();
 
         components();
 
@@ -151,7 +156,7 @@ public class AuthenticationActivity extends AppCompatActivity {
 
         toastMessage(String.valueOf(  R.string.registro_de_utlizador_realizado_com_sucesso));
 
-        User users = new User();
+        Users users = new Users();
         String userType = getUserType();
         UserFirebase.updateUserType( userType );
         openMainView(userType);
@@ -198,7 +203,6 @@ public class AuthenticationActivity extends AppCompatActivity {
             finish();
         }
     }
-
     private void userLoggedVerification() {
 
         FirebaseUser userLogged = auth.getCurrentUser();

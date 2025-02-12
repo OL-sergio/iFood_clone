@@ -1,9 +1,16 @@
 package udemy.java.desenvolvimento.android.completo.ifood_clone.model;
 
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants;
@@ -22,11 +29,13 @@ public class Products {
         DatabaseReference firebaseDatabase = FirebaseConfiguration.getFirebaseDatabase();
         DatabaseReference productsRef = firebaseDatabase.child(Constants.PRODUCTS);
             setIdProduct(productsRef.push().getKey());
+
     }
 
     public void saveProductData(){
         DatabaseReference firebaseDatabase = FirebaseConfiguration.getFirebaseDatabase();
         DatabaseReference productsRef = firebaseDatabase.child(Constants.PRODUCTS)
+
                 .child(getIdUser())
                 .child(getIdProduct());
         productsRef.setValue(this);
@@ -37,26 +46,24 @@ public class Products {
                 .child(getIdUser())
                 .child(getIdProduct());
         productsRef.removeValue();
+
+        // deleting image by url
+
+        StorageReference imageRef = FirebaseStorage.getInstance().getReferenceFromUrl(getImageUrlProduct());
+        imageRef.delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "Image deleted successfully!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        Log.e(TAG, "Error deleting image: " + exception.getMessage());
+                    }
+                });
     }
-
-    public void deleteImageFromDataBase(String idProduct ){
-
-        StorageReference storageReference = FirebaseConfiguration.getFirebaseStorage()
-               .child(Constants.IMAGES)
-               .child(Constants.PRODUCTS)
-               .child(  idProduct + Constants.JPG );
-        storageReference.delete();
-
-    }
-
-    public String sanitizeId(String id) {
-        return id.replace(".", "") // Replace '.' with '_'
-                .replace("#", "")  // Replace '#' with '_'
-                .replace("$", "")  // Replace '$' with '_'
-                .replace("[", "")  // Replace '[' with '_'
-                .replace("]", ""); // Replace ']' with '_'
-    }
-
     public String getIdProduct() {
         return idProduct;
     }

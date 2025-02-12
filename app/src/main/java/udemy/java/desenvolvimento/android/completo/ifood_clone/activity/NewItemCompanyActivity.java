@@ -27,6 +27,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -45,6 +46,7 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.FirebaseConfiguration;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.UserFirebase;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Products;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SysTemUi;
 
 public class NewItemCompanyActivity extends AppCompatActivity {
 
@@ -70,6 +72,9 @@ public class NewItemCompanyActivity extends AppCompatActivity {
         binding = ActivityNewItemCompanyBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        SysTemUi sysTemUi = new SysTemUi(this);
+        sysTemUi.hideSystemUIHideNavigation();
+
         setupToolbar();
         components();
 
@@ -91,9 +96,7 @@ public class NewItemCompanyActivity extends AppCompatActivity {
                         }
                     }
                 });
-
         imgLogo.setOnClickListener(v -> pickImage());
-
     }
 
     private void pickImage() {
@@ -103,13 +106,12 @@ public class NewItemCompanyActivity extends AppCompatActivity {
         }
     }
 
-    private Bitmap getBitmapFromUri(Uri selectedImageUri) throws IOException {
-        ContentResolver contentResolver = getContentResolver();
-        InputStream inputStream = contentResolver.openInputStream(selectedImageUri);
-        return BitmapFactory.decodeStream(inputStream);
-    }
-
     private void validateCompanyData (View view ){
+
+        if (selectedImageUrl == null) {
+            snackBarMessage("Selecione uma imagem para o produto");
+            return;
+        }
 
         String name = edtName.getText().toString();
         String category = edtCategory.getText().toString();
@@ -133,26 +135,22 @@ public class NewItemCompanyActivity extends AppCompatActivity {
     }
     private void uploadImage( String name, String category, String totalPrice) {
 
-        if (selectedImageUrl == null) {
-            snackBarMessage("Selecione uma imagem para o produto");
-            return;
-        }
+
 
         Products products = new Products();
-
-        StorageReference databaseReference = firebaseStorage.getReference()
+        storageReference = firebaseStorage.getReference()
                 .child(Constants.IMAGES)
                 .child(Constants.PRODUCTS)
+                .child(idUserLogged)
                 .child( products.getIdProduct() + Constants.JPG);
 
-        imgLogo.setDrawingCacheEnabled(true);
-        imgLogo.buildDrawingCache();
-        Bitmap bitmap = ((BitmapDrawable) imgLogo.getDrawable()).getBitmap();
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 25, baos);
-        byte[] data = baos.toByteArray();
 
-        UploadTask uploadTask = databaseReference.putBytes(data);
+        Bitmap bitmap = ((BitmapDrawable) imgLogo.getDrawable()).getBitmap();
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 25, byteArrayOutputStream);
+        byte[] imageInByte = byteArrayOutputStream.toByteArray();
+
+        UploadTask uploadTask = storageReference.putBytes(imageInByte);
         Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
             @Override
             public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
@@ -160,7 +158,7 @@ public class NewItemCompanyActivity extends AppCompatActivity {
                     throw Objects.requireNonNull(task.getException());
                 }
                 // Continue with the task to get the download URL
-                return databaseReference.getDownloadUrl();
+                return storageReference.getDownloadUrl();
             }
         });
         urlTask.addOnCompleteListener(new OnCompleteListener<Uri>() {
@@ -179,7 +177,6 @@ public class NewItemCompanyActivity extends AppCompatActivity {
     }
 
 
-
     private void saveProductData( Uri image, String name, String category, String totalPrice) {
         Products products = new Products();
         products.setIdUser(idUserLogged);
@@ -187,7 +184,7 @@ public class NewItemCompanyActivity extends AppCompatActivity {
         products.setProductCategory(category);
 
         String priceWithoutSymbol = totalPrice
-                .replace("€", "")
+                .replace(Constants.TARGET_STRING, "")
                 .trim();
 
         products.setProductPrice(priceWithoutSymbol);
@@ -205,7 +202,6 @@ public class NewItemCompanyActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(v -> finish());
         setSupportActionBar(toolbar);
     }
-
     private void components() {
             imgLogo = binding.circleImageViewNewItemCompany;
             edtName = binding.editTextCompanyNewItemName;
@@ -219,7 +215,7 @@ public class NewItemCompanyActivity extends AppCompatActivity {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
     private void snackBarMessage(String message){
-        Snackbar snackbar = Snackbar.make(findViewById(R.id.main), message, Snackbar.LENGTH_LONG);
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.main), message, BaseTransientBottomBar.LENGTH_LONG);
         snackbar.getView().setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.c_red_devil_100))); //Change to your desired color
         snackbar.show();
 

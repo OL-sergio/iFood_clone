@@ -1,22 +1,47 @@
 package udemy.java.desenvolvimento.android.completo.ifood_clone.activity;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
+import android.widget.AdapterView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import udemy.java.desenvolvimento.android.completo.ifood_clone.R;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.adapter.AdapterCompanies;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.ActivityClientBinding;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.FirebaseConfiguration;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.UserFirebase;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.listener.RecyclerItemClickListener;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Companies;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.AnimationsSearch;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SysTemUi;
 
 
 public class ClientActivity extends AppCompatActivity {
@@ -24,8 +49,19 @@ public class ClientActivity extends AppCompatActivity {
     private ActivityClientBinding binding;
 
     private UserFirebase userFirebase;
+    private StorageReference storageReference;
+    private DatabaseReference databaseReference;
+    private FirebaseStorage firebaseStorage;
+    private String idUserLogged;
+    private AnimationsSearch animationsSearch;
+    private Companies company;
 
-    private  SearchView searchView;
+
+    private SearchView searchView;
+    private RecyclerView recyclerCompanies;
+    private AdapterCompanies adapterCompanies;
+    private final List<Companies> companyList = new ArrayList<>();
+
     private boolean isSearchViewExpanded = false;
 
     @Override
@@ -35,11 +71,23 @@ public class ClientActivity extends AppCompatActivity {
         binding = ActivityClientBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setupToolbar();
+        SysTemUi sysTemUi = new SysTemUi(this);
+        sysTemUi.hideSystemUIHideNavigation();
 
+        setupToolbar();
         components();
 
-        animateSearchViewExpand(isSearchViewExpanded);
+        userFirebase = new UserFirebase();
+        databaseReference = FirebaseConfiguration.getFirebaseDatabase();
+        storageReference = FirebaseConfiguration.getFirebaseStorage();
+        firebaseStorage = FirebaseConfiguration.getFirebaseStorage().getStorage();
+        idUserLogged = UserFirebase.getUserId();
+        animationsSearch = new AnimationsSearch();
+        company = new Companies();
+
+        retrieveCompanies();
+
+        animationsSearch.animateSearchViewExpand(isSearchViewExpanded, searchView);
 
         // Set up the search view listener
        /* searchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
@@ -49,7 +97,7 @@ public class ClientActivity extends AppCompatActivity {
                 animateSearchViewExpand(hasFocus);
             }
         });*/
-
+        searchView.setQueryHint("Search companies");
         // Handle search query submission
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -61,46 +109,87 @@ public class ClientActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 // Handle text change in the search view
+                searchForCompany(newText);
+
                 return true;
             }
         });
 
-    }
-
-    private void animateSearchView(boolean expand) {
-        Animation animation;
-        if (expand) {
-            animation = new AlphaAnimation(0f, 1f);
-            searchView.setIconified(false); // Expand the search view
-        } else {
-            animation = new AlphaAnimation(1f, 0f);
-            searchView.setIconified(true); // Collapse the search view
-
-        }
-
-        animation.setDuration(300);
-        animation.setFillAfter(true);
-        searchView.startAnimation(animation);
-
-    }
-
-    private void animateSearchViewExpand(boolean expand) {
-        float scaleX = expand ? 1.0f : 0.0f;
-        float scaleY = expand ? 1.0f : 0.0f;
-
-        searchView.animate()
-                .scaleX(scaleX)
-                .scaleY(scaleY)
-                .setDuration(300)
-                .withEndAction(new Runnable() {
+        recyclerCompanies.addOnItemTouchListener(new RecyclerItemClickListener(
+                this,
+                recyclerCompanies,
+                new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
-                    public void run() {
-                        searchView.setIconified(!expand); // Collapse or expand the search view
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
                     }
-                })
-                .start();
+
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        company = companyList.get(position);
+                        Intent intent = new Intent(ClientActivity.this, MenuActivity.class);
+                        intent.putExtra(Constants.COMPANY, company);
+                        startActivity(intent);
+
+                    }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+
+                    }
+                }
+        ));
     }
 
+    private void searchForCompany(String newText) {
+        DatabaseReference companiesRef = databaseReference
+                .child( Constants.COMPANY );
+        Query query = companiesRef.orderByChild(Constants.FILTER_NAME)
+                .startAt(newText)
+                .endAt(newText + Constants.STRING_CODE);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                companyList.clear();
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    company = ds.getValue(Companies.class);
+                    if (company != null){
+                        companyList.add(company);
+                    }
+                }
+                adapterCompanies.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void retrieveCompanies() {
+
+        DatabaseReference companiesRef = databaseReference
+                .child( Constants.COMPANY );
+        companiesRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                companyList.clear();
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    company = ds.getValue(Companies.class);
+                    if (company != null){
+                        companyList.add(company);
+                    }
+                }
+                adapterCompanies.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -134,7 +223,6 @@ public class ClientActivity extends AppCompatActivity {
         if (id == R.id.menuSearch) {
             startSearchView();
             return true;
-
         }
 
         if (id == R.id.menuSettingsUser) {
@@ -153,15 +241,15 @@ public class ClientActivity extends AppCompatActivity {
     private void startSearchView() {
 
         if (isSearchViewExpanded) {
-            animateSearchView(false);
+            animationsSearch.animateSearchView( false, searchView );
             isSearchViewExpanded = false;
-            animateSearchViewExpand(isSearchViewExpanded);
+            animationsSearch.animateSearchViewExpand( isSearchViewExpanded, searchView );
             invalidateOptionsMenu();
 
         } else if (!isSearchViewExpanded) {
-            animateSearchView(true);
+            animationsSearch.animateSearchView(true, searchView );
             isSearchViewExpanded = true;
-            animateSearchViewExpand(isSearchViewExpanded);
+            animationsSearch.animateSearchViewExpand( isSearchViewExpanded, searchView );
             invalidateOptionsMenu();
 
         }
@@ -172,23 +260,43 @@ public class ClientActivity extends AppCompatActivity {
     }
 
     private void logoutUser() {
-
         userFirebase.logoutUser();
         startActivity(new Intent(this, AuthenticationActivity.class));
         finish();
-
     }
 
     private void  setupToolbar(){
+
         Toolbar toolbar = binding.toolbar.toolbarClient;
-        toolbar.setTitle("Ifood - Client");
+        if (company != null){
+            toolbar.setTitle( company.getName() );
+        }else {
+            toolbar.setTitle("iFood - client");
+        }
+
         setSupportActionBar(toolbar);
     }
-
     private void components() {
 
         userFirebase = new UserFirebase();
         searchView = binding.toolbar.searchView;// Collapse the search view
 
+        recyclerCompanies = binding.recyclerViewCompanies;
+        recyclerCompanies.setLayoutManager(new LinearLayoutManager(this));
+        recyclerCompanies.setHasFixedSize(true);
+        adapterCompanies = new AdapterCompanies(companyList, this);
+        recyclerCompanies.setAdapter(adapterCompanies);
+
     }
+
+    private void toastMessage(String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+    private void snackBarMessage(String message){
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.main), message, BaseTransientBottomBar.LENGTH_LONG);
+        snackbar.getView().setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.c_red_devil_100))); //Change to your desired color
+        snackbar.show();
+
+    }
+
 }
