@@ -6,6 +6,7 @@ public class Constants {
     }
 
     public static final String COMPANY = "companies";
+    public static final String CUSTOMERS = "customers";
     public static final String USER_TYPE = "client";
     public static final String USERS = "users";
     public static final String IMAGES = "images";

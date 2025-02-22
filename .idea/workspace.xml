@@ -112,38 +112,22 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcc5f4d8-27f6-4e8c-b6db-f002212e80c1" name="Changes" comment="Work Done:&#10;- Adding necessary components to create the NewItemCompanyActivity.  &#10;- Adding permission to use the internet.&#10;- Adding the model to save the data products on the database.&#10;- Saving the product data in the Firebase real-time database.&#10;  &#10;&#10;Notes:&#10;&#10;* Add items:&#10;- Products.java&#10;&#10;* Updated items:&#10;- activity_new_item_company.xml&#10;- AndroidManifest.xml&#10;- Company.java&#10;- Constants.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- strings.xml&#10;&#10;* Removed:&#10;- ...">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/MenuActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterCompanies.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/utilities/BitmapConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/utilities/SysTemUi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/divisor_menu.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_companies.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/appInsightsSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/appInsightsSettings.xml" afterDir="false" />
+    <list default="true" id="dcc5f4d8-27f6-4e8c-b6db-f002212e80c1" name="Changes" comment="Work Done:&#10;- Adding necessary components to create the MenuActivity, divisor_menu.xml, rows, and RecyclerView.  &#10;- Adding the logged user name to the toolbar. &#10;- Add the calls to the Firebase RealTime database to list companies and products.&#10;- Add the calls to the Firebase RealTime database to save the data on the user, company, and products.&#10;- Moving the animations search into a class.&#10;- Adding the class SysTemUi and creating the hide navigation functions to hide components of the Android API version.&#10;&#10;Notes:&#10;&#10;* Add items:&#10;- MenuActivity.java&#10;- AdapterCompanies.java&#10;- SysTemUi.java&#10;- activity_menu.xml&#10;- divisor_menu.xml&#10;- row_companies.xml&#10;&#10;* Updated items:&#10;- AuthenticationActivity.java&#10;- ClientActivity.java&#10;- CompanyActivity.java&#10;- IntroActivity.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- Constants.java&#10;- Companies.java&#10;- Products.java&#10;- Users.java&#10;- AnimationsSearch.java&#10;- ic_broken_image_24.xml&#10;- img_profile.png&#10;- activity_authentication.xml&#10;- activity_client.xml&#10;- activity_setting_user.xml&#10;- colors.xml&#10;- dimens.xml&#10;- strings.xml&#10;&#10;* Removed:&#10;- ...">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/AuthenticationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/AuthenticationActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/ClientActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/ClientActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/CompanyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/CompanyActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/IntroActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/IntroActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/NewItemCompanyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/NewItemCompanyActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingCompanyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingCompanyActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingUserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingUserActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterCompanies.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterCompanies.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/helper/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/helper/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Companies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Products.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/utilities/AnimationsSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/utilities/AnimationsSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_broken_image_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_broken_image_24.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/img_perfil.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/img_profile.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Companies.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Companies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Users.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_authentication.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_authentication.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_client.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_client.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_company.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_company.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_user.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <list id="89cd0fa4-001d-44af-a278-28290339da9b" name="code" comment="code" />
@@ -276,41 +260,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Android App.app.executor": "Run",
-    "DEBUGGABLE_DEVICE": "Medium_Phone_API_35 [emulator-5554]",
-    "DEBUGGABLE_PROCESS": "udemy.java.desenvolvimento.android.completo.ifood_clone",
-    "DEBUGGER_ID": "Auto",
-    "Gradle.iFood [build].executor": "Run",
-    "Gradle.iFood [signingReport].executor": "Run",
-    "Gradle.iFood:app [testDebugUnitTest].executor": "Run",
-    "Gradle.iFood:app [testReleaseUnitTest].executor": "Run",
-    "Notification.DisplayName-DoNotAsk-Android Gradle Upgrade Notification": "Android Gradle Upgrade Notification",
-    "Notification.DisplayName-DoNotAsk-Execution": "External process execution failed",
-    "Notification.DoNotAsk-Android Gradle Upgrade Notification": "true",
-    "Notification.DoNotAsk-Execution": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SHOW_ALL_PROCESSES": "false",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "com.google.services.firebase.aqiPopupShown": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/sergi/AndroidStudioProjects/iFood/app/src/main/res/layout",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "recommended.upgrade.last.time.stamp": "1734105691292",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "org.sonarlint.intellij.config.project.SonarLintProjectConfigurable",
-    "zielu.gittoolbox.prj.config.selected.tab.id": "zielu.gittoolbox.config.prj.diagnostic"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Android App.app.executor&quot;: &quot;Run&quot;,
+    &quot;DEBUGGABLE_DEVICE&quot;: &quot;Medium_Phone_API_35 [emulator-5554]&quot;,
+    &quot;DEBUGGABLE_PROCESS&quot;: &quot;udemy.java.desenvolvimento.android.completo.ifood_clone&quot;,
+    &quot;DEBUGGER_ID&quot;: &quot;Auto&quot;,
+    &quot;Gradle.iFood [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.iFood [signingReport].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.iFood:app [testDebugUnitTest].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.iFood:app [testReleaseUnitTest].executor&quot;: &quot;Run&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Android Gradle Upgrade Notification&quot;: &quot;Android Gradle Upgrade Notification&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Execution&quot;: &quot;External process execution failed&quot;,
+    &quot;Notification.DoNotAsk-Android Gradle Upgrade Notification&quot;: &quot;true&quot;,
+    &quot;Notification.DoNotAsk-Execution&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SHOW_ALL_PROCESSES&quot;: &quot;false&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sergi/AndroidStudioProjects/iFood/app/src/main/res/layout&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;recommended.upgrade.last.time.stamp&quot;: &quot;1734105691292&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;zielu.gittoolbox.prj.config.selected.tab.id&quot;: &quot;zielu.gittoolbox.config.prj.diagnostic&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone.helper" />
@@ -414,6 +398,77 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY" value="" />
       <option name="ACTIVITY_CLASS" value="udemy.java.desenvolvimento.android.completo.ifood_clone.activity.AuthenticationActivity" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientActivity" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false" temporary="true">
+      <module name="iFood.app" />
+      <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="ALLOW_ASSUME_VERIFIED" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="specific_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY" value="" />
+      <option name="ACTIVITY_CLASS" value="udemy.java.desenvolvimento.android.completo.ifood_clone.activity.ClientActivity" />
       <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
       <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
       <method v="2">
@@ -535,28 +590,6 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="iFood:app [testDebugUnitTest]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="testDebugUnitTest" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration name="iFood:app [testReleaseUnitTest]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -581,19 +614,19 @@
     </configuration>
     <list>
       <item itemvalue="Android App.app" />
+      <item itemvalue="Android App.ClientActivity" />
       <item itemvalue="Android App.AuthenticationActivity" />
-      <item itemvalue="Gradle.iFood:app [testDebugUnitTest]" />
       <item itemvalue="Gradle.iFood:app [testReleaseUnitTest]" />
       <item itemvalue="Gradle.iFood [build]" />
       <item itemvalue="Gradle.iFood [signingReport]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Android App.ClientActivity" />
         <item itemvalue="Android App.AuthenticationActivity" />
         <item itemvalue="Gradle.iFood [signingReport]" />
         <item itemvalue="Gradle.iFood [build]" />
         <item itemvalue="Gradle.iFood:app [testReleaseUnitTest]" />
-        <item itemvalue="Gradle.iFood:app [testDebugUnitTest]" />
       </list>
     </recent_temporary>
   </component>
@@ -691,7 +724,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738608621867</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Work Done:&#10;- Adding necessary components to create the MenuActivity, divisor_menu.xml, rows, and RecyclerView.  &#10;- Adding the logged user name to the toolbar. &#10;- Add the calls to the Firebase RealTime database to list companies and products.&#10;- Add the calls to the Firebase RealTime database to save the data on the user, company, and products.&#10;- Moving the animations search into a class.&#10;- Adding the class SysTemUi and creating the hide navigation functions to hide components of the Android API version.&#10;&#10;Notes:&#10;&#10;* Add items:&#10;- MenuActivity.java&#10;- AdapterCompanies.java&#10;- SysTemUi.java&#10;- activity_menu.xml&#10;- divisor_menu.xml&#10;- row_companies.xml&#10;&#10;* Updated items:&#10;- AuthenticationActivity.java&#10;- ClientActivity.java&#10;- CompanyActivity.java&#10;- IntroActivity.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- Constants.java&#10;- Companies.java&#10;- Products.java&#10;- Users.java&#10;- AnimationsSearch.java&#10;- ic_broken_image_24.xml&#10;- img_profile.png&#10;- activity_authentication.xml&#10;- activity_client.xml&#10;- activity_setting_user.xml&#10;- colors.xml&#10;- dimens.xml&#10;- strings.xml&#10;&#10;* Removed:&#10;- ...">
+      <option name="closed" value="true" />
+      <created>1739385350060</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1739385350060</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -765,16 +806,12 @@
     <MESSAGE value="Work Done:&#10;- adding the companies node to realtime database and retrieving the created data.&#10;&#10;- adding components to project recyclerView, CurrencyEditText, CircleImageView, Picasso, MaskEditText.&#10;&#10;- adding the model Company.&#10;&#10;- adding activities and creating the xml view of components.&#10;&#10;- making some design layout updates. &#10;&#10;Notes:&#10;&#10;* Add items:&#10;- build.gradle.kts&#10;- activity_authentication.xml&#10;- activity_company.xml&#10;- AndroidManifest.xml&#10;- AuthenticationActivity.java&#10;- ClientActivity.java&#10;- colors.xml&#10;- CompanyActivity.java&#10;- ClientActivity.java&#10;- Constants.java&#10;- dimens.xml&#10;- IntroActivity.java&#10;- menu_client.xml&#10;- menu_company.xml&#10;- themes.xml&#10;- toolbar_client.xml&#10;- toolbar_company.xml&#10;- toolbar_title.xml&#10;- UserFirebase.java&#10;&#10;* Updated items:&#10;- activity_setting_company.xml&#10;- activity_setting_user.xml&#10;- AnimationsSearch.java&#10;- Company.java&#10;- ic_add_a_photo_84.xml&#10;- ic_arrow_back_24.xml&#10;- ic_broken_image_24.xml&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- toolbar_title.xml&#10;&#10;* Removed:&#10;- ..." />
     <MESSAGE value="Work Done:&#10;- adding some necessary files to the project.&#10;&#10;Notes:&#10;&#10;* Add items:&#10;- assetWizardSettings.xml&#10;- local.properties&#10;- workspace.xml&#10;&#10;&#10;* Updated items:&#10;- ...&#10;&#10;* Removed:&#10;- ..." />
     <MESSAGE value="Work Done:&#10;- Adding necessary components to create the NewItemCompanyActivity.  &#10;- Adding permission to use the internet.&#10;- Adding the model to save the data products on the database.&#10;- Saving the product data in the Firebase real-time database.&#10;  &#10;&#10;Notes:&#10;&#10;* Add items:&#10;- Products.java&#10;&#10;* Updated items:&#10;- activity_new_item_company.xml&#10;- AndroidManifest.xml&#10;- Company.java&#10;- Constants.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- strings.xml&#10;&#10;* Removed:&#10;- ..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Work Done:&#10;- Adding necessary components to create the NewItemCompanyActivity.  &#10;- Adding permission to use the internet.&#10;- Adding the model to save the data products on the database.&#10;- Saving the product data in the Firebase real-time database.&#10;  &#10;&#10;Notes:&#10;&#10;* Add items:&#10;- Products.java&#10;&#10;* Updated items:&#10;- activity_new_item_company.xml&#10;- AndroidManifest.xml&#10;- Company.java&#10;- Constants.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- strings.xml&#10;&#10;* Removed:&#10;- ..." />
+    <MESSAGE value="Work Done:&#10;- Adding necessary components to create the MenuActivity, divisor_menu.xml, rows, and RecyclerView.  &#10;- Adding the logged user name to the toolbar. &#10;- Add the calls to the Firebase RealTime database to list companies and products.&#10;- Add the calls to the Firebase RealTime database to save the data on the user, company, and products.&#10;- Moving the animations search into a class.&#10;- Adding the class SysTemUi and creating the hide navigation functions to hide components of the Android API version.&#10;&#10;Notes:&#10;&#10;* Add items:&#10;- MenuActivity.java&#10;- AdapterCompanies.java&#10;- SysTemUi.java&#10;- activity_menu.xml&#10;- divisor_menu.xml&#10;- row_companies.xml&#10;&#10;* Updated items:&#10;- AuthenticationActivity.java&#10;- ClientActivity.java&#10;- CompanyActivity.java&#10;- IntroActivity.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- Constants.java&#10;- Companies.java&#10;- Products.java&#10;- Users.java&#10;- AnimationsSearch.java&#10;- ic_broken_image_24.xml&#10;- img_profile.png&#10;- activity_authentication.xml&#10;- activity_client.xml&#10;- activity_setting_user.xml&#10;- colors.xml&#10;- dimens.xml&#10;- strings.xml&#10;&#10;* Removed:&#10;- ..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Work Done:&#10;- Adding necessary components to create the MenuActivity, divisor_menu.xml, rows, and RecyclerView.  &#10;- Adding the logged user name to the toolbar. &#10;- Add the calls to the Firebase RealTime database to list companies and products.&#10;- Add the calls to the Firebase RealTime database to save the data on the user, company, and products.&#10;- Moving the animations search into a class.&#10;- Adding the class SysTemUi and creating the hide navigation functions to hide components of the Android API version.&#10;&#10;Notes:&#10;&#10;* Add items:&#10;- MenuActivity.java&#10;- AdapterCompanies.java&#10;- SysTemUi.java&#10;- activity_menu.xml&#10;- divisor_menu.xml&#10;- row_companies.xml&#10;&#10;* Updated items:&#10;- AuthenticationActivity.java&#10;- ClientActivity.java&#10;- CompanyActivity.java&#10;- IntroActivity.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- Constants.java&#10;- Companies.java&#10;- Products.java&#10;- Users.java&#10;- AnimationsSearch.java&#10;- ic_broken_image_24.xml&#10;- img_profile.png&#10;- activity_authentication.xml&#10;- activity_client.xml&#10;- activity_setting_user.xml&#10;- colors.xml&#10;- dimens.xml&#10;- strings.xml&#10;&#10;* Removed:&#10;- ..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingCompanyActivity.java</url>
-          <line>146</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/MenuActivity.java</url>
           <line>70</line>
@@ -782,12 +819,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/ClientActivity.java</url>
-          <line>130</line>
+          <line>131</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/ClientActivity.java</url>
-          <line>271</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/NewItemCompanyActivity.java</url>
+          <line>158</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
@@ -808,12 +845,12 @@
       <map>
         <entry key="udemy.java.desenvolvimento.android.completo.ifood_clone">
           <value>
-            <CheckInfo lastCheckTimestamp="1739377904643" />
+            <CheckInfo lastCheckTimestamp="1740242588525" />
           </value>
         </entry>
         <entry key="udemy.java.desenvolvimento.android.completo.ifood_clone.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1739377904652" />
+            <CheckInfo lastCheckTimestamp="1740242588528" />
           </value>
         </entry>
       </map>

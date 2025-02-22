@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
+    android:layout_weight="1"
     tools:context=".activity.SettingUserActivity">
 
 
@@ -13,15 +15,49 @@
         layout="@layout/toolbar_title" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/d_400sdp"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/d_20sdp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_setting_user"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView_userImage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="@dimen/d_200sdp"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/d_20sdp"
+            android:src="@drawable/ic_add_a_photo_84"
+            app:civ_border_overlay="false" />
 
+        <EditText
+            android:id="@+id/editText_userName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/d_10sdp"
+            android:hint="@string/name"
+            style="@style/CustomEditText"
+            />
+
+        <EditText
+            android:id="@+id/editText_userAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/d_10sdp"
+            android:hint="@string/address"
+            style="@style/CustomEditText" />
+
+        <Button
+            android:id="@+id/button_saveUserData"
+            android:layout_width="@dimen/d_320dp"
+            android:layout_height="@dimen/d_60sdp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/salvar"
+            app:backgroundTint="@null"
+            style="@style/colorButton" />
 
     </LinearLayout>
 </LinearLayout>

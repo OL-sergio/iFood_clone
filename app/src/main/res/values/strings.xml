@@ -25,7 +25,7 @@
     <string name="erro_ao_fazer_login">"Erro ao fazer login : "</string>
     <string name="user">User</string>
     <string name="empresa">Empresa</string>
-    <string name="name">Name</string>
+    <string name="name">Nome</string>
     <string name="preencha_o_nome">Prencher um nome primeiro.</string>
     <string name="cardview">CardView</string>
     <string name="tipo_de_produto">Tipo de produto</string>
@@ -33,4 +33,7 @@
     <string name="servi_o_de_entrega">serviço de entrega</string>
     <string name="pre_o">Preço</string>
     <string name="ifood_company">iFood - Company</string>
+    <string name="address">Morada</string>
+    <string name="salvar">Salvar</string>
+    <string name="ifood_client">iFood - client</string>
 </resources>

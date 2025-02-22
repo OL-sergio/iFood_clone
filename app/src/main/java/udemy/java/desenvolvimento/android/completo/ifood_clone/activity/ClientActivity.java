@@ -40,6 +40,7 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.FirebaseCo
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.UserFirebase;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.listener.RecyclerItemClickListener;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Companies;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Users;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.AnimationsSearch;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SysTemUi;
 
@@ -53,10 +54,10 @@ public class ClientActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private FirebaseStorage firebaseStorage;
     private String idUserLogged;
-    private AnimationsSearch animationsSearch;
     private Companies company;
+    private Users user;
 
-
+    private AnimationsSearch animationsSearch;
     private SearchView searchView;
     private RecyclerView recyclerCompanies;
     private AdapterCompanies adapterCompanies;
@@ -189,6 +190,27 @@ public class ClientActivity extends AppCompatActivity {
 
             }
         });
+
+        DatabaseReference userRef = databaseReference
+                .child( Constants.USERS )
+                .child( idUserLogged );
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                user = snapshot.getValue(Users.class);
+                if (user != null){
+                    binding.toolbar.toolbarClient.setTitle( user.getName() );
+                }else {
+                    binding.toolbar.toolbarClient.setTitle( R.string.ifood_client );
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
     @Override
@@ -268,12 +290,6 @@ public class ClientActivity extends AppCompatActivity {
     private void  setupToolbar(){
 
         Toolbar toolbar = binding.toolbar.toolbarClient;
-        if (company != null){
-            toolbar.setTitle( company.getName() );
-        }else {
-            toolbar.setTitle("iFood - client");
-        }
-
         setSupportActionBar(toolbar);
     }
     private void components() {

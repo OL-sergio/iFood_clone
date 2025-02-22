@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.VectorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -59,9 +61,7 @@ public class SettingCompanyActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private String idUserLogged;
     private String selectedImageUrl;
-    private StorageReference storageReference;
-
-    private BitmapConverter bitmapConverter;
+    private Companies company;
 
     private CircleImageView imgLogo;
     private EditText edtName;
@@ -86,27 +86,22 @@ public class SettingCompanyActivity extends AppCompatActivity {
         firebaseStorage = FirebaseConfiguration.getFirebaseStorage().getStorage();
         databaseReference = FirebaseConfiguration.getFirebaseDatabase();
         idUserLogged = UserFirebase.getUserId();
+        company = new Companies();
 
-        bitmapConverter = new BitmapConverter();
 
         btnSave.setOnClickListener(this::validateCompanyData);
 
         retrieveCompanyData();
 
-        storageReference = firebaseStorage.getReference()
-                .child(Constants.IMAGES)
-                .child(Constants.COMPANY)
-                .child(idUserLogged + Constants.JPG);
 
         imagePickerLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
-                    if(result.getResultCode() == RESULT_OK) {
-                        if (result.getData() != null) {
+                    if(result.getResultCode() == RESULT_OK && result.getData() != null) {
                             selectedImageUrl  = String.valueOf(result.getData().getData());
                             imgLogo.setImageURI(Uri.parse(selectedImageUrl));
                         }
-                    }
+
                 });
         imgLogo.setOnClickListener(v -> pickImage());
     }
@@ -130,10 +125,10 @@ public class SettingCompanyActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 if (snapshot.getValue() != null){
-                    Companies company = snapshot.getValue(Companies.class);
+                    company = snapshot.getValue(Companies.class);
                     edtName.setText(company.getName());
                     edtCategory.setText(company.getCategory());
-                    edtTimeEstimate.setText(company.getTimeEstimate());
+                    edtTimeEstimate.setText(company.getEstimatedTime());
                     edtTotalPrice.setText( company.getTotalPrice() );
 
                     Picasso.get()
@@ -146,74 +141,77 @@ public class SettingCompanyActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-               toastMessage("Error retrieving company data");
+               toastMessage( error + " " + "Erro o recuperar dados da Empresa");
             }
         });
     }
 
-
-
     private void validateCompanyData (View view ){
 
-        if ( selectedImageUrl == null || imgLogo == null  ) {
-            snackBarMessage("Select an image for the company");
-            return;
-        }
-
+        Drawable drawable = imgLogo.getDrawable();
+        Bitmap bitmap;
         String name = edtName.getText().toString();
         String category = edtCategory.getText().toString();
         String timeEstimate = edtTimeEstimate.getText().toString();
         String totalPrice = edtTotalPrice.getText().toString();
 
-        if ( !name.isEmpty() ){
-            if ( !category.isEmpty() ){
-                if ( !timeEstimate.isEmpty() ){
-                    if ( !totalPrice.isEmpty() ){
-                        //Save com company data
-                        uploadImage(name, category, timeEstimate, totalPrice);
+        if (drawable instanceof BitmapDrawable drawableImage) {
+            if ( !name.isEmpty() ){
+                if ( !category.isEmpty() ){
+                    if ( !timeEstimate.isEmpty() ){
+                        if ( !totalPrice.isEmpty() ){
 
+                            bitmap =  drawableImage.getBitmap();
+                            //Save com company data
+                            uploadImage( bitmap, name, category, timeEstimate, totalPrice );
+
+                        }else {
+                            snackBarMessage("Intreduza o preço médio da sua Empresa");
+                        }
                     }else {
-                        toastMessage("Enter the total price");
+                        snackBarMessage("Intreduza a estimativa estrega de tempo médio da sua Empresa");
                     }
                 }else {
-                    toastMessage("Enter the delivery time");
+                    snackBarMessage("Intreduza a sua Categoria da sua Empresa");
                 }
             }else {
-                toastMessage("Enter the company category");
+                snackBarMessage("Intreduza o Nome da sua Empresa");
             }
-        }else {
-            toastMessage("Enter the company name");
+        } else {
+            // Convert VectorDrawable to Bitmap
+            snackBarMessage("Intreduza uma imagem da sua Empresa");
         }
     }
 
 
-    private void uploadImage(String name, String category, String timeEstimate, String totalPrice) {
+    private void uploadImage(Bitmap bitmap,String name, String category, String timeEstimate, String totalPrice) {
 
 
-        StorageReference databaseReference = firebaseStorage.getReference()
+        StorageReference storageReference = firebaseStorage.getReference()
                 .child(Constants.IMAGES)
                 .child(Constants.COMPANY)
-                .child( idUserLogged + Constants.JPG);
+                .child(idUserLogged)
+                .child(idUserLogged + Constants.JPG);
 
-        Bitmap bitmap = ((BitmapDrawable) imgLogo.getDrawable()).getBitmap();
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 25, byteArrayOutputStream);
-        byte[] imageInByte = byteArrayOutputStream.toByteArray();
 
-        UploadTask uploadTask = databaseReference.putBytes(imageInByte);
-        Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-            @Override
-            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                if (!task.isSuccessful()) {
-                    throw Objects.requireNonNull(task.getException());
+        if (bitmap != null) {
+            bitmap = ((BitmapDrawable) imgLogo.getDrawable()).getBitmap();
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 25, byteArrayOutputStream);
+            byte[] imageInByte = byteArrayOutputStream.toByteArray();
+
+            UploadTask uploadTask = storageReference.putBytes(imageInByte);
+            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) {
+                        throw Objects.requireNonNull(task.getException());
+                    }
+                    // Continue with the task to get the download URL
+                    return storageReference.getDownloadUrl();
                 }
-                // Continue with the task to get the download URL
-                return databaseReference.getDownloadUrl();
-            }
-        });
-        urlTask.addOnCompleteListener(new OnCompleteListener<Uri>() {
-            @Override
-            public void onComplete(@NonNull Task<Uri> task) {
+            });
+            urlTask.addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
                     Uri downloadUri = task.getResult();
                     saveCompanyData( downloadUri ,name , category, timeEstimate, totalPrice);
@@ -222,27 +220,26 @@ public class SettingCompanyActivity extends AppCompatActivity {
                     // ...
                     snackBarMessage("Erro ao fazer upload da imagem");
                 }
-            }
-        });
+            });
+        }
     }
     private void saveCompanyData(Uri selectedImageUrl,String name, String category, String timeEstimate, String totalPrice) {
-        Companies company = new Companies();
         company.setIdCompany(idUserLogged);
         company.setName(name);
         company.setFilterName(name);
         company.setCategory(category);
-        company.setTimeEstimate(timeEstimate);
+        company.setEstimatedTime(timeEstimate);
         company.setTotalPrice(totalPrice);
         company.setCompanyImageUrl(selectedImageUrl.toString());
         company.saveCompanyData();
-        company.updateUser();
+        company.updateUserCompany();
         finish();
 
     }
 
     private void setupToolbar() {
         MaterialToolbar toolbar = binding.toolbar.toolbarTitle;
-        toolbar.setTitle("Set Setting Company");
+        toolbar.setTitle("Configurações da Empresa");
         toolbar.setNavigationContentDescription("Back");
         toolbar.setNavigationIcon(ContextCompat.getDrawable(this, R.drawable.ic_arrow_back_24));
         toolbar.setNavigationOnClickListener(v -> finish());

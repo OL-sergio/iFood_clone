@@ -6,6 +6,8 @@ import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.VectorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -89,12 +91,11 @@ public class NewItemCompanyActivity extends AppCompatActivity {
         imagePickerLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
-                    if(result.getResultCode() == RESULT_OK) {
-                        if (result.getData() != null) {
+                    if(result.getResultCode() == RESULT_OK && result.getData() != null) {
                                 selectedImageUrl  = result.getData().getData();
                                 imgLogo.setImageURI(selectedImageUrl);
                         }
-                    }
+
                 });
         imgLogo.setOnClickListener(v -> pickImage());
     }
@@ -108,32 +109,36 @@ public class NewItemCompanyActivity extends AppCompatActivity {
 
     private void validateCompanyData (View view ){
 
-        if (selectedImageUrl == null) {
-            snackBarMessage("Selecione uma imagem para o produto");
-            return;
-        }
+        Drawable drawable = imgLogo.getDrawable();
+        Bitmap bitmap = null;
 
         String name = edtName.getText().toString();
         String category = edtCategory.getText().toString();
         String totalPrice = edtTotalPrice.getText().toString();
 
-        if ( !name.isEmpty() ){
-            if ( !category.isEmpty() ){
-                    if ( !totalPrice.isEmpty() ){
+        if (drawable instanceof BitmapDrawable drawableImage) {
+            if ( !name.isEmpty() ){
+                if ( !category.isEmpty() ){
+                        if ( !totalPrice.isEmpty() ){
+                            bitmap = drawableImage.getBitmap();
+                            uploadImage(bitmap ,name, category, totalPrice);
 
-                        uploadImage(name, category, totalPrice);
-
-                    }else {
-                        toastMessage("Intreduza o preço total.");
-                    }
+                        }else {
+                            toastMessage("Intreduza o preço total.");
+                        }
+                }else {
+                    toastMessage("Intreduza a categoria.");
+                }
             }else {
-                toastMessage("Intreduza a categoria.");
+                toastMessage("Intreduza o nome do produto.");
             }
-        }else {
-            toastMessage("Intreduza o nome do produto.");
+        } else {
+            // Convert VectorDrawable to Bitmap
+            snackBarMessage("Selecione uma imagem do utilizador");
         }
+
     }
-    private void uploadImage( String name, String category, String totalPrice) {
+    private void uploadImage(Bitmap bitmap , String name, String category, String totalPrice) {
 
 
 
@@ -145,25 +150,28 @@ public class NewItemCompanyActivity extends AppCompatActivity {
                 .child( products.getIdProduct() + Constants.JPG);
 
 
-        Bitmap bitmap = ((BitmapDrawable) imgLogo.getDrawable()).getBitmap();
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 25, byteArrayOutputStream);
-        byte[] imageInByte = byteArrayOutputStream.toByteArray();
 
-        UploadTask uploadTask = storageReference.putBytes(imageInByte);
-        Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-            @Override
-            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                if (!task.isSuccessful()) {
-                    throw Objects.requireNonNull(task.getException());
+
+
+
+        if (bitmap != null) {
+            bitmap = ((BitmapDrawable) imgLogo.getDrawable()).getBitmap();
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 25, byteArrayOutputStream);
+            byte[] imageInByte = byteArrayOutputStream.toByteArray();
+
+            UploadTask uploadTask = storageReference.putBytes(imageInByte);
+            Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                @Override
+                public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                    if (!task.isSuccessful()) {
+                        throw Objects.requireNonNull(task.getException());
+                    }
+                    // Continue with the task to get the download URL
+                    return storageReference.getDownloadUrl();
                 }
-                // Continue with the task to get the download URL
-                return storageReference.getDownloadUrl();
-            }
-        });
-        urlTask.addOnCompleteListener(new OnCompleteListener<Uri>() {
-            @Override
-            public void onComplete(@NonNull Task<Uri> task) {
+            });
+            urlTask.addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
                     Uri downloadUri = task.getResult();
                     saveProductData(downloadUri, name, category, totalPrice);
@@ -172,8 +180,8 @@ public class NewItemCompanyActivity extends AppCompatActivity {
                     // ...
                     snackBarMessage("Erro ao fazer upload da imagem");
                 }
-            }
-        });
+            });
+        }
     }
 
 

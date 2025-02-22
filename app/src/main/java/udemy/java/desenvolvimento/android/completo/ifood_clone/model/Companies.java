@@ -20,7 +20,7 @@ public class Companies implements Serializable {
     private String name;
     private String filterName;
     private String category;
-    private String timeEstimate;
+    private String estimatedTime;
     private String  totalPrice;
 
     public Companies() {}
@@ -31,7 +31,7 @@ public class Companies implements Serializable {
                 .child(getIdCompany());
         companyRef.setValue(this);
     }
-    public void updateUser(){
+    public void updateUserCompany(){
 
         DatabaseReference firebaseReference = FirebaseConfiguration.getFirebaseDatabase();
        /* DatabaseReference usersReference = firebaseReference
@@ -41,6 +41,7 @@ public class Companies implements Serializable {
 
         Map<String, Object> updateUsersChild = new HashMap<>();
         updateUsersChild.put("/" + Constants.USERS + "/" + getIdCompany() + "/name", getName() );
+        updateUsersChild.put("/" + Constants.USERS + "/" + getIdCompany() + "/companyImageUrl", getCompanyImageUrl() );
         firebaseReference.updateChildren( updateUsersChild ).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
                 Log.d("INFO", "User data updated successfully");
@@ -93,12 +94,12 @@ public class Companies implements Serializable {
         this.category = category;
     }
 
-    public String getTimeEstimate() {
-        return timeEstimate;
+    public String getEstimatedTime() {
+        return estimatedTime;
     }
 
-    public void setTimeEstimate(String timeEstimate) {
-        this.timeEstimate = timeEstimate;
+    public void setEstimatedTime(String estimatedTime) {
+        this.estimatedTime = estimatedTime;
     }
 
     public String  getTotalPrice() {

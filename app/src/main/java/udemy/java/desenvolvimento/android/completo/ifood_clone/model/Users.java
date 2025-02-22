@@ -14,6 +14,7 @@ public class Users {
     private String userId;
     private String name;
     private String userType;
+    private String companyImageUrl;
     private String email;
     private String password;
 
@@ -44,6 +45,14 @@ public class Users {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCompanyImageUrl() {
+        return companyImageUrl;
+    }
+
+    public void setCompanyImageUrl(String companyImageUrl) {
+        this.companyImageUrl = companyImageUrl;
     }
 
     public String getUserType() {

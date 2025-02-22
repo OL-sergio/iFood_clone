@@ -44,7 +44,7 @@ public class AdapterCompanies extends RecyclerView.Adapter<AdapterCompanies.MyVi
         Companies company = companyList.get(i);
         holder.companyName.setText(company.getName());
         holder.category.setText(company.getCategory() + "  - ");
-        holder.estimateTime.setText(company.getTimeEstimate() + " Min - ");
+        holder.estimateTime.setText(company.getEstimatedTime() + " Min - ");
         holder.deliveryPrice.setText("R$ " + company.getTotalPrice());
 
 
