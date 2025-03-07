@@ -16,20 +16,27 @@
         android:theme="@style/Theme.IFood"
         tools:targetApi="31">
         <activity
-            android:name=".activity.MenuActivity"
-            android:parentActivityName=".activity.ClientActivity"
-            android:theme="@style/Theme.IFood.NoActionBar"
-            android:exported="false" >
-
-        </activity>
-        <activity
-            android:name=".activity.SettingUserActivity"
+            android:name=".activity.OrderViewActivity"
             android:exported="false"
-            android:parentActivityName=".activity.ClientActivity"
+            android:theme="@style/Theme.IFood.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.CustomerActivity" />
+        </activity>
+            />
+        <activity
+            android:name=".activity.MenuActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.CustomerActivity"
+            android:theme="@style/Theme.IFood.NoActionBar" />
+        <activity
+            android:name=".activity.SettingCustomerActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.CustomerActivity"
             android:theme="@style/Theme.IFood.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.ClientActivity" />
+                android:value=".activity.CustomerActivity" />
         </activity>
         <activity
             android:name=".activity.NewItemCompanyActivity"
@@ -46,7 +53,7 @@
             android:exported="false"
             android:theme="@style/Theme.IFood.NoActionBar" />
         <activity
-            android:name=".activity.ClientActivity"
+            android:name=".activity.CustomerActivity"
             android:exported="false"
             android:theme="@style/Theme.IFood.NoActionBar" />
         <activity

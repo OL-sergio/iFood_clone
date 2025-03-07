@@ -42,10 +42,10 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.listener.Recycler
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Companies;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Users;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.AnimationsSearch;
-import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SysTemUi;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SystemUi;
 
 
-public class ClientActivity extends AppCompatActivity {
+public class CustomerActivity extends AppCompatActivity {
 
     private ActivityClientBinding binding;
 
@@ -72,7 +72,7 @@ public class ClientActivity extends AppCompatActivity {
         binding = ActivityClientBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        SysTemUi sysTemUi = new SysTemUi(this);
+        SystemUi sysTemUi = new SystemUi(this);
         sysTemUi.hideSystemUIHideNavigation();
 
         setupToolbar();
@@ -128,7 +128,7 @@ public class ClientActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(View view, int position) {
                         company = companyList.get(position);
-                        Intent intent = new Intent(ClientActivity.this, MenuActivity.class);
+                        Intent intent = new Intent(CustomerActivity.this, MenuActivity.class);
                         intent.putExtra(Constants.COMPANY, company);
                         startActivity(intent);
 
@@ -278,7 +278,7 @@ public class ClientActivity extends AppCompatActivity {
     }
 
     private void settingUser() {
-        startActivity(new Intent(this, SettingUserActivity.class));
+        startActivity(new Intent(this, SettingCustomerActivity.class));
     }
 
     private void logoutUser() {

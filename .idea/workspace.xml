@@ -4,9 +4,9 @@
     <shared>
       <config>
         <device id="_device_class_phone" />
+        <device id="_device_class_foldable" />
         <device id="_device_class_desktop" />
         <device id="_device_class_tablet" />
-        <device id="_device_class_foldable" />
         <device id="automotive_ultrawide" />
         <device id="tv_4k" />
         <device id="tv_720p" />
@@ -50,6 +50,11 @@
           <theme>@style/Theme.IFood.NoActionBar</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_order_view.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_setting_company.xml">
         <config>
           <theme>@style/Theme.IFood.NoActionBar</theme>
@@ -58,6 +63,16 @@
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_setting_user.xml">
         <config>
           <theme>@style/Theme.IFood.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_amount_order.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_progress.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/divisor.xml">
@@ -71,6 +86,11 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/row_companies.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/row_items_order.xml">
         <config>
           <theme>@style/Theme.IFood</theme>
         </config>
@@ -92,7 +112,6 @@
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar_title.xml">
         <config>
-          <state>landscape</state>
           <theme>@style/Theme.IFood</theme>
         </config>
       </layout>
@@ -106,28 +125,58 @@
           <theme>@style/Theme.IFood</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/menu/menu_menu.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcc5f4d8-27f6-4e8c-b6db-f002212e80c1" name="Changes" comment="Work Done:&#10;- Adding necessary components to create the MenuActivity, divisor_menu.xml, rows, and RecyclerView.  &#10;- Adding the logged user name to the toolbar. &#10;- Add the calls to the Firebase RealTime database to list companies and products.&#10;- Add the calls to the Firebase RealTime database to save the data on the user, company, and products.&#10;- Moving the animations search into a class.&#10;- Adding the class SysTemUi and creating the hide navigation functions to hide components of the Android API version.&#10;&#10;Notes:&#10;&#10;* Add items:&#10;- MenuActivity.java&#10;- AdapterCompanies.java&#10;- SysTemUi.java&#10;- activity_menu.xml&#10;- divisor_menu.xml&#10;- row_companies.xml&#10;&#10;* Updated items:&#10;- AuthenticationActivity.java&#10;- ClientActivity.java&#10;- CompanyActivity.java&#10;- IntroActivity.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- Constants.java&#10;- Companies.java&#10;- Products.java&#10;- Users.java&#10;- AnimationsSearch.java&#10;- ic_broken_image_24.xml&#10;- img_profile.png&#10;- activity_authentication.xml&#10;- activity_client.xml&#10;- activity_setting_user.xml&#10;- colors.xml&#10;- dimens.xml&#10;- strings.xml&#10;&#10;* Removed:&#10;- ...">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
+    <list default="true" id="dcc5f4d8-27f6-4e8c-b6db-f002212e80c1" name="Changes" comment="Work Done:&#10;- Adding the components to the user's settings layout.&#10;- Add the customer model class with the necessary functions and variables.&#10;- Adding the node customers to the real-time database.&#10;- Add the class activity to user settings to save, retrieve, and verify the data the user has selected. &#10;- Retrieving the user name from the Users node and setting it on the toolbar activities.&#10;&#10;Notes:&#10;-...&#10;&#10;* Add items:&#10;- Customer.java&#10;&#10;* Updated items:&#10;- ClientActivity.java&#10;- CompanyActivity.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- AdapterCompanies.java&#10;- Constants.java&#10;- Companies.java&#10;- Users.java&#10;- activity_authentication.xml&#10;- activity_setting_user.xml&#10;- activity_setting_company.xml&#10;- strings.xml&#10;&#10;* Removed:&#10;- ...">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterItemsOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/ItemOrders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Orders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/utilities/ProgressDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/dw_divisor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_shopping_bag_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_order_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_amount_order.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_progress.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_items_order.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_menu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/refs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/ClientActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/ClientActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/AuthenticationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/AuthenticationActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/ClientActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/CustomerActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/CompanyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/CompanyActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/IntroActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/IntroActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/MenuActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/MenuActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/NewItemCompanyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/NewItemCompanyActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingCompanyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingCompanyActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingUserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingUserActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterCompanies.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterCompanies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingUserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingCustomerActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterProducts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/helper/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/helper/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Companies.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Companies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_authentication.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_authentication.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_company.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_company.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/utilities/SysTemUi.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/utilities/SystemUi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_client.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_client.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/divisor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/divisor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/divisor_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/divisor_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_companies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_companies.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_products.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_products.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/toolbar_title.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/toolbar_title.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <list id="89cd0fa4-001d-44af-a278-28290339da9b" name="code" comment="code" />
@@ -201,9 +250,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="valueResourceFile" />
-        <option value="resourceFile" />
         <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -266,6 +315,7 @@
     &quot;DEBUGGABLE_DEVICE&quot;: &quot;Medium_Phone_API_35 [emulator-5554]&quot;,
     &quot;DEBUGGABLE_PROCESS&quot;: &quot;udemy.java.desenvolvimento.android.completo.ifood_clone&quot;,
     &quot;DEBUGGER_ID&quot;: &quot;Auto&quot;,
+    &quot;Gradle.Upgrade Gradle wrapper.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.iFood [build].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.iFood [signingReport].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.iFood:app [testDebugUnitTest].executor&quot;: &quot;Run&quot;,
@@ -285,7 +335,7 @@
     &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sergi/AndroidStudioProjects/iFood/app/src/main/res/layout&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sergi/AndroidStudioProjects/iFood/app/src/main/res/drawable&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -300,7 +350,11 @@
       <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone.helper" />
       <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone.utilities" />
     </key>
+    <key name="android.template.397010159">
+      <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone.activity" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sergi\AndroidStudioProjects\iFood\app\src\main\res\drawable" />
       <recent name="C:\Users\sergi\AndroidStudioProjects\iFood\app\src\main\res\layout" />
       <recent name="C:\Users\sergi\AndroidStudioProjects\iFood\app" />
     </key>
@@ -468,7 +522,7 @@
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY" value="" />
-      <option name="ACTIVITY_CLASS" value="udemy.java.desenvolvimento.android.completo.ifood_clone.activity.ClientActivity" />
+      <option name="ACTIVITY_CLASS" value="udemy.java.desenvolvimento.android.completo.ifood_clone.activity.CustomerActivity" />
       <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
       <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
       <method v="2">
@@ -732,7 +786,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739385350060</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Work Done:&#10;- Adding the components to the user's settings layout.&#10;- Add the customer model class with the necessary functions and variables.&#10;- Adding the node customers to the real-time database.&#10;- Add the class activity to user settings to save, retrieve, and verify the data the user has selected. &#10;- Retrieving the user name from the Users node and setting it on the toolbar activities.&#10;&#10;Notes:&#10;-...&#10;&#10;* Add items:&#10;- Customer.java&#10;&#10;* Updated items:&#10;- ClientActivity.java&#10;- CompanyActivity.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- AdapterCompanies.java&#10;- Constants.java&#10;- Companies.java&#10;- Users.java&#10;- activity_authentication.xml&#10;- activity_setting_user.xml&#10;- activity_setting_company.xml&#10;- strings.xml&#10;&#10;* Removed:&#10;- ...">
+      <option name="closed" value="true" />
+      <created>1740243482334</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1740243482334</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -807,25 +869,62 @@
     <MESSAGE value="Work Done:&#10;- adding some necessary files to the project.&#10;&#10;Notes:&#10;&#10;* Add items:&#10;- assetWizardSettings.xml&#10;- local.properties&#10;- workspace.xml&#10;&#10;&#10;* Updated items:&#10;- ...&#10;&#10;* Removed:&#10;- ..." />
     <MESSAGE value="Work Done:&#10;- Adding necessary components to create the NewItemCompanyActivity.  &#10;- Adding permission to use the internet.&#10;- Adding the model to save the data products on the database.&#10;- Saving the product data in the Firebase real-time database.&#10;  &#10;&#10;Notes:&#10;&#10;* Add items:&#10;- Products.java&#10;&#10;* Updated items:&#10;- activity_new_item_company.xml&#10;- AndroidManifest.xml&#10;- Company.java&#10;- Constants.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- strings.xml&#10;&#10;* Removed:&#10;- ..." />
     <MESSAGE value="Work Done:&#10;- Adding necessary components to create the MenuActivity, divisor_menu.xml, rows, and RecyclerView.  &#10;- Adding the logged user name to the toolbar. &#10;- Add the calls to the Firebase RealTime database to list companies and products.&#10;- Add the calls to the Firebase RealTime database to save the data on the user, company, and products.&#10;- Moving the animations search into a class.&#10;- Adding the class SysTemUi and creating the hide navigation functions to hide components of the Android API version.&#10;&#10;Notes:&#10;&#10;* Add items:&#10;- MenuActivity.java&#10;- AdapterCompanies.java&#10;- SysTemUi.java&#10;- activity_menu.xml&#10;- divisor_menu.xml&#10;- row_companies.xml&#10;&#10;* Updated items:&#10;- AuthenticationActivity.java&#10;- ClientActivity.java&#10;- CompanyActivity.java&#10;- IntroActivity.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- Constants.java&#10;- Companies.java&#10;- Products.java&#10;- Users.java&#10;- AnimationsSearch.java&#10;- ic_broken_image_24.xml&#10;- img_profile.png&#10;- activity_authentication.xml&#10;- activity_client.xml&#10;- activity_setting_user.xml&#10;- colors.xml&#10;- dimens.xml&#10;- strings.xml&#10;&#10;* Removed:&#10;- ..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Work Done:&#10;- Adding necessary components to create the MenuActivity, divisor_menu.xml, rows, and RecyclerView.  &#10;- Adding the logged user name to the toolbar. &#10;- Add the calls to the Firebase RealTime database to list companies and products.&#10;- Add the calls to the Firebase RealTime database to save the data on the user, company, and products.&#10;- Moving the animations search into a class.&#10;- Adding the class SysTemUi and creating the hide navigation functions to hide components of the Android API version.&#10;&#10;Notes:&#10;&#10;* Add items:&#10;- MenuActivity.java&#10;- AdapterCompanies.java&#10;- SysTemUi.java&#10;- activity_menu.xml&#10;- divisor_menu.xml&#10;- row_companies.xml&#10;&#10;* Updated items:&#10;- AuthenticationActivity.java&#10;- ClientActivity.java&#10;- CompanyActivity.java&#10;- IntroActivity.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- Constants.java&#10;- Companies.java&#10;- Products.java&#10;- Users.java&#10;- AnimationsSearch.java&#10;- ic_broken_image_24.xml&#10;- img_profile.png&#10;- activity_authentication.xml&#10;- activity_client.xml&#10;- activity_setting_user.xml&#10;- colors.xml&#10;- dimens.xml&#10;- strings.xml&#10;&#10;* Removed:&#10;- ..." />
+    <MESSAGE value="Work Done:&#10;- Adding the components to the user's settings layout.&#10;- Add the customer model class with the necessary functions and variables.&#10;- Adding the node customers to the real-time database.&#10;- Add the class activity to user settings to save, retrieve, and verify the data the user has selected. &#10;- Retrieving the user name from the Users node and setting it on the toolbar activities.&#10;&#10;Notes:&#10;* Add items:&#10;- Customer.java&#10;&#10;* Updated items:&#10;- ClientActivity.java&#10;- CompanyActivity.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- AdapterCompanies.java&#10;- Constants.java&#10;- Companies.java&#10;- Users.java&#10;- activity_authentication.xml&#10;- activity_setting_user.xml&#10;- activity_setting_company.xml&#10;- strings.xml&#10;&#10;* Removed:&#10;- ..." />
+    <MESSAGE value="Work Done:&#10;- Adding the components to the user's settings layout.&#10;- Add the customer model class with the necessary functions and variables.&#10;- Adding the node customers to the real-time database.&#10;- Add the class activity to user settings to save, retrieve, and verify the data the user has selected. &#10;- Retrieving the user name from the Users node and setting it on the toolbar activities.&#10;&#10;Notes:&#10;-...&#10;&#10;* Add items:&#10;- Customer.java&#10;&#10;* Updated items:&#10;- ClientActivity.java&#10;- CompanyActivity.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- AdapterCompanies.java&#10;- Constants.java&#10;- Companies.java&#10;- Users.java&#10;- activity_authentication.xml&#10;- activity_setting_user.xml&#10;- activity_setting_company.xml&#10;- strings.xml&#10;&#10;* Removed:&#10;- ..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Work Done:&#10;- Adding the components to the user's settings layout.&#10;- Add the customer model class with the necessary functions and variables.&#10;- Adding the node customers to the real-time database.&#10;- Add the class activity to user settings to save, retrieve, and verify the data the user has selected. &#10;- Retrieving the user name from the Users node and setting it on the toolbar activities.&#10;&#10;Notes:&#10;-...&#10;&#10;* Add items:&#10;- Customer.java&#10;&#10;* Updated items:&#10;- ClientActivity.java&#10;- CompanyActivity.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- AdapterCompanies.java&#10;- Constants.java&#10;- Companies.java&#10;- Users.java&#10;- activity_authentication.xml&#10;- activity_setting_user.xml&#10;- activity_setting_company.xml&#10;- strings.xml&#10;&#10;* Removed:&#10;- ..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/utilities/ProgressDialog.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/CustomerActivity.java</url>
+          <line>271</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java</url>
+          <line>156</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java</url>
+          <line>157</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/MenuActivity.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="3" />
+          <line>129</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/ClientActivity.java</url>
-          <line>131</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/NewItemCompanyActivity.java</url>
-          <line>158</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterItemsOrder.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -836,6 +935,7 @@
         <PinnedItemInfo parentTag="udemy.java.desenvolvimento.android.completo.ifood_clone.activity.CompanyActivity" memberName="userFirebase" />
         <PinnedItemInfo parentTag="udemy.java.desenvolvimento.android.completo.ifood_clone.activity.CompanyActivity" memberName="userName" />
         <PinnedItemInfo parentTag="udemy.java.desenvolvimento.android.completo.ifood_clone.model.Users" memberName="name" />
+        <PinnedItemInfo parentTag="udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.DialogAmountOrderBinding" memberName="editTextDialogAmountOrder" />
         <PinnedItemInfo parentTag="com.google.firebase.database.DataSnapshot" memberName="query" />
       </pinned-members>
     </pin-to-top-manager>
@@ -845,12 +945,12 @@
       <map>
         <entry key="udemy.java.desenvolvimento.android.completo.ifood_clone">
           <value>
-            <CheckInfo lastCheckTimestamp="1740242588525" />
+            <CheckInfo lastCheckTimestamp="1741364071152" />
           </value>
         </entry>
         <entry key="udemy.java.desenvolvimento.android.completo.ifood_clone.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1740242588528" />
+            <CheckInfo lastCheckTimestamp="1741364071156" />
           </value>
         </entry>
       </map>

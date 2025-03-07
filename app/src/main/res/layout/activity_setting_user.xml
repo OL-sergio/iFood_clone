@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_weight="1"
-    tools:context=".activity.SettingUserActivity">
+    tools:context=".activity.SettingCustomerActivity">
 
 
     <include android:id="@+id/toolbar"
@@ -39,6 +39,19 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="@dimen/d_10sdp"
             android:hint="@string/name"
+            style="@style/CustomEditText"
+            />
+
+        <com.santalu.maskara.widget.MaskEditText
+            android:id="@+id/maskEditText_phoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="@dimen/d_10sdp"
+            android:hint="Telemóvel"
+            android:inputType="number"
+            app:mask="(+___) ___ ___ ___"
+            app:maskCharacter="_"
+            app:maskStyle="completable"
             style="@style/CustomEditText"
             />
 

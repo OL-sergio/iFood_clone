@@ -1,13 +1,10 @@
 package udemy.java.desenvolvimento.android.completo.ifood_clone.activity;
 
-import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.VectorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -24,9 +21,6 @@ import androidx.core.content.ContextCompat;
 
 import com.blackcat.currencyedittext.CurrencyEditText;
 import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
@@ -36,8 +30,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -48,7 +40,7 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.FirebaseConfiguration;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.UserFirebase;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Products;
-import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SysTemUi;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SystemUi;
 
 public class NewItemCompanyActivity extends AppCompatActivity {
 
@@ -74,7 +66,7 @@ public class NewItemCompanyActivity extends AppCompatActivity {
         binding = ActivityNewItemCompanyBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        SysTemUi sysTemUi = new SysTemUi(this);
+        SystemUi sysTemUi = new SystemUi(this);
         sysTemUi.hideSystemUIHideNavigation();
 
         setupToolbar();
@@ -110,7 +102,7 @@ public class NewItemCompanyActivity extends AppCompatActivity {
     private void validateCompanyData (View view ){
 
         Drawable drawable = imgLogo.getDrawable();
-        Bitmap bitmap = null;
+        Bitmap bitmap;
 
         String name = edtName.getText().toString();
         String category = edtCategory.getText().toString();
@@ -150,10 +142,6 @@ public class NewItemCompanyActivity extends AppCompatActivity {
                 .child( products.getIdProduct() + Constants.JPG);
 
 
-
-
-
-
         if (bitmap != null) {
             bitmap = ((BitmapDrawable) imgLogo.getDrawable()).getBitmap();
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -190,12 +178,7 @@ public class NewItemCompanyActivity extends AppCompatActivity {
         products.setIdUser(idUserLogged);
         products.setProductName(name);
         products.setProductCategory(category);
-
-        String priceWithoutSymbol = totalPrice
-                .replace(Constants.TARGET_STRING, "")
-                .trim();
-
-        products.setProductPrice(priceWithoutSymbol);
+        products.setProductPrice(totalPrice);
         products.setImageUrlProduct(image.toString());
         products.saveProductData();
         finish();
@@ -204,7 +187,7 @@ public class NewItemCompanyActivity extends AppCompatActivity {
 
     private void setupToolbar() {
         MaterialToolbar toolbar = binding.toolbar.toolbarTitle;
-        toolbar.setTitle("Set Setting Company");
+        toolbar.setTitle("Adicionar novo item ao menu");
         toolbar.setNavigationContentDescription("Back");
         toolbar.setNavigationIcon(ContextCompat.getDrawable(this, R.drawable.ic_arrow_back_24));
         toolbar.setNavigationOnClickListener(v -> finish());

@@ -27,22 +27,23 @@
                 android:id="@+id/circleImageView_companyMenu"
                 android:layout_width="@dimen/d_90sdp"
                 android:layout_height="@dimen/d_90sdp"
-                android:scaleType="centerCrop"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/img_profile"
                 android:layout_marginStart="@dimen/d_8sdp"
-                android:layout_marginEnd="@dimen/d_8sdp"
                 android:layout_marginTop="@dimen/d_8sdp"
-                android:layout_marginBottom="@dimen/d_8sdp" />
+                android:layout_marginEnd="@dimen/d_8sdp"
+                android:layout_marginBottom="@dimen/d_8sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_profile"
+                tools:ignore="ImageContrastCheck" />
 
             <TextView
                 android:id="@+id/textView_companiesNameMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:gravity="left"
-                android:layout_gravity="center_vertical"
                 android:text="Nome da empresa"
                 android:textColor="@color/c_black_100"
                 android:textSize="@dimen/d_20sdp"
@@ -50,7 +51,66 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TextSizeCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d_40sdp"
+            android:background="@color/c_red_devil_100"
+            android:paddingStart="@dimen/d_20sdp"
+            android:paddingEnd="@dimen/d_20sdp"
+            android:orientation="horizontal"
+            android:layout_marginStart="@dimen/d_20sdp"
+            android:layout_marginEnd="@dimen/d_20sdp"
+            >
+
+            <TextView
+                android:id="@+id/textView_viewCart"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/d_16sdp"
+                android:gravity="center|right"
+                android:text="Ver itens do carrinho: "
+                android:textColor="@color/c_white_100"
+                android:textSize="@dimen/d_12sdp"
+                android:textStyle="bold"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/textView_numberSelectedItems"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="qtd: 0"
+                android:textColor="@color/c_white_100"
+                android:textSize="@dimen/d_12sdp"
+                android:textStyle="bold"
+                tools:ignore="TextSizeCheck" />
+
+            <com.blackcat.currencyedittext.CurrencyEditText
+                android:id="@+id/currencyEditText_totalPriceSelectedItems"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:autoHandwritingEnabled="false"
+                android:background="@android:color/transparent"
+                android:inputType="none"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="center|left"
+                android:text="R$ 0,00"
+                android:textColor="@color/c_white_100"
+                android:textSize="@dimen/d_12sdp"
+                android:textStyle="bold"
+                tools:ignore="TextSizeCheck,TouchTargetSizeCheck" />
 
         </LinearLayout>
 

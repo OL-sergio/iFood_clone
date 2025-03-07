@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageViewProduct"
+            android:layout_width="@dimen/d_60sdp"
+            android:layout_height="@dimen/d_60sdp"
+            android:background="@drawable/ic_shopping_bag_24"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView_productTotalQuantity"
+            android:layout_width="11dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginBottom="32dp"
+            android:text="1"
+            android:textColor="@color/c_red_devil_100"
+            android:textSize="@dimen/d_20sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextSizeCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="@dimen/d_4sdp"
+        android:layout_marginStart="@dimen/d_4sdp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView_productName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Sushi de salmão"
+            android:textColor="@color/c_black_100"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <com.blackcat.currencyedittext.CurrencyEditText
+            android:id="@+id/textView_productPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d_8sdp"
+            android:layout_marginBottom="@dimen/d_8sdp"
+            android:inputType="none"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:textColor="@color/c_irish_green_100"
+            android:background="@color/c_white_100"
+            android:text="10.00 @"
+            android:textSize="14sp"
+            tools:ignore="VisualLintTextFieldSize" />
+    </LinearLayout>
+</LinearLayout>

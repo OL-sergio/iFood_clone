@@ -9,12 +9,15 @@
     <dimen name="d_20sdp">20dp</dimen>
     <dimen name="d_24sdp">24dp</dimen>
     <dimen name="d_32sdp">32dp</dimen>
+    <dimen name="d_40sdp">40dp</dimen>
     <dimen name="d_48sdp">48dp</dimen>
     <dimen name="d_60sdp">60dp</dimen>
     <dimen name="d_90sdp">90dp</dimen>
     <dimen name="d_100sdp">100dp</dimen>
-
+    <dimen name="d_110sdp">110dp</dimen>
+    <dimen name="d_120sdp">120dp</dimen>
     <dimen name="d_150sdp">150dp</dimen>
+    <dimen name="d_160sdp">160dp</dimen>
     <dimen name="d_200sdp">200dp</dimen>
     <dimen name="d_300sdp">300dp</dimen>
     <dimen name="d_400sdp">400dp</dimen>

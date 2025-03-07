@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -51,10 +52,15 @@
                 android:id="@+id/textPriceProduct"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/holo_green_light"
-                android:textSize="18sp"
                 android:background="@color/c_white_100"
-                android:textStyle="bold" />
+                android:minHeight="48dp"
+                android:textColor="@color/c_irish_green_100"
+                android:inputType="none"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="VisualLintTextFieldSize" />
         </LinearLayout>
 
     </LinearLayout>

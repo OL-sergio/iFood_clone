@@ -3,8 +3,6 @@ package udemy.java.desenvolvimento.android.completo.ifood_clone.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.ColorStateList;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -29,10 +27,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +40,7 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.UserFireba
 import udemy.java.desenvolvimento.android.completo.ifood_clone.listener.RecyclerItemClickListener;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Products;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Users;
-import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SysTemUi;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SystemUi;
 
 
 public class CompanyActivity extends AppCompatActivity {
@@ -71,7 +65,7 @@ public class CompanyActivity extends AppCompatActivity {
         binding = ActivityCompanyBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        SysTemUi sysTemUi = new SysTemUi(this);
+        SystemUi sysTemUi = new SystemUi(this);
         sysTemUi.hideSystemUIHideNavigation();
         Window window = getWindow();
         window.setNavigationBarColor(ContextCompat.getColor(this, R.color.c_red_devil_100));
@@ -159,9 +153,6 @@ public class CompanyActivity extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 
     @Override

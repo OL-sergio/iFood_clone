@@ -3,7 +3,6 @@ package udemy.java.desenvolvimento.android.completo.ifood_clone.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +10,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.ActivityIntroBinding;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.FirebaseConfiguration;
-import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SysTemUi;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SystemUi;
 
 
 public class IntroActivity extends AppCompatActivity {
@@ -26,7 +25,7 @@ public class IntroActivity extends AppCompatActivity {
         ActivityIntroBinding binding = ActivityIntroBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        SysTemUi sysTemUi = new SysTemUi(this);
+        SystemUi sysTemUi = new SystemUi(this);
         sysTemUi.hideSystemUIFullScream();
 
         auth = FirebaseConfiguration.getFirebaseAuthentication();

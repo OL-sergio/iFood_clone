@@ -5,7 +5,6 @@ import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.VectorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -23,7 +22,6 @@ import androidx.core.content.ContextCompat;
 
 import com.blackcat.currencyedittext.CurrencyEditText;
 import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
@@ -49,8 +47,7 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.FirebaseConfiguration;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.UserFirebase;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Companies;
-import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.BitmapConverter;
-import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SysTemUi;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SystemUi;
 
 public class SettingCompanyActivity extends AppCompatActivity {
 
@@ -77,7 +74,7 @@ public class SettingCompanyActivity extends AppCompatActivity {
         binding = ActivitySettingCompanyBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        SysTemUi sysTemUi = new SysTemUi(this);
+        SystemUi sysTemUi = new SystemUi(this);
         sysTemUi.hideSystemUIHideNavigation();
 
         setupToolbar();

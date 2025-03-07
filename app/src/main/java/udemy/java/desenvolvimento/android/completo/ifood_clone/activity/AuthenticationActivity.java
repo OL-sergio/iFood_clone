@@ -31,7 +31,7 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.FirebaseConfiguration;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.UserFirebase;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Users;
-import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SysTemUi;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SystemUi;
 
 
 public class AuthenticationActivity extends AppCompatActivity {
@@ -57,7 +57,7 @@ public class AuthenticationActivity extends AppCompatActivity {
         binding = ActivityAuthenticationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        SysTemUi sysTemUi = new SysTemUi(this);
+        SystemUi sysTemUi = new SystemUi(this);
         sysTemUi.hideSystemUIHideNavigation();
 
         components();
@@ -199,7 +199,7 @@ public class AuthenticationActivity extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), CompanyActivity.class));
             finish();
         }else {
-            startActivity(new Intent(getApplicationContext(), ClientActivity.class));
+            startActivity(new Intent(getApplicationContext(), CustomerActivity.class));
             finish();
         }
     }

@@ -1,10 +1,7 @@
 package udemy.java.desenvolvimento.android.completo.ifood_clone.model;
 
-import static udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants.COMPANY;
 import static udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants.CUSTOMERS;
-
 import android.util.Log;
-
 import com.google.firebase.database.DatabaseReference;
 
 import java.util.HashMap;
@@ -18,6 +15,7 @@ public class Customer {
     private String customerImageUrl;
     private String name;
     private String address;
+    private String phoneNumber;
 
     public Customer() {
     }
@@ -81,5 +79,11 @@ public class Customer {
         this.address = address;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }

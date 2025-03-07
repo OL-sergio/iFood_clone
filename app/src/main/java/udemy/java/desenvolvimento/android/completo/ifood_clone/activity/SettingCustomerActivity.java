@@ -1,16 +1,10 @@
 package udemy.java.desenvolvimento.android.completo.ifood_clone.activity;
 
-import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
-
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.VectorDrawable;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -26,7 +20,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
@@ -38,6 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.santalu.maskara.widget.MaskEditText;
 import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
@@ -49,11 +43,10 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.Activ
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.FirebaseConfiguration;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.UserFirebase;
-import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Companies;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Customer;
-import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SysTemUi;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SystemUi;
 
-public class SettingUserActivity extends AppCompatActivity {
+public class SettingCustomerActivity extends AppCompatActivity {
 
     private ActivitySettingUserBinding binding;
 
@@ -67,6 +60,7 @@ public class SettingUserActivity extends AppCompatActivity {
     private CircleImageView userImage;
     private EditText userName;
     private EditText userAddress;
+    private MaskEditText userPhone;
     private Button buttonSave;
 
 
@@ -77,7 +71,7 @@ public class SettingUserActivity extends AppCompatActivity {
         binding = ActivitySettingUserBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        SysTemUi sysTemUi = new SysTemUi(this);
+        SystemUi sysTemUi = new SystemUi(this);
         sysTemUi.hideSystemUIHideNavigation();
 
         setupToolbar();
@@ -124,6 +118,7 @@ public class SettingUserActivity extends AppCompatActivity {
                     customer = snapshot.getValue(Customer.class);
                     userName.setText(customer.getName());
                     userAddress.setText(customer.getAddress());
+                    userPhone.setText(customer.getPhoneNumber());
                     selectedImageUrl = Uri.parse(customer.getCustomerImageUrl());
 
                         Picasso.get()
@@ -142,35 +137,37 @@ public class SettingUserActivity extends AppCompatActivity {
         });
     }
 
-    private void validateCompanyData (View view ){
+    private void validateCompanyData (View view ) {
 
         Drawable drawable = userImage.getDrawable();
-        Bitmap bitmap = null;
+        Bitmap bitmap;
         String name = userName.getText().toString();
         String address = userAddress.getText().toString();
-
-
+        String phone = userPhone.getText().toString();
 
         if (drawable instanceof BitmapDrawable drawableImage) {
-
-            if ( !name.isEmpty() ){
-                if ( !address.isEmpty() ){
-                    bitmap = drawableImage.getBitmap();
-                    uploadImage( bitmap, name, address );
-                }else {
+            if (!name.isEmpty()) {
+                if (!address.isEmpty()) {
+                    if (!phone.isEmpty()) {
+                        bitmap = drawableImage.getBitmap();
+                        uploadImage(bitmap, name, address, phone);
+                    } else {
+                        toastMessage("Enter the user phone");
+                    }
+                } else {
                     toastMessage("Enter the company category");
                 }
-            }else {
+            } else {
                 toastMessage("Enter the user name");
             }
-        } else  {
+        } else {
             // Convert VectorDrawable to Bitmap
-            snackBarMessage("Selecione uma imagem do utilizador");
+            snackBarMessage("Selecione uma imagem");
         }
     }
 
 
-    private void uploadImage( Bitmap bitmap, String name, String address) {
+    private void uploadImage( Bitmap bitmap, String name, String address ,String phone) {
 
         StorageReference storageReference = firebaseStorage.getReference()
                 .child(Constants.IMAGES)
@@ -197,7 +194,7 @@ public class SettingUserActivity extends AppCompatActivity {
             urlTask.addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
                     selectedImageUrl = task.getResult();
-                    saveCustomerData(selectedImageUrl, name, address);
+                    saveCustomerData(selectedImageUrl, name, address, phone);
                 } else {
                     // Handle failures
                     // ...
@@ -207,12 +204,13 @@ public class SettingUserActivity extends AppCompatActivity {
         }
     }
 
-    private void saveCustomerData(Uri selectedImageUrl,String name, String address) {
+    private void saveCustomerData(Uri selectedImageUrl,String name, String address , String phone) {
         customer = new Customer();
         customer.setIdCustomer(idUserLogged);
         customer.setName(name);
         customer.setAddress(address);
         customer.setCustomerImageUrl(selectedImageUrl.toString());
+        customer.setPhoneNumber(phone);
         customer.saveCustomerData();
         customer.updateUserCustomer();
         finish();
@@ -232,6 +230,7 @@ public class SettingUserActivity extends AppCompatActivity {
         userImage = binding.circleImageViewUserImage;
         userName = binding.editTextUserName;
         userAddress = binding.editTextUserAddress;
+        userPhone = binding.maskEditTextPhoneNumber;
         buttonSave = binding.buttonSaveUserData;
 
     }

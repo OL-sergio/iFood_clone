@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarBasic"
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:elevation="@dimen/d_4sdp"
             android:minHeight="?attr/actionBarSize"
-            app:popupTheme="@style/toolBarStyle"/>
+            app:popupTheme="@style/toolBarStyle" />
 
     </com.google.android.material.appbar.AppBarLayout>
 </LinearLayout>

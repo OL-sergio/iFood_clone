@@ -47,7 +47,8 @@ public class AdapterProducts extends RecyclerView.Adapter<AdapterProducts.MyView
         Products product = products.get(i);
         holder.name.setText(product.getProductName());
         holder.description.setText(product.getProductCategory());
-        holder.price.setText(product.getProductPrice());
+        String convertString = String.valueOf(product.getProductPrice());
+        holder.price.setText(convertString);
         String imageUrl = product.getImageUrlProduct();
 
 

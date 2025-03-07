@@ -8,6 +8,7 @@ public class Constants {
     public static final String COMPANY = "companies";
     public static final String CUSTOMERS = "customers";
     public static final String USER_TYPE = "client";
+    public static final String CUSTOMERS_ORDERS = "customers_orders";
     public static final String USERS = "users";
     public static final String IMAGES = "images";
     public static final String PRODUCTS = "products";
@@ -15,5 +16,9 @@ public class Constants {
     public static final String FILTER_NAME = "filterName";
     public static final String STRING_CODE = "\uf8ff";
     public static final String TARGET_STRING = "€";
+    public static final String CART_LIST = "my_cart_list";
+    public static final String TOTAL_ORDER_VALUE = "total_value";
+    public static final String TOTAL_ORDER_QUANTITY = "total_quantity";
+    public static final String COMPANY_IMAGE = "company_image";
 
 }
