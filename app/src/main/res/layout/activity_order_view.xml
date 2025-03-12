@@ -69,6 +69,7 @@
                     android:textColor="@color/c_black_100"
                     android:textSize="@dimen/d_14sdp"
                     android:textStyle="bold"
+                    android:layout_marginTop="@dimen/d_12sdp"
                     tools:ignore="TextSizeCheck" />
 
                 <com.blackcat.currencyedittext.CurrencyEditText
@@ -81,6 +82,7 @@
                     android:inputType="none"
                     android:textColor="@color/c_irish_green_100"
                     android:textSize="@dimen/d_14sdp"
+                    android:layout_marginTop="@dimen/d_12sdp"
                     tools:ignore="TextSizeCheck,TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
             </LinearLayout>
         </LinearLayout>

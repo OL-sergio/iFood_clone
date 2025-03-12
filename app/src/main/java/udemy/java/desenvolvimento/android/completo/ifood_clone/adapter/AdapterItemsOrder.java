@@ -1,6 +1,6 @@
 package udemy.java.desenvolvimento.android.completo.ifood_clone.adapter;
 
-import android.content.Context;
+
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -13,9 +13,8 @@ import com.blackcat.currencyedittext.CurrencyEditText;
 import java.util.List;
 import java.util.Locale;
 
-import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.RowItensOrderBinding;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.RowItemsOrderBinding;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.ItemOrders;
-
 
 public class AdapterItemsOrder extends RecyclerView.Adapter<AdapterItemsOrder.MyViewHolder> {
     private final List<ItemOrders> itemsOrder;
@@ -30,13 +29,13 @@ public class AdapterItemsOrder extends RecyclerView.Adapter<AdapterItemsOrder.My
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
 
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        RowItensOrderBinding binding = RowItensOrderBinding.inflate(inflater, parent, false);
+        RowItemsOrderBinding binding = RowItemsOrderBinding.inflate(inflater, parent, false);
         //View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_products, parent, false);
-        return new AdapterItemsOrder.MyViewHolder(binding);
+        return new MyViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AdapterItemsOrder.MyViewHolder holder, int i) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int i) {
         ItemOrders itemOrders = itemsOrder.get(i);
         holder.name.setText(itemOrders.getNameProduct());
 
@@ -60,7 +59,7 @@ public class AdapterItemsOrder extends RecyclerView.Adapter<AdapterItemsOrder.My
         TextView quantity;
         CurrencyEditText price;
 
-        public MyViewHolder(RowItensOrderBinding binding) {
+        public MyViewHolder(RowItemsOrderBinding binding) {
             super(binding.getRoot());
             name = binding.textViewProductName;
             quantity = binding.textViewProductTotalQuantity;
