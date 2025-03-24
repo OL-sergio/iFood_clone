@@ -61,7 +61,7 @@
             android:textStyle="bold" />
 
         <com.blackcat.currencyedittext.CurrencyEditText
-            android:id="@+id/textView_productPrice"
+            android:id="@+id/currencyEditText_productPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/d_8sdp"

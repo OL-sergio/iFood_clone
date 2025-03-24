@@ -16,10 +16,10 @@ public class Orders implements Serializable {
     private String customerName;
     private String phoneNumber;
     private String address;
-    private List<ItemOrders> itemOrders;
-    private Double totalValue;
+    private List<OrdersItems> itemOrders;
+    private String totalValue;
     private String orderStatus;
-    private int paymentMethod;
+    private String paymentMethod;
     private String observation;
 
     public Orders() {
@@ -33,21 +33,39 @@ public class Orders implements Serializable {
         DatabaseReference databaseReference = FirebaseConfiguration.getFirebaseDatabase();
         DatabaseReference ordersRef = databaseReference
                 .child(Constants.CUSTOMERS_ORDERS)
-                .child(companyId)
-                .child(userId);
+                .child( companyId )
+                .child( userId );
         setOrderId(ordersRef.push().getKey());
     }
 
-
-    public void saveCustomerOrder() {
+    public void saveCustomerOrder(  ) {
         DatabaseReference databaseReference = FirebaseConfiguration.getFirebaseDatabase();
         DatabaseReference ordersRef = databaseReference
                 .child(Constants.CUSTOMERS_ORDERS)
-                .child(getCompanyId())
-                .child(getUserId());
+                .child( getCompanyId() )
+                .child( getUserId() );
        ordersRef.setValue(this);
 
     }
+
+    public void saveConfirmationOrder( ) {
+        DatabaseReference databaseReference = FirebaseConfiguration.getFirebaseDatabase();
+        DatabaseReference ordersRef = databaseReference
+                .child(Constants.ORDERS)
+                .child( getCompanyId() )
+                .child( getOrderId());
+        ordersRef.setValue(this);
+    }
+
+    public void removeOrder( ) {
+        DatabaseReference databaseReference = FirebaseConfiguration.getFirebaseDatabase();
+        DatabaseReference ordersRef = databaseReference
+                .child(Constants.CUSTOMERS_ORDERS)
+                .child( getCompanyId() )
+                .child(  getUserId());
+        ordersRef.removeValue();
+    }
+
     public String getOrderId() {
         return orderId;
     }
@@ -95,19 +113,19 @@ public class Orders implements Serializable {
         this.address = address;
     }
 
-    public List<ItemOrders> getItemOrders() {
+    public List<OrdersItems> getItemOrders() {
         return itemOrders;
     }
 
-    public void setItemOrders(List<ItemOrders> itemOrders) {
+    public void setItemOrders(List<OrdersItems> itemOrders) {
         this.itemOrders = itemOrders;
     }
 
-    public Double getTotalValue() {
+    public String getTotalValue() {
         return totalValue;
     }
 
-    public void setTotalValue(Double totalValue) {
+    public void setTotalValue(String totalValue) {
         this.totalValue = totalValue;
     }
 
@@ -119,11 +137,11 @@ public class Orders implements Serializable {
         this.orderStatus = orderStatus;
     }
 
-    public int getPaymentMethod() {
+    public String getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void setPaymentMethod(int paymentMethod) {
+    public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 

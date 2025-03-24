@@ -9,6 +9,8 @@ public class Constants {
     public static final String CUSTOMERS = "customers";
     public static final String USER_TYPE = "client";
     public static final String CUSTOMERS_ORDERS = "customers_orders";
+    public static final String ORDERS = "orders";
+    public static final String CUSTOMERS_HISTORY = "history";
     public static final String USERS = "users";
     public static final String IMAGES = "images";
     public static final String PRODUCTS = "products";
@@ -20,5 +22,7 @@ public class Constants {
     public static final String TOTAL_ORDER_VALUE = "total_value";
     public static final String TOTAL_ORDER_QUANTITY = "total_quantity";
     public static final String COMPANY_IMAGE = "company_image";
+    public static final String CONFIRMED = "confirmed";
+    public static final String COMPANY_ID = "companyId"; ;
 
 }

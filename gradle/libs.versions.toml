@@ -46,6 +46,7 @@ de-hdodenhof-circleimageview = { module = "de.hdodenhof:circleimageview", versio
 com-github-santalu = { module = "com.github.santalu:maskara", version.ref = "maskara" }
 currency-blackcat27-edittext = { module = "com.github.BlacKCaT27:CurrencyEditText", version.ref = "currencyEditText" }
 squareup-picasso = { module ="com.squareup.picasso:picasso", version.ref = "picasso" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version = "1.4.0" }
 
 
 

@@ -55,6 +55,11 @@
           <theme>@style/Theme.IFood</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_purchase_history.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_setting_company.xml">
         <config>
           <theme>@style/Theme.IFood.NoActionBar</theme>
@@ -90,12 +95,22 @@
           <theme>@style/Theme.IFood</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/row_items_history.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/row_items_order.xml">
         <config>
           <theme>@style/Theme.IFood</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/row_products.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/row_purchase_history.xml">
         <config>
           <theme>@style/Theme.IFood</theme>
         </config>
@@ -137,7 +152,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dcc5f4d8-27f6-4e8c-b6db-f002212e80c1" name="Changes" comment="Work Done:&#10;- Design layout's update&#10;&#10;- Notes:&#10;- ...&#10;&#10;* Add items:&#10;- AdapterItemsOrder&#10;- activity_order_view&#10;- row_items_order&#10;&#10;* Updated items:&#10;- ...&#10;&#10;* Removed:&#10;- ...">
+      <change afterPath="$PROJECT_DIR$/app/build/generated/res/processDebugGoogleServices/values/values.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/PurchaseHistoryActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterItemsHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/History.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_order_history.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_purchase_history.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_items_history.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_purchase_history.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/CompanyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/CompanyActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/MenuActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/MenuActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterItemsOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterItemsOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/helper/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/helper/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/ItemOrders.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/OrdersItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Orders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_item_company.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_item_company.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_company.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_company.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_items_order.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_items_order.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
     </list>
     <list id="89cd0fa4-001d-44af-a278-28290339da9b" name="code" comment="code" />
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +197,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\sergi\.android\avd\Medium_Phone.avd)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\sergi\.android\avd\Pixel_8_Pro_API_27.avd)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -210,9 +253,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="valueResourceFile" />
-        <option value="layoutResourceFile" />
-        <option value="Class" />
         <option value="resourceFile" />
+        <option value="layoutResourceFile_vertical" />
+        <option value="Class" />
+        <option value="layoutResourceFile" />
       </list>
     </option>
   </component>
@@ -295,7 +339,7 @@
     &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sergi/AndroidStudioProjects/iFood&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sergi/Desktop/Ifood&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -343,6 +387,9 @@
       <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone.activity" />
     </key>
     <key name="android.template.613679151">
+      <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone.activity" />
+    </key>
+    <key name="android.template.-2009585104">
       <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone.activity" />
     </key>
   </component>
@@ -770,7 +817,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741798315844</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fixup! Work Done: - Design layout's update">
+      <option name="closed" value="true" />
+      <created>1741799232986</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1741799232986</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -854,7 +909,8 @@
     <MESSAGE value="Work Done:&#10;- Adding the components to the user's settings layout.&#10;- Add the customer model class with the necessary functions and variables.&#10;- Adding the node customers to the real-time database.&#10;- Add the class activity to user settings to save, retrieve, and verify the data the user has selected. &#10;- Retrieving the user name from the Users node and setting it on the toolbar activities.&#10;&#10;Notes:&#10;-...&#10;&#10;* Add items:&#10;- Customer.java&#10;&#10;* Updated items:&#10;- ClientActivity.java&#10;- CompanyActivity.java&#10;- NewItemCompanyActivity.java&#10;- SettingCompanyActivity.java&#10;- SettingUserActivity.java&#10;- AdapterCompanies.java&#10;- Constants.java&#10;- Companies.java&#10;- Users.java&#10;- activity_authentication.xml&#10;- activity_setting_user.xml&#10;- activity_setting_company.xml&#10;- strings.xml&#10;&#10;* Removed:&#10;- ..." />
     <MESSAGE value="Work Done:&#10;- Adding customer orders and generating a user cart list.&#10;- Adding customers and customer orders nodes to the Firebase database and populating the model with customer, item, and order data.&#10;- Adding the option for customers to view their cart list of selected items.&#10;- Using the alert dialog, record the customer's input quantity and the current order, as well as the total quantity of goods and the total value, to the Firebase database.&#10;- eliminating the initialization of the keyboard from currencyEditTex.&#10;&#10;Notes:&#10;-...&#10;&#10;* Add items:&#10;- OrderViewActivity.java&#10;- AdapterItemsOrder.java&#10;- ItemOrders.java&#10;- Orders.java&#10;- ProgressDialog.java&#10;- dw_divisor.xml&#10;- activity_order_view.xml&#10;- dialog_amount_order.xml&#10;- dialog_progress.xml&#10;- row_items_order.xml&#10;- menu_menu.xml&#10;&#10;* Updated items:&#10;- MenuActivity.java&#10;- SettingCustomerActivity.java&#10;- MenuActivity.java&#10;- Constants.java&#10;- activity_menu.xml&#10;- activity_setting_user.xml&#10;- row_companies.xml&#10;- row_products.xml&#10;- colors.xml&#10;- dimens.xml&#10;&#10;* Removed:&#10;- ..." />
     <MESSAGE value="Work Done:&#10;- Design layout's update&#10;&#10;- Notes:&#10;- ...&#10;&#10;* Add items:&#10;- AdapterItemsOrder&#10;- activity_order_view&#10;- row_items_order&#10;&#10;* Updated items:&#10;- ...&#10;&#10;* Removed:&#10;- ..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Work Done:&#10;- Design layout's update&#10;&#10;- Notes:&#10;- ...&#10;&#10;* Add items:&#10;- AdapterItemsOrder&#10;- activity_order_view&#10;- row_items_order&#10;&#10;* Updated items:&#10;- ...&#10;&#10;* Removed:&#10;- ..." />
+    <MESSAGE value="fixup! Work Done: - Design layout's update" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixup! Work Done: - Design layout's update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -871,69 +927,51 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java</url>
-          <line>156</line>
+          <line>138</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java</url>
-          <line>157</line>
+          <line>139</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/MenuActivity.java</url>
-          <line>129</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java</url>
-          <line>89</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterItemsOrder.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java</url>
-          <line>91</line>
-          <option name="timeStamp" value="36" />
+          <line>68</line>
+          <properties field="idOrder" class="udemy.java.desenvolvimento.android.completo.ifood_clone.activity.MenuActivity" />
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.google.firebase.database.DatabaseReference" memberName="path" />
-        <PinnedItemInfo parentTag="java.lang.String" memberName="shadow$_klass_" />
+        <PinnedItemInfo parentTag="udemy.java.desenvolvimento.android.completo.ifood_clone.model.Orders" memberName="itemOrders" />
         <PinnedItemInfo parentTag="udemy.java.desenvolvimento.android.completo.ifood_clone.activity.CompanyActivity" memberName="userFirebase" />
         <PinnedItemInfo parentTag="udemy.java.desenvolvimento.android.completo.ifood_clone.activity.CompanyActivity" memberName="userName" />
         <PinnedItemInfo parentTag="udemy.java.desenvolvimento.android.completo.ifood_clone.model.Users" memberName="name" />
         <PinnedItemInfo parentTag="udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.DialogAmountOrderBinding" memberName="editTextDialogAmountOrder" />
         <PinnedItemInfo parentTag="com.google.firebase.database.DataSnapshot" memberName="query" />
+        <PinnedItemInfo parentTag="android.content.ComponentName" memberName="mClass" />
       </pinned-members>
     </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="AndroidRunConfigurationType">
+        <watch expression="ds" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="play_dynamic_filters_status">
     <option name="appIdToCheckInfo">
       <map>
         <entry key="udemy.java.desenvolvimento.android.completo.ifood_clone">
           <value>
-            <CheckInfo lastCheckTimestamp="1741797732477" />
+            <CheckInfo lastCheckTimestamp="1742834369246" />
           </value>
         </entry>
         <entry key="udemy.java.desenvolvimento.android.completo.ifood_clone.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1741797732477" />
+            <CheckInfo lastCheckTimestamp="1742834369248" />
           </value>
         </entry>
       </map>

@@ -57,7 +57,6 @@ public class CompanyActivity extends AppCompatActivity {
     private final List<Products> productsList = new ArrayList<>();
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

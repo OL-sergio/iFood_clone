@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="firebase_database_url" translatable="false">https://ifood-clone-1d261-default-rtdb.europe-west1.firebasedatabase.app</string>
+    <string name="gcm_defaultSenderId" translatable="false">736403467303</string>
+    <string name="google_api_key" translatable="false">AIzaSyBmJ8J_b8o-Q2GuDJ6W3lcizkkUXbWgMNc</string>
+    <string name="google_app_id" translatable="false">1:736403467303:android:b433c991ef12054b447202</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBmJ8J_b8o-Q2GuDJ6W3lcizkkUXbWgMNc</string>
+    <string name="google_storage_bucket" translatable="false">ifood-clone-1d261.firebasestorage.app</string>
+    <string name="project_id" translatable="false">ifood-clone-1d261</string>
+</resources>

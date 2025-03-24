@@ -17,7 +17,7 @@
     <LinearLayout
         android:layout_width="@dimen/d_400sdp"
         android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
+        android:layout_gravity="center_horizontal"
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical"
@@ -65,7 +65,7 @@
 
         <Button
             android:id="@+id/button_saveUserData"
-            android:layout_width="@dimen/d_320dp"
+            android:layout_width="@dimen/d_320sdp"
             android:layout_height="@dimen/d_60sdp"
             android:layout_gravity="center_horizontal"
             android:text="@string/salvar"

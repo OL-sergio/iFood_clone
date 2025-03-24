@@ -2,14 +2,20 @@ package udemy.java.desenvolvimento.android.completo.ifood_clone.model;
 
 import java.io.Serializable;
 
-public class ItemOrders implements Serializable {
+public class OrdersItems implements Serializable {
 
     private String idProduct;
     private String nameProduct;
     private int quantity;
     private String price;
 
-    public ItemOrders() {
+    public OrdersItems() {
+    }
+    public OrdersItems( String idProduct, String nameProduct, int quantity, String price) {
+        this.idProduct = idProduct;
+        this.nameProduct = nameProduct;
+        this.quantity = quantity;
+        this.price = price;
     }
 
     public String getIdProduct() {

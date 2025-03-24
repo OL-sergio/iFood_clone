@@ -90,7 +90,7 @@
         <Button
             android:id="@+id/button_saveCompany"
             style="@style/colorButton"
-            android:layout_width="@dimen/d_320dp"
+            android:layout_width="@dimen/d_320sdp"
             android:layout_height="@dimen/d_60sdp"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="@dimen/d_4sdp"

@@ -94,6 +94,6 @@ dependencies {
     //https://github.com/square/picasso
     implementation(libs.squareup.picasso)
 
-
+    implementation (libs.androidx.recyclerview)
 
 }

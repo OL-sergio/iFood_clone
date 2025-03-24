@@ -1,0 +1,24 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="32dp"
+    android:viewportHeight="135"
+    android:viewportWidth="110"
+    android:width="26.074074dp"
+    >
+      
+    <path android:fillColor="@color/c_red_devil_100" android:pathData="m79.12,106.88h-48.23c-6.89,0 -12.5,-5.61 -12.5,-12.5v-68.75c0,-6.89 5.61,-12.5 12.5,-12.5h48.23c6.89,0 12.5,5.61 12.5,12.5v68.75c0,6.89 -5.61,12.5 -12.5,12.5zM30.88,19.38c-3.45,0 -6.25,2.8 -6.25,6.25v68.75c0,3.45 2.8,6.25 6.25,6.25h48.23c3.45,0 6.25,-2.8 6.25,-6.25v-68.75c0,-3.45 -2.8,-6.25 -6.25,-6.25z"/>
+      
+    <path android:fillColor="@color/c_red_devil_100" android:pathData="m71.93,63.13h-33.86c-1.73,0 -3.13,-1.4 -3.13,-3.13s1.4,-3.13 3.13,-3.13h33.86c1.73,0 3.13,1.4 3.13,3.13s-1.4,3.13 -3.13,3.13z"/>
+      
+    <path android:fillColor="@color/c_red_devil_100" android:pathData="m71.93,37.51h-22.98c-1.73,0 -3.13,-1.4 -3.13,-3.13 0,-1.73 1.4,-3.13 3.13,-3.13h22.98c1.73,0 3.13,1.4 3.13,3.13 0,1.73 -1.4,3.13 -3.13,3.13z"/>
+      
+    <path android:fillColor="@color/c_red_devil_100" android:pathData="m71.93,75.93h-33.86c-1.73,0 -3.13,-1.4 -3.13,-3.13 0,-1.73 1.4,-3.13 3.13,-3.13h33.86c1.73,0 3.13,1.4 3.13,3.13 0,1.73 -1.4,3.13 -3.13,3.13z"/>
+      
+    <path android:fillColor="@color/c_red_devil_100" android:pathData="m71.93,88.74h-33.86c-1.73,0 -3.13,-1.4 -3.13,-3.13 0,-1.73 1.4,-3.13 3.13,-3.13h33.86c1.73,0 3.13,1.4 3.13,3.13 0,1.73 -1.4,3.13 -3.13,3.13z"/>
+      
+    <path android:fillColor="@color/c_red_devil_100" android:pathData="m41.19,34.38c0,4.17 -6.25,4.17 -6.25,0 0,-4.16 6.25,-4.16 6.25,0"/>
+      
+    <path android:fillColor="@color/c_red_devil_100" android:pathData="m71.93,50.32h-22.98c-1.73,0 -3.13,-1.4 -3.13,-3.13 0,-1.73 1.4,-3.13 3.13,-3.13h22.98c1.73,0 3.13,1.4 3.13,3.13 0,1.73 -1.4,3.13 -3.13,3.13z"/>
+      
+    <path android:fillColor="@color/c_red_devil_100" android:pathData="m41.19,47.19c0,4.17 -6.25,4.17 -6.25,0 0,-4.16 6.25,-4.16 6.25,0"/>
+    
+</vector>

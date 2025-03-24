@@ -1,23 +1,14 @@
 package udemy.java.desenvolvimento.android.completo.ifood_clone.activity;
 
 import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
-import android.util.Log;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,9 +19,6 @@ import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
-
-import java.security.PrivateKey;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,17 +27,13 @@ import java.util.Objects;
 
 import udemy.java.desenvolvimento.android.completo.ifood_clone.R;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.adapter.AdapterItemsOrder;
-import udemy.java.desenvolvimento.android.completo.ifood_clone.adapter.AdapterProducts;
-import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.ActivityMenuBinding;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.ActivityOrderViewBinding;
-import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.DivisorBinding;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants;
-import udemy.java.desenvolvimento.android.completo.ifood_clone.model.ItemOrders;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.model.OrdersItems;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Orders;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SystemUi;
 
 public class OrderViewActivity extends AppCompatActivity {
-
 
     private ActivityOrderViewBinding binding;
 
@@ -60,6 +44,7 @@ public class OrderViewActivity extends AppCompatActivity {
     private CurrencyEditText currencyEditTextTotalValue;
     private TextView textViewPhoneNumber;
     private RecyclerView recyclerViewItensOrder;
+    private LinearLayout linearLayoutPurchaseHistory;
 
     private Orders orders;
     private Double totalValue;
@@ -67,7 +52,7 @@ public class OrderViewActivity extends AppCompatActivity {
     private String companyImageUrl;
 
     private AdapterItemsOrder adapterItemsOrder;
-    private final List<ItemOrders> itemOrdersList = new ArrayList<>();
+    private final List<OrdersItems> itemOrdersList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +68,6 @@ public class OrderViewActivity extends AppCompatActivity {
         components();
 
         orders = new Orders();
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
@@ -94,10 +78,7 @@ public class OrderViewActivity extends AppCompatActivity {
 
             if (orders != null  && totalValue != null && totalQuantity != 0 && companyImageUrl != null){
                 textViewCustomerName.setText("Cliente: " +  orders.getCustomerName());
-
-
-
-                textTotalQuantity.setText("Quant total: " + totalQuantity  + "  - Preço total: " );
+                textTotalQuantity.setText("Quant total:  " + totalQuantity  + "  - Preço total: " );
 
                 DecimalFormat decimalFormat = new DecimalFormat("0.00");
                 currencyEditTextTotalValue.setText(  decimalFormat.format(totalValue)  );
@@ -106,9 +87,10 @@ public class OrderViewActivity extends AppCompatActivity {
                 textViewAddress.setText("Endereço: " + orders.getAddress());
                 Picasso.get()
                         .load(companyImageUrl)
+                        .error(R.drawable.ic_broken_image_24)
                         .into(imageViewCompany);
 
-                for (ItemOrders itemOrders : orders.getItemOrders()){
+                for (OrdersItems itemOrders : orders.getItemOrders()){
                     itemOrdersList.add(itemOrders);
 
                 }

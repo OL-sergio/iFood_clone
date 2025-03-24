@@ -1,6 +1,6 @@
 package udemy.java.desenvolvimento.android.completo.ifood_clone.adapter;
 
-
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -10,61 +10,63 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.blackcat.currencyedittext.CurrencyEditText;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.RowItemsHistoryBinding;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.RowItemsOrderBinding;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.OrdersItems;
 
-public class AdapterItemsOrder extends RecyclerView.Adapter<AdapterItemsOrder.MyViewHolder> {
-    private final List<OrdersItems> itemsOrder;
+public class AdapterItemsHistory extends RecyclerView.Adapter<AdapterItemsHistory.MyViewHolder> {
 
+    private final List<OrdersItems> historyItems;
+    private Context context;
 
-    public AdapterItemsOrder(List<OrdersItems> itemOrders ) {
-        this.itemsOrder = itemOrders;
+    public AdapterItemsHistory( List<OrdersItems> historyItems, Context context) {
+        this.historyItems = historyItems != null ? historyItems : new ArrayList<>();
+        this.context = context;
     }
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        RowItemsOrderBinding binding = RowItemsOrderBinding.inflate(inflater, parent, false);
-        //View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_products, parent, false);
+        RowItemsHistoryBinding binding = RowItemsHistoryBinding.inflate(inflater, parent, false);
         return new MyViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        OrdersItems itemOrders = itemsOrder.get(position);
-        holder.name.setText(itemOrders.getNameProduct());
+        OrdersItems history = historyItems.get(position);
+        holder.name.setText(history.getNameProduct());
 
-        String quantity = String.valueOf(itemOrders.getQuantity());
+        String quantity = String.valueOf(history.getQuantity());
         holder.quantity.setText(quantity);
 
-        String price = String.valueOf(itemOrders.getPrice());
-        holder.price.setText(price);
-
-
+        String price = history.getPrice();
+        holder.price.setText( price );
     }
 
     @Override
     public int getItemCount() {
-        return itemsOrder.size();
+        return historyItems.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name;
-        TextView quantity;
-        CurrencyEditText price;
+        private TextView name;
+        private TextView quantity;
+        private CurrencyEditText price;
 
-        public MyViewHolder(RowItemsOrderBinding binding) {
+        public MyViewHolder(RowItemsHistoryBinding binding) {
             super(binding.getRoot());
             name = binding.textViewProductName;
             quantity = binding.textViewProductTotalQuantity;
             price = binding.currencyEditTextProductPrice;
             price.configureViewForLocale(Locale.GERMANY);
+
         }
     }
 }
