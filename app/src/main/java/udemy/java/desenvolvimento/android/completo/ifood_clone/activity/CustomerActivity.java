@@ -1,33 +1,28 @@
 package udemy.java.desenvolvimento.android.completo.ifood_clone.activity;
 
 import android.content.Intent;
-import android.content.res.ColorStateList;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +37,7 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.listener.Recycler
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Companies;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Users;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.AnimationsSearch;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.ProgressDialog;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SystemUi;
 
 
@@ -50,14 +46,13 @@ public class CustomerActivity extends AppCompatActivity {
     private ActivityClientBinding binding;
 
     private UserFirebase userFirebase;
-    private StorageReference storageReference;
     private DatabaseReference databaseReference;
-    private FirebaseStorage firebaseStorage;
     private String idUserLogged;
     private Companies company;
     private Users user;
 
     private AnimationsSearch animationsSearch;
+    private ProgressDialog progressDialog;
     private SearchView searchView;
     private RecyclerView recyclerCompanies;
     private AdapterCompanies adapterCompanies;
@@ -80,11 +75,11 @@ public class CustomerActivity extends AppCompatActivity {
 
         userFirebase = new UserFirebase();
         databaseReference = FirebaseConfiguration.getFirebaseDatabase();
-        storageReference = FirebaseConfiguration.getFirebaseStorage();
-        firebaseStorage = FirebaseConfiguration.getFirebaseStorage().getStorage();
         idUserLogged = UserFirebase.getUserId();
         animationsSearch = new AnimationsSearch();
         company = new Companies();
+
+        progressDialog = new ProgressDialog(this);
 
         retrieveCompanies();
 
@@ -143,6 +138,7 @@ public class CustomerActivity extends AppCompatActivity {
     }
 
     private void searchForCompany(String newText) {
+        progressDialog.showProgressDialog();
         DatabaseReference companiesRef = databaseReference
                 .child( Constants.COMPANY );
         Query query = companiesRef.orderByChild(Constants.FILTER_NAME)
@@ -159,17 +155,18 @@ public class CustomerActivity extends AppCompatActivity {
                     }
                 }
                 adapterCompanies.notifyDataSetChanged();
+                progressDialog.dismissProgressDialog();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Log.d("ERROR", "Error searching for company: " + error.getMessage());
             }
         });
     }
 
     private void retrieveCompanies() {
-
+        progressDialog.showProgressDialog();
         DatabaseReference companiesRef = databaseReference
                 .child( Constants.COMPANY );
         companiesRef.addValueEventListener(new ValueEventListener() {
@@ -183,6 +180,7 @@ public class CustomerActivity extends AppCompatActivity {
                     }
                 }
                 adapterCompanies.notifyDataSetChanged();
+                progressDialog.dismissProgressDialog();
             }
 
             @Override
@@ -302,16 +300,6 @@ public class CustomerActivity extends AppCompatActivity {
         recyclerCompanies.setHasFixedSize(true);
         adapterCompanies = new AdapterCompanies(companyList, this);
         recyclerCompanies.setAdapter(adapterCompanies);
-
-    }
-
-    private void toastMessage(String message){
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
-    private void snackBarMessage(String message){
-        Snackbar snackbar = Snackbar.make(findViewById(R.id.main), message, BaseTransientBottomBar.LENGTH_LONG);
-        snackbar.getView().setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.c_red_devil_100))); //Change to your desired color
-        snackbar.show();
 
     }
 

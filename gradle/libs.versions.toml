@@ -22,6 +22,7 @@ circleimageview = "3.1.0"
 maskara = "1.0.0"
 currencyEditText = "2.0.2"
 picasso = "2.8"
+recyclerview = "1.2.0"
 
 [libraries]
 androidx-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
@@ -46,7 +47,7 @@ de-hdodenhof-circleimageview = { module = "de.hdodenhof:circleimageview", versio
 com-github-santalu = { module = "com.github.santalu:maskara", version.ref = "maskara" }
 currency-blackcat27-edittext = { module = "com.github.BlacKCaT27:CurrencyEditText", version.ref = "currencyEditText" }
 squareup-picasso = { module ="com.squareup.picasso:picasso", version.ref = "picasso" }
-androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version = "1.4.0" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 
 
 

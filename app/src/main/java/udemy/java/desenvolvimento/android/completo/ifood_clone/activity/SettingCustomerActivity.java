@@ -44,6 +44,7 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.FirebaseConfiguration;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.UserFirebase;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Customer;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.ProgressDialog;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SystemUi;
 
 public class SettingCustomerActivity extends AppCompatActivity {
@@ -56,6 +57,7 @@ public class SettingCustomerActivity extends AppCompatActivity {
     private String idUserLogged;
     private Uri selectedImageUrl;
     private Customer customer;
+    private ProgressDialog progressDialog;
 
     private CircleImageView userImage;
     private EditText userName;
@@ -82,6 +84,8 @@ public class SettingCustomerActivity extends AppCompatActivity {
         idUserLogged = UserFirebase.getUserId();
         customer = new Customer();
 
+        progressDialog = new ProgressDialog(this);
+
         buttonSave.setOnClickListener(this::validateCompanyData);
 
         recoverUserData();
@@ -106,6 +110,7 @@ public class SettingCustomerActivity extends AppCompatActivity {
     }
 
     private void recoverUserData() {
+        progressDialog.showProgressDialog();
         DatabaseReference companyRef = databaseReference
                 .child( Constants.CUSTOMERS )
                 .child(idUserLogged);
@@ -126,7 +131,7 @@ public class SettingCustomerActivity extends AppCompatActivity {
                                 .error(R.drawable.ic_broken_image_24)
                                 .into(userImage);
                    // Load the image into ImageView
-
+                    progressDialog.dismissProgressDialog();
                 }
             }
 
@@ -193,6 +198,7 @@ public class SettingCustomerActivity extends AppCompatActivity {
             });
             urlTask.addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
+                    progressDialog.showProgressDialog();
                     selectedImageUrl = task.getResult();
                     saveCustomerData(selectedImageUrl, name, address, phone);
                 } else {
@@ -213,6 +219,7 @@ public class SettingCustomerActivity extends AppCompatActivity {
         customer.setPhoneNumber(phone);
         customer.saveCustomerData();
         customer.updateUserCustomer();
+        progressDialog.dismissProgressDialog();
         finish();
 
     }

@@ -14,8 +14,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:padding="16dp">
+            android:layout_marginStart="@dimen/d_2sdp"
+            android:layout_gravity="top">
 
             <ImageView
                 android:id="@+id/imageViewProduct"
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="@dimen/d_4sdp"
-            android:layout_marginStart="@dimen/d_4sdp"
+            android:layout_marginStart="@dimen/d_8sdp"
             android:gravity="center_vertical"
             android:orientation="vertical">
 
@@ -64,8 +64,6 @@
                     android:id="@+id/currencyEditText_productPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/d_8sdp"
-                    android:layout_marginBottom="@dimen/d_8sdp"
                     android:inputType="none"
                     android:focusable="false"
                     android:focusableInTouchMode="false"
@@ -83,7 +81,6 @@
                     android:gravity="center_vertical"
                     android:paddingStart="@dimen/d_10sdp"
                     android:text="Nome do cliente"
-                    android:layout_marginTop="@dimen/d_8sdp"
                     android:textColor="@color/c_black_100"
                     android:textSize="@dimen/d_14sdp"
                     android:textStyle="bold" />
@@ -97,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="Morada"
-                android:layout_marginTop="@dimen/d_10sdp"
+                android:layout_marginTop="@dimen/d_2sdp"
                 android:textColor="@color/c_grey_cloud_100"
                 android:textSize="@dimen/d_8sdp"
                />
@@ -108,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="Métedo de pagamento"
-                android:layout_marginTop="@dimen/d_10sdp"
+                android:layout_marginTop="@dimen/d_2sdp"
                 android:textColor="@color/c_grey_cloud_100"
                 android:textSize="@dimen/d_10sdp"
                />

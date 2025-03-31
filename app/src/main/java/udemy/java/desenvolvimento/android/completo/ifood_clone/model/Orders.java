@@ -3,6 +3,7 @@ package udemy.java.desenvolvimento.android.completo.ifood_clone.model;
 import com.google.firebase.database.DatabaseReference;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
 
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants;
@@ -14,6 +15,7 @@ public class Orders implements Serializable {
     private String userId;
     private String companyId;
     private String customerName;
+    private String filterCustomerName;
     private String phoneNumber;
     private String address;
     private List<OrdersItems> itemOrders;
@@ -66,6 +68,19 @@ public class Orders implements Serializable {
         ordersRef.removeValue();
     }
 
+    public void updateOrderStatus() {
+        HashMap<String, Object> status = new HashMap<>();
+        status.put(Constants.STATUS_ORDER, getOrderStatus());
+
+        DatabaseReference databaseReference = FirebaseConfiguration.getFirebaseDatabase();
+        DatabaseReference ordersRef = databaseReference
+                .child(Constants.ORDERS)
+                .child( getCompanyId() )
+                .child( getOrderId());
+        ordersRef.updateChildren( status );
+    }
+
+
     public String getOrderId() {
         return orderId;
     }
@@ -88,6 +103,14 @@ public class Orders implements Serializable {
 
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
+    }
+
+    public String getFilterCustomerName() {
+        return filterCustomerName;
+    }
+
+    public void setFilterCustomerName(String filterCustomerName) {
+        this.filterCustomerName = filterCustomerName.toLowerCase();
     }
 
     public String getPhoneNumber() {
@@ -152,4 +175,6 @@ public class Orders implements Serializable {
     public void setObservation(String observation) {
         this.observation = observation;
     }
+
+
 }

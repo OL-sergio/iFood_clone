@@ -6,13 +6,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import java.util.Objects;
 
 public class FirebaseConfiguration {
     private static DatabaseReference firebaseReference;
     private static FirebaseAuth authenticationReference;
     private static StorageReference storageReference;
 
+    private FirebaseConfiguration() {
+    }
 
     //retorna a referencia do database
     public static DatabaseReference getFirebaseDatabase(){

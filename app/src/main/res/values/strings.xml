@@ -37,4 +37,5 @@
     <string name="salvar">Salvar</string>
     <string name="ifood_client">iFood - client</string>
     <string name="loading">Aguarde...</string>
+    <string name="historico">Historico</string>
 </resources>

@@ -2,7 +2,6 @@ package udemy.java.desenvolvimento.android.completo.ifood_clone.activity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,7 +25,7 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.FirebaseConfiguration;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.UserFirebase;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.History;
-import udemy.java.desenvolvimento.android.completo.ifood_clone.model.OrdersItems;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.ProgressDialog;
 
 public class PurchaseHistoryActivity extends AppCompatActivity {
 
@@ -35,13 +34,11 @@ public class PurchaseHistoryActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private String idUserLogged;
     private String idCompany;
+    private ProgressDialog progressDialog;
 
     private RecyclerView recyclerViewHistoryOrders;
-    private TextView itemName;
-    private TextView purchasePrice;
-    private TextView quantity;
     private AdapterHistory adapterHistory;
-    private List<History> historiesList = new ArrayList<>();
+    private final List<History> historiesList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +53,8 @@ public class PurchaseHistoryActivity extends AppCompatActivity {
         databaseReference = FirebaseConfiguration.getFirebaseDatabase();
         idUserLogged = UserFirebase.getUserId();
 
+        progressDialog = new ProgressDialog(this);
+
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
             idCompany =  bundle.getString(Constants.COMPANY_ID);
@@ -69,7 +68,7 @@ public class PurchaseHistoryActivity extends AppCompatActivity {
     }
 
     private void retrieveHistory() {
-
+        progressDialog.showProgressDialog();
         DatabaseReference referenceHistory = databaseReference
                 .child(Constants.CUSTOMERS_HISTORY)
                 .child(idUserLogged)
@@ -88,6 +87,7 @@ public class PurchaseHistoryActivity extends AppCompatActivity {
                         }
                     }
                     adapterHistory.notifyDataSetChanged();
+                    progressDialog.dismissProgressDialog();
                 }
             }
 

@@ -47,6 +47,7 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.FirebaseConfiguration;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.UserFirebase;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Companies;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.ProgressDialog;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SystemUi;
 
 public class SettingCompanyActivity extends AppCompatActivity {
@@ -66,6 +67,7 @@ public class SettingCompanyActivity extends AppCompatActivity {
     private MaskEditText edtTimeEstimate;
     private CurrencyEditText edtTotalPrice;
     private Button btnSave;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +86,8 @@ public class SettingCompanyActivity extends AppCompatActivity {
         databaseReference = FirebaseConfiguration.getFirebaseDatabase();
         idUserLogged = UserFirebase.getUserId();
         company = new Companies();
+
+        progressDialog = new ProgressDialog(this);
 
 
         btnSave.setOnClickListener(this::validateCompanyData);
@@ -111,7 +115,7 @@ public class SettingCompanyActivity extends AppCompatActivity {
     }
 
     private void retrieveCompanyData() {
-
+        progressDialog.showProgressDialog();
         DatabaseReference companyRef = databaseReference
                 .child( Constants.COMPANY )
                 .child(idUserLogged);
@@ -123,6 +127,9 @@ public class SettingCompanyActivity extends AppCompatActivity {
 
                 if (snapshot.getValue() != null){
                     company = snapshot.getValue(Companies.class);
+                    if (company == null){
+                        toastMessage("Erro ao recuperar dados da Empresa");
+                    }
                     edtName.setText(company.getName());
                     edtCategory.setText(company.getCategory());
                     edtTimeEstimate.setText(company.getEstimatedTime());
@@ -133,6 +140,7 @@ public class SettingCompanyActivity extends AppCompatActivity {
                             .error(R.drawable.ic_broken_image_24)
                             .into(imgLogo); // Load the image into ImageView
 
+                    progressDialog.dismissProgressDialog();
                 }
             }
 
@@ -210,7 +218,9 @@ public class SettingCompanyActivity extends AppCompatActivity {
             });
             urlTask.addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
+
                     Uri downloadUri = task.getResult();
+                    progressDialog.showProgressDialog();
                     saveCompanyData( downloadUri ,name , category, timeEstimate, totalPrice);
                 } else {
                     // Handle failures
@@ -230,6 +240,7 @@ public class SettingCompanyActivity extends AppCompatActivity {
         company.setCompanyImageUrl(selectedImageUrl.toString());
         company.saveCompanyData();
         company.updateUserCompany();
+        progressDialog.dismissProgressDialog();
         finish();
 
     }

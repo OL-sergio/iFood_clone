@@ -1,6 +1,5 @@
 package udemy.java.desenvolvimento.android.completo.ifood_clone.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -24,11 +23,10 @@ public class AdapterProducts extends RecyclerView.Adapter<AdapterProducts.MyView
 
 
     private final List<Products> products;
-    private final Context context;
 
-    public AdapterProducts(List<Products> products, Context context) {
+
+    public AdapterProducts(List<Products> products) {
         this.products = products;
-        this.context = context;
     }
 
     @NonNull
@@ -47,8 +45,7 @@ public class AdapterProducts extends RecyclerView.Adapter<AdapterProducts.MyView
         Products product = products.get(i);
         holder.name.setText(product.getProductName());
         holder.description.setText(product.getProductCategory());
-        String convertString = String.valueOf(product.getProductPrice());
-        holder.price.setText(convertString);
+        holder.price.setText(product.getProductPrice());
         String imageUrl = product.getImageUrlProduct();
 
 

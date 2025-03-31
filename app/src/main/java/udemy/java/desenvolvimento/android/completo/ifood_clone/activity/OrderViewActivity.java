@@ -1,12 +1,9 @@
 package udemy.java.desenvolvimento.android.completo.ifood_clone.activity;
 
-import android.content.res.ColorStateList;
+
 import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -15,8 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.blackcat.currencyedittext.CurrencyEditText;
 import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 
 import java.text.DecimalFormat;
@@ -31,6 +26,7 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.Activ
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.OrdersItems;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Orders;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.ProgressDialog;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SystemUi;
 
 public class OrderViewActivity extends AppCompatActivity {
@@ -44,7 +40,8 @@ public class OrderViewActivity extends AppCompatActivity {
     private CurrencyEditText currencyEditTextTotalValue;
     private TextView textViewPhoneNumber;
     private RecyclerView recyclerViewItensOrder;
-    private LinearLayout linearLayoutPurchaseHistory;
+    private ProgressDialog progressDialog;
+
 
     private Orders orders;
     private Double totalValue;
@@ -63,6 +60,7 @@ public class OrderViewActivity extends AppCompatActivity {
 
         SystemUi sysTemUi = new SystemUi(this);
         sysTemUi.hideSystemUIHideNavigation();
+        progressDialog = new ProgressDialog(this);
 
         setupToolbar();
         components();
@@ -71,12 +69,14 @@ public class OrderViewActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
+
             orders = (Orders) bundle.getSerializable(Constants.CART_LIST);
             totalValue = (double) bundle.getSerializable(Constants.TOTAL_ORDER_VALUE);
             totalQuantity = (int) bundle.getSerializable(Constants.TOTAL_ORDER_QUANTITY);
             companyImageUrl = (String) bundle.getSerializable(Constants.COMPANY_IMAGE);
 
             if (orders != null  && totalValue != null && totalQuantity != 0 && companyImageUrl != null){
+                progressDialog.showProgressDialog();
                 textViewCustomerName.setText("Cliente: " +  orders.getCustomerName());
                 textTotalQuantity.setText("Quant total:  " + totalQuantity  + "  - Preço total: " );
 
@@ -96,7 +96,7 @@ public class OrderViewActivity extends AppCompatActivity {
                 }
 
             }
-
+            progressDialog.dismissProgressDialog();
         }
 
     }
@@ -133,16 +133,6 @@ public class OrderViewActivity extends AppCompatActivity {
         );*/
         adapterItemsOrder = new AdapterItemsOrder(itemOrdersList);
         recyclerViewItensOrder.setAdapter(adapterItemsOrder);
-    }
-
-    private void toastMessage(String message){
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
-    private void snackBarMessage(String message){
-        Snackbar snackbar = Snackbar.make(findViewById(R.id.main), message, BaseTransientBottomBar.LENGTH_LONG);
-        snackbar.getView().setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.c_red_devil_100))); //Change to your desired color
-        snackbar.show();
-
     }
 
 }

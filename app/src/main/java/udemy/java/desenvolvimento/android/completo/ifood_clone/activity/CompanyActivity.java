@@ -40,6 +40,7 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.UserFireba
 import udemy.java.desenvolvimento.android.completo.ifood_clone.listener.RecyclerItemClickListener;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Products;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Users;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.ProgressDialog;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SystemUi;
 
 
@@ -54,6 +55,7 @@ public class CompanyActivity extends AppCompatActivity {
     private String idUserLogged;
     private RecyclerView recyclerProducts;
     private AdapterProducts adapterProducts;
+    private ProgressDialog progressDialog;
     private final List<Products> productsList = new ArrayList<>();
 
 
@@ -77,6 +79,8 @@ public class CompanyActivity extends AppCompatActivity {
         databaseReference = FirebaseConfiguration.getFirebaseDatabase();
         idUserLogged = UserFirebase.getUserId();
 
+        progressDialog = new ProgressDialog(this);
+
         products = new Products();
         user = new Users();
 
@@ -96,7 +100,7 @@ public class CompanyActivity extends AppCompatActivity {
                 Log.d("SELECTEDPROFUCT",products.getIdProduct());
                 products.remove();
                 adapterProducts.notifyDataSetChanged();
-                toastMessage("Produto removido com sucesso");
+                snackBarMessage("Produto removido com sucesso");
             }
 
             @Override
@@ -109,11 +113,13 @@ public class CompanyActivity extends AppCompatActivity {
 
     private void retrieveProducts() {
 
+
         DatabaseReference productsRef = databaseReference
                 .child( Constants.PRODUCTS )
                 .child( idUserLogged );
-
+        progressDialog.showProgressDialog();
         productsRef.addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     productsList.clear();
@@ -124,11 +130,13 @@ public class CompanyActivity extends AppCompatActivity {
                         }
                     }
                     adapterProducts.notifyDataSetChanged();
+                    progressDialog.dismissProgressDialog();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                System.err.println("Error retrieving user name: " + error.getMessage());
+               Log.d("ERRO: ",("Error retrieving user name: " + error.getMessage()));
+               toastMessage("Erro ao recuperar produtos");
             }
         });
 
@@ -149,7 +157,7 @@ public class CompanyActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Log.d("ERRO: ",("Error retrieving user name: " + error.getMessage()));
             }
         });
     }
@@ -168,6 +176,11 @@ public class CompanyActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.menuAddItem) {
             addNewItem();
+            return true;
+        }
+
+        if (id == R.id.menuCustomerOrders) {
+            changeActivity(OrdersCompanyActivity.class);
             return true;
         }
 
@@ -214,7 +227,7 @@ public class CompanyActivity extends AppCompatActivity {
         recyclerProducts = binding.recyclerViewCompany;
         recyclerProducts.setLayoutManager(new LinearLayoutManager(this));
         recyclerProducts.setHasFixedSize(true);
-        adapterProducts = new AdapterProducts(productsList, this);
+        adapterProducts = new AdapterProducts(productsList);
         recyclerProducts.setAdapter(adapterProducts);
 
     }

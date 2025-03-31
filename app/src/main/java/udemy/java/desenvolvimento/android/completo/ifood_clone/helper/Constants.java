@@ -23,6 +23,9 @@ public class Constants {
     public static final String TOTAL_ORDER_QUANTITY = "total_quantity";
     public static final String COMPANY_IMAGE = "company_image";
     public static final String CONFIRMED = "confirmed";
-    public static final String COMPANY_ID = "companyId"; ;
+    public static final String FINALIZED =  "finalized";
+    public static final String COMPANY_ID = "companyId";
+    public static final String STATUS_ORDER = "orderStatus";
+
 
 }

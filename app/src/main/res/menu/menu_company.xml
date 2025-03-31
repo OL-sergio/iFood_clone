@@ -2,23 +2,28 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <group >
+
         <item
             android:id="@+id/menuAddItem"
             android:icon="@drawable/ic_add_circle_24"
-            android:title="Procurar"
-            app:showAsAction="ifRoom"
-            />
+            android:title="Aadicionar"
+            app:showAsAction="ifRoom"/>
+
+        <item
+            android:id="@+id/menuCustomerOrders"
+            android:icon="@drawable/ic_order_history_black"
+            android:title="Pedidos"
+            app:showAsAction="ifRoom"/>
 
         <item
             android:id="@+id/menuSettingsCompany"
             android:title="Configurações"
-            app:showAsAction="never"
-            />
+            app:showAsAction="never"/>
 
         <item
             android:id="@+id/menuLogout"
             android:title="Sair"
-            app:showAsAction="never"
-            />
+            app:showAsAction="never"/>
+
     </group>
 </menu>

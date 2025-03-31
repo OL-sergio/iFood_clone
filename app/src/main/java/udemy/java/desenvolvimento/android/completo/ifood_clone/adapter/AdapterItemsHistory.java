@@ -1,6 +1,5 @@
 package udemy.java.desenvolvimento.android.completo.ifood_clone.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -10,23 +9,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.blackcat.currencyedittext.CurrencyEditText;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.RowItemsHistoryBinding;
-import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.RowItemsOrderBinding;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.OrdersItems;
 
 public class AdapterItemsHistory extends RecyclerView.Adapter<AdapterItemsHistory.MyViewHolder> {
 
     private final List<OrdersItems> historyItems;
-    private Context context;
 
-    public AdapterItemsHistory( List<OrdersItems> historyItems, Context context) {
+
+    public AdapterItemsHistory( List<OrdersItems> historyItems) {
         this.historyItems = historyItems != null ? historyItems : new ArrayList<>();
-        this.context = context;
+
     }
 
     @NonNull
@@ -56,9 +53,9 @@ public class AdapterItemsHistory extends RecyclerView.Adapter<AdapterItemsHistor
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView name;
-        private TextView quantity;
-        private CurrencyEditText price;
+        private final TextView name;
+        private final TextView quantity;
+        private final CurrencyEditText price;
 
         public MyViewHolder(RowItemsHistoryBinding binding) {
             super(binding.getRoot());

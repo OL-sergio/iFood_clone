@@ -68,19 +68,20 @@
                     android:layout_height="@dimen/d_48sdp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/ic_order_history"
-                    android:scaleX="1.5"
-                    android:scaleY="1.5" />
+                    android:scaleX="0.9"
+                    android:scaleY="0.9" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Historico"
-                    android:gravity="center"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/d_4sdp"
+                    android:gravity="center"
+                    android:text="@string/historico"
                     android:textColor="@color/c_black_100"
                     android:textSize="@dimen/d_12sdp"
                     android:textStyle="bold"
-                    android:layout_marginTop="@dimen/d_4sdp" />
+                    tools:ignore="TextSizeCheck" />
 
             </LinearLayout>
         </LinearLayout>

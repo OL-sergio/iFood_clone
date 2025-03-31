@@ -62,11 +62,8 @@ public class MenuActivity extends AppCompatActivity {
 
     private ActivityMenuBinding binding;
     private DatabaseReference databaseReference;
-    private StorageReference storageReference;
-    private FirebaseStorage firebaseStorage;
     private String idUserLogged;
     private String idCompany;
-    private String idOrder;
     private int totalOrderQuantity;
     private Double totalOrderValue;
     private String paymentMethod = "";
@@ -102,7 +99,6 @@ public class MenuActivity extends AppCompatActivity {
         components();
 
         databaseReference = FirebaseConfiguration.getFirebaseDatabase();
-        firebaseStorage = FirebaseConfiguration.getFirebaseStorage().getStorage();
         idUserLogged = UserFirebase.getUserId();
         decimalFormat = new DecimalFormat("0.00");
 
@@ -225,6 +221,7 @@ public class MenuActivity extends AppCompatActivity {
 
                     customerOrder.setPhoneNumber( customers.getPhoneNumber() );
                     customerOrder.setCustomerName( customers.getName() );
+                    customerOrder.setFilterCustomerName( customers.getName() );
                     customerOrder.setAddress( customers.getAddress() );
                     customerOrder.setItemOrders( cartList );
                     customerOrder.saveCustomerOrder( );
@@ -234,7 +231,7 @@ public class MenuActivity extends AppCompatActivity {
             builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-
+                    Log.d("Cancel", "Cancel order");
                 }
             });
 
@@ -300,9 +297,8 @@ public class MenuActivity extends AppCompatActivity {
                             customerOrder = snapshot.getValue(Orders.class);
                                 if (customerOrder != null){
                                     cartList = customerOrder.getItemOrders();
-                                    idOrder = customerOrder.getOrderId();
 
-                                    double price = 0.0;
+                                    double price;
                                     for (OrdersItems itemOrders : cartList) {
                                         int quantity = itemOrders.getQuantity();
 
@@ -327,7 +323,7 @@ public class MenuActivity extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        Log.d( "Database Error","Error retrieving cart list data: " + error.getMessage());
+                        Log.d( "Database Error list: ","Error retrieving cart list data: " + error.getMessage());
                     }
                 });
 
@@ -336,7 +332,7 @@ public class MenuActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.d( "Database Error","Error retrieving costumer data: " + error.getMessage());
+                Log.d( "Database Error costumer data: ","Error retrieving costumer data: " + error.getMessage());
             }
         });
     }
@@ -382,27 +378,24 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
                 paymentMethod = "";
-                switch (which){
-                    case 0:
-                        paymentMethod = "Dinheiro";
-                        break;
-                    case 1:
-                        paymentMethod = "Cartão de Crédito";
-                        break;
-                    case 2:
-                        paymentMethod = "Cartão de Débito";
-                        break;
+                if (which == 0) {
+                    paymentMethod = "Dinheiro";
+                } else if (which == 1) {
+                    paymentMethod = "Cartão de Crédito";
+                } else if (which == 2) {
+                    paymentMethod = "Cartão de Débito";
                 }
-
-                if (paymentMethod != null) {
                     // Optionally show a Toast or update UI
                     snackBarMessage( "Selected: " + paymentMethod );
-                }
+
             }
         });
 
         EditText editTextObservation = new EditText(this);
         editTextObservation.setHint("Envie uma messagem para o entregador");
+
+        editTextObservation.setPadding(100,50,100,50);
+
         builder.setView(editTextObservation);
         builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
             @Override
@@ -410,6 +403,10 @@ public class MenuActivity extends AppCompatActivity {
                 String observation = editTextObservation.getText().toString();
                 if (observation.isEmpty()){
                     snackBarMessage("Envie uma mensagem para o entregador");
+                    return;
+                }
+                if (paymentMethod.isEmpty()){
+                    snackBarMessage("Selecione um método de pagamento");
                     return;
                 }
 
@@ -427,6 +424,7 @@ public class MenuActivity extends AppCompatActivity {
                 historyOrder.setOrdersItems(cartList);
                 historyOrder.saveCustomerHistoryOrders( idUserLogged, idCompany, customerOrder.getOrderId() );
                 customerOrder.removeOrder( );
+                customerOrder = null;
 
                 finish();
                 toastMessage("Pedido realizado com sucesso");
@@ -495,7 +493,7 @@ public class MenuActivity extends AppCompatActivity {
 
         recyclerCompanyMenu.setLayoutManager(new LinearLayoutManager(this));
         recyclerCompanyMenu.setHasFixedSize(true);
-        adapterProducts = new AdapterProducts(comapnyProductsList, this);
+        adapterProducts = new AdapterProducts(comapnyProductsList);
         recyclerCompanyMenu.setAdapter(adapterProducts);
 
     }

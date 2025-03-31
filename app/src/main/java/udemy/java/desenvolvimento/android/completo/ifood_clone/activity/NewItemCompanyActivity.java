@@ -40,6 +40,7 @@ import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.Constants;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.FirebaseConfiguration;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.helper.UserFirebase;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.Products;
+import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.ProgressDialog;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.utilities.SystemUi;
 
 public class NewItemCompanyActivity extends AppCompatActivity {
@@ -52,6 +53,7 @@ public class NewItemCompanyActivity extends AppCompatActivity {
     private StorageReference storageReference;
     private String idUserLogged;
     private Uri selectedImageUrl;
+    private ProgressDialog progressDialog;
 
     private CircleImageView imgLogo;
     private EditText edtName;
@@ -75,6 +77,7 @@ public class NewItemCompanyActivity extends AppCompatActivity {
         firebaseStorage = FirebaseConfiguration.getFirebaseStorage().getStorage();
         storageReference = FirebaseConfiguration.getFirebaseStorage();
         idUserLogged = UserFirebase.getUserId();
+        progressDialog = new ProgressDialog(this);
 
 
         btnSave.setOnClickListener(this::validateCompanyData);
@@ -132,8 +135,6 @@ public class NewItemCompanyActivity extends AppCompatActivity {
     }
     private void uploadImage(Bitmap bitmap , String name, String category, String totalPrice) {
 
-
-
         Products products = new Products();
         storageReference = firebaseStorage.getReference()
                 .child(Constants.IMAGES)
@@ -162,11 +163,14 @@ public class NewItemCompanyActivity extends AppCompatActivity {
             urlTask.addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
                     Uri downloadUri = task.getResult();
+                    progressDialog.showProgressDialog();
                     saveProductData(downloadUri, name, category, totalPrice);
+
                 } else {
                     // Handle failures
                     // ...
                     snackBarMessage("Erro ao fazer upload da imagem");
+                    progressDialog.dismissProgressDialog();
                 }
             });
         }
@@ -181,7 +185,9 @@ public class NewItemCompanyActivity extends AppCompatActivity {
         products.setProductPrice(totalPrice);
         products.setImageUrlProduct(image.toString());
         products.saveProductData();
+        progressDialog.dismissProgressDialog();
         finish();
+
 
     }
 

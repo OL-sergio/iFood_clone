@@ -1,7 +1,6 @@
 package udemy.java.desenvolvimento.android.completo.ifood_clone.adapter;
 
 import android.content.Context;
-import android.renderscript.ScriptGroup;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,13 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.blackcat.currencyedittext.CurrencyEditText;
 
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 
-import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.RowItemsOrderBinding;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.databinding.RowPurchaseHistoryBinding;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.History;
 import udemy.java.desenvolvimento.android.completo.ifood_clone.model.OrdersItems;
@@ -69,7 +66,7 @@ public class AdapterHistory extends RecyclerView.Adapter<AdapterHistory.MyViewHo
             );
 
             layoutManager.setInitialPrefetchItemCount(listHistory.getOrdersItems().size());
-            AdapterItemsHistory adapterItemsHistory = new AdapterItemsHistory(ordersItems, context);
+            AdapterItemsHistory adapterItemsHistory = new AdapterItemsHistory(ordersItems);
             holder.recyclerItemsHistory.setLayoutManager(layoutManager);
             holder.recyclerItemsHistory.setHasFixedSize(true);
             holder.recyclerItemsHistory.setAdapter(adapterItemsHistory);

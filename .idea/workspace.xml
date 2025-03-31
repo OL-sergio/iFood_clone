@@ -55,6 +55,11 @@
           <theme>@style/Theme.IFood</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_orders_company.xml">
+        <config>
+          <theme>@style/Theme.IFood.NoActionBar</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_purchase_history.xml">
         <config>
           <theme>@style/Theme.IFood</theme>
@@ -105,6 +110,11 @@
           <theme>@style/Theme.IFood</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/row_orders.xml">
+        <config>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/row_products.xml">
         <config>
           <theme>@style/Theme.IFood</theme>
@@ -145,41 +155,70 @@
           <theme>@style/Theme.IFood</theme>
         </config>
       </layout>
+      <layout url="file://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-34/data/res/layout-car/car_resolver_list.xml">
+        <config>
+          <dock>car</dock>
+          <theme>@style/Theme.IFood</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dcc5f4d8-27f6-4e8c-b6db-f002212e80c1" name="Changes" comment="Work Done:&#10;- Design layout's update&#10;&#10;- Notes:&#10;- ...&#10;&#10;* Add items:&#10;- AdapterItemsOrder&#10;- activity_order_view&#10;- row_items_order&#10;&#10;* Updated items:&#10;- ...&#10;&#10;* Removed:&#10;- ...">
-      <change afterPath="$PROJECT_DIR$/app/build/generated/res/processDebugGoogleServices/values/values.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/PurchaseHistoryActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterHistory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterItemsHistory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/History.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_order_history.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_purchase_history.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_items_history.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_purchase_history.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="dcc5f4d8-27f6-4e8c-b6db-f002212e80c1" name="Changes" comment="Work Done:&#10;- Adding purchase history to the project activities and layouts. &#10;&#10;- Adding the node of the history of purchase is saved.&#10;&#10;- Retrying the purchase data from the node and presenting it on nested recyclerView. &#10;&#10;- Removing the node with customer order data on confirmation of order. &#10;&#10;- Design layout updates.&#10;&#10;- Notes:&#10;- github.com/kimkimani/Nested_RecyclerView&#10;&#10;* Add items:&#10;- PurchaseHistoryActivity.java&#10;- AdapterHistory.java&#10;- AdapterItemsHistory.java&#10;- ic_order_history.xml&#10;- activity_purchase_history.xml&#10;- row_items_history.xml&#10;- row_purchase_history.xml&#10;- History.java&#10;&#10;* Updated items:&#10;- CompanyActivity.java&#10;- MenuActivity.java&#10;- OrderViewActivity.java&#10;- AdapterItemsOrder.java&#10;- Orders.java&#10;- OrdersItems.java&#10;- activity_menu.xml&#10;- activity_new_item_company.xml&#10;- activity_setting_company.xml&#10;- activity_setting_user.xml&#10;- row_items_order.xml&#10;&#10;* Removed:&#10;- ...">
+      <change afterPath="$PROJECT_DIR$/app/src/main/ic_launcher-playstore.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrdersCompanyActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterCompanyOrders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_order_history_black.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_orders_company.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_orders.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/ic_launcher_background.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/CompanyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/CompanyActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/CustomerActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/CustomerActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/MenuActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/MenuActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/NewItemCompanyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/NewItemCompanyActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterItemsOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterItemsOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/PurchaseHistoryActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/PurchaseHistoryActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingCompanyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingCompanyActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingCustomerActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/SettingCustomerActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterItemsHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterItemsHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterProducts.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/adapter/AdapterProducts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/helper/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/helper/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/ItemOrders.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/OrdersItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/helper/FirebaseConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/helper/FirebaseConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Orders.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/model/Orders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/utilities/ProgressDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/utilities/ProgressDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_item_company.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_item_company.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_company.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_company.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_setting_user.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_items_order.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_items_order.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_companies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_companies.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_purchase_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_purchase_history.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_client.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_client.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_company.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_company.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
     </list>
     <list id="89cd0fa4-001d-44af-a278-28290339da9b" name="code" comment="code" />
@@ -339,7 +378,7 @@
     &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sergi/Desktop/Ifood&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sergi/AndroidStudioProjects/iFood/app/src/main/res/drawable&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -355,6 +394,9 @@
       <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone.utilities" />
     </key>
     <key name="android.template.397010159">
+      <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone.activity" />
+    </key>
+    <key name="android.template.29379487">
       <recent name="udemy.java.desenvolvimento.android.completo.ifood_clone.activity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -825,7 +867,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741799232986</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Work Done:&#10;- Adding purchase history to the project activities and layouts. &#10;&#10;- Adding the node of the history of purchase is saved.&#10;&#10;- Retrying the purchase data from the node and presenting it on nested recyclerView. &#10;&#10;- Removing the node with customer order data on confirmation of order. &#10;&#10;- Design layout updates.&#10;&#10;- Notes:&#10;- github.com/kimkimani/Nested_RecyclerView&#10;&#10;* Add items:&#10;- PurchaseHistoryActivity.java&#10;- AdapterHistory.java&#10;- AdapterItemsHistory.java&#10;- ic_order_history.xml&#10;- activity_purchase_history.xml&#10;- row_items_history.xml&#10;- row_purchase_history.xml&#10;- History.java&#10;&#10;* Updated items:&#10;- CompanyActivity.java&#10;- MenuActivity.java&#10;- OrderViewActivity.java&#10;- AdapterItemsOrder.java&#10;- Orders.java&#10;- OrdersItems.java&#10;- activity_menu.xml&#10;- activity_new_item_company.xml&#10;- activity_setting_company.xml&#10;- activity_setting_user.xml&#10;- row_items_order.xml&#10;&#10;* Removed:&#10;- ...">
+      <option name="closed" value="true" />
+      <created>1742836823096</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1742836823097</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -910,36 +960,36 @@
     <MESSAGE value="Work Done:&#10;- Adding customer orders and generating a user cart list.&#10;- Adding customers and customer orders nodes to the Firebase database and populating the model with customer, item, and order data.&#10;- Adding the option for customers to view their cart list of selected items.&#10;- Using the alert dialog, record the customer's input quantity and the current order, as well as the total quantity of goods and the total value, to the Firebase database.&#10;- eliminating the initialization of the keyboard from currencyEditTex.&#10;&#10;Notes:&#10;-...&#10;&#10;* Add items:&#10;- OrderViewActivity.java&#10;- AdapterItemsOrder.java&#10;- ItemOrders.java&#10;- Orders.java&#10;- ProgressDialog.java&#10;- dw_divisor.xml&#10;- activity_order_view.xml&#10;- dialog_amount_order.xml&#10;- dialog_progress.xml&#10;- row_items_order.xml&#10;- menu_menu.xml&#10;&#10;* Updated items:&#10;- MenuActivity.java&#10;- SettingCustomerActivity.java&#10;- MenuActivity.java&#10;- Constants.java&#10;- activity_menu.xml&#10;- activity_setting_user.xml&#10;- row_companies.xml&#10;- row_products.xml&#10;- colors.xml&#10;- dimens.xml&#10;&#10;* Removed:&#10;- ..." />
     <MESSAGE value="Work Done:&#10;- Design layout's update&#10;&#10;- Notes:&#10;- ...&#10;&#10;* Add items:&#10;- AdapterItemsOrder&#10;- activity_order_view&#10;- row_items_order&#10;&#10;* Updated items:&#10;- ...&#10;&#10;* Removed:&#10;- ..." />
     <MESSAGE value="fixup! Work Done: - Design layout's update" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixup! Work Done: - Design layout's update" />
+    <MESSAGE value="Work Done:&#10;- Adding purchase history to the project activities and layouts. &#10;&#10;- Adding the node of the history of purchase is saved.&#10;&#10;- Retrying the purchase data from the node and presenting it on nested recyclerView. &#10;&#10;- Removing the node with customer order data on confirmation of order. &#10;&#10;- Design layout updates.&#10;&#10;- Notes:&#10;- github.com/kimkimani/Nested_RecyclerView&#10;&#10;* Add items:&#10;- PurchaseHistoryActivity.java&#10;- AdapterHistory.java&#10;- AdapterItemsHistory.java&#10;- ic_order_history.xml&#10;- activity_purchase_history.xml&#10;- row_items_history.xml&#10;- row_purchase_history.xml&#10;- History.java&#10;&#10;* Updated items:&#10;- CompanyActivity.java&#10;- MenuActivity.java&#10;- OrderViewActivity.java&#10;- AdapterItemsOrder.java&#10;- Orders.java&#10;- OrdersItems.java&#10;- activity_menu.xml&#10;- activity_new_item_company.xml&#10;- activity_setting_company.xml&#10;- activity_setting_user.xml&#10;- row_items_order.xml&#10;&#10;* Removed:&#10;- ..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Work Done:&#10;- Adding purchase history to the project activities and layouts. &#10;&#10;- Adding the node of the history of purchase is saved.&#10;&#10;- Retrying the purchase data from the node and presenting it on nested recyclerView. &#10;&#10;- Removing the node with customer order data on confirmation of order. &#10;&#10;- Design layout updates.&#10;&#10;- Notes:&#10;- github.com/kimkimani/Nested_RecyclerView&#10;&#10;* Add items:&#10;- PurchaseHistoryActivity.java&#10;- AdapterHistory.java&#10;- AdapterItemsHistory.java&#10;- ic_order_history.xml&#10;- activity_purchase_history.xml&#10;- row_items_history.xml&#10;- row_purchase_history.xml&#10;- History.java&#10;&#10;* Updated items:&#10;- CompanyActivity.java&#10;- MenuActivity.java&#10;- OrderViewActivity.java&#10;- AdapterItemsOrder.java&#10;- Orders.java&#10;- OrdersItems.java&#10;- activity_menu.xml&#10;- activity_new_item_company.xml&#10;- activity_setting_company.xml&#10;- activity_setting_user.xml&#10;- row_items_order.xml&#10;&#10;* Removed:&#10;- ..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/utilities/ProgressDialog.java</url>
-          <line>8</line>
+          <line>20</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/CustomerActivity.java</url>
-          <line>271</line>
+          <line>279</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java</url>
-          <line>138</line>
+          <line>144</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/OrderViewActivity.java</url>
-          <line>139</line>
+          <line>145</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/app/src/main/java/udemy/java/desenvolvimento/android/completo/ifood_clone/activity/MenuActivity.java</url>
-          <line>68</line>
-          <properties field="idOrder" class="udemy.java.desenvolvimento.android.completo.ifood_clone.activity.MenuActivity" />
-          <option name="timeStamp" value="45" />
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/build.gradle.kts</url>
+          <line>67</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -966,12 +1016,12 @@
       <map>
         <entry key="udemy.java.desenvolvimento.android.completo.ifood_clone">
           <value>
-            <CheckInfo lastCheckTimestamp="1742834369246" />
+            <CheckInfo lastCheckTimestamp="1743434915894" />
           </value>
         </entry>
         <entry key="udemy.java.desenvolvimento.android.completo.ifood_clone.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1742834369248" />
+            <CheckInfo lastCheckTimestamp="1743434915901" />
           </value>
         </entry>
       </map>
